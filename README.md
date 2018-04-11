@@ -29,7 +29,7 @@ Then run
 npm install
 ```
 
-This will install the package in tha tdirectory, so the next time you need to open it, you can just `cd` into the directory from your terminal.
+This will install the package in that directory, so the next time you need to open it, you can just `cd` into the directory from your terminal.
 
 Once the package is installed, run
 
