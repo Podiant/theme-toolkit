@@ -1,0 +1,33 @@
+{
+  "name": "podiant-theme-toolkit",
+  "version": "0.1.0",
+  "description": "Everything you need to build themes in Podiant",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "nodemon app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Podiant/theme-toolkit.git"
+  },
+  "keywords": [
+    "podiant",
+    "html",
+    "node",
+    "js"
+  ],
+  "author": "Mark Steadman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Podiant/theme-toolkit/issues"
+  },
+  "homepage": "https://github.com/Podiant/theme-toolkit#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.11",
+    "moment": "^2.22.0"
+  }
+}
