@@ -100,10 +100,10 @@ http.createServer(
 
         if(requestPath.substr(0, '/static/'.length) == '/static/') {
             var extname = path.extname(requestPath);
+            var ok = false;
 
             fs.readFile(
                 path.join(__dirname, '../' + requestPath),
-                'utf8',
                 function(err, data) {
                     if(err) {
                         console.error(err);
@@ -111,32 +111,38 @@ http.createServer(
                         return;
                     }
 
-                    var contentType = 'application/octet-stream';
+                    if(!ok) {
+                        var contentType = 'application/octet-stream';
 
-                    switch (extname) {
-                        case '.js':
-                            contentType = 'text/javascript';
-                            break;
-                        case '.css':
-                            contentType = 'text/css';
-                            break;
-                        case '.png':
-                            contentType = 'image/png';
-                            break;
-                        case '.jpg':
-                            contentType = 'image/jpg';
-                            break;
+                        switch (extname) {
+                            case '.js':
+                                contentType = 'text/javascript';
+                                break;
+                            case '.css':
+                                contentType = 'text/css';
+                                break;
+                            case '.png':
+                                contentType = 'image/png';
+                                break;
+                            case '.jpg':
+                                contentType = 'image/jpg';
+                                break;
+                            case '.svg':
+                                contentType = 'image/svg+xml';
+                                break;
+                        }
+
+                        response.writeHead(
+                            200,
+                            {
+                                'Content-Type': contentType
+                            }
+                        );
+
+                        ok = true;
                     }
 
-                    response.writeHead(
-                        200,
-                        {
-                            'Content-Type': contentType
-                        }
-                    );
-
-                    response.write(data);
-                    response.end();
+                    response.end(data, 'utf-8');
                 }
             );
 
