@@ -8,7 +8,13 @@ module.exports = {
             }
         );
     },
-    '/e/:slug': function(slug) {
+    '/e/:slug/': function(slug) {
         return this.html(slug);
+    },
+    '/iframe/': function(slug) {
+        return this.static('iframe.html');
+    },
+    '/button/': function(slug) {
+        return this.static('button.html');
     }
 };

@@ -1,0 +1,471 @@
+<html data-ember-extension="1">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/static/fonts/opensans_bold_macroman/stylesheet.css" rel="stylesheet">
+        <style>
+        /* http://meyerweb.com/eric/tools/css/reset/
+           v2.0 | 20110126
+           License: none (public domain)
+        */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          font-size: 100%;
+          font: inherit;
+          vertical-align: baseline; }
+
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+          display: block; }
+
+        body {
+          line-height: 1; }
+
+        ol, ul {
+          list-style: none; }
+
+        blockquote, q {
+          quotes: none; }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+          content: '';
+          content: none; }
+
+        table {
+          border-collapse: collapse;
+          border-spacing: 0; }
+
+        body {
+          background: #444;
+          font-family: 'Open Sans';
+          margin: 0;
+          color: #fff;
+          width: 100vw;
+          height: 100vh;
+          overflow: hidden; }
+
+        .card-container {
+          position: absolute;
+          transition: all .3s ease; }
+
+        .card {
+          width: 100vw;
+          height: 100vh;
+          position: absolute;
+          top: -400vh;
+          right: 0;
+          left: 0;
+          transition: top .3s ease; }
+          .card.active {
+            top: 0; }
+          .card.subscribe {
+            background: rgba(64, 0, 0, 0.75);
+            text-align: center; }
+          .card.share {
+            background: rgba(0, 64, 0, 0.75);
+            text-align: center; }
+            .card.share .share-url {
+              display: inline-block;
+              text-align: center;
+              margin: 1em 0 0 0;
+              background: rgba(0, 0, 0, 0.25);
+              padding: 5px;
+              border-radius: 5px;
+              max-width: 80%;
+              text-overflow: ellipsis;
+              overflow: hidden; }
+            .card.share ul.buttons {
+              margin: calc(50vh - 23px - 1em) 0 0 0; }
+          .card.player {
+            padding: 7px;
+            width: calc(100vw - 14px); }
+          .card.embed {
+            background: rgba(0, 0, 64, 0.75);
+            text-align: center; }
+            .card.embed code {
+              font-family: monospace;
+              font-size: 1.5em;
+              line-height: 1.25em;
+              display: inline-block;
+              text-align: center;
+              margin: calc(50vh - 1em) 0 0 0;
+              background: rgba(0, 0, 0, 0.25);
+              padding: 5px;
+              border-radius: 5px;
+              max-width: 80%;
+              text-overflow: ellipsis;
+              overflow: hidden; }
+          .card .button.close {
+            top: 0;
+            right: 0;
+            position: absolute;
+            font-size: 2em;
+            display: block;
+            width: 24px;
+            line-height: 24px;
+            cursor: pointer; }
+
+        * {
+          cursor: default;
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none; }
+
+        .artwork-container {
+          display: none; }
+
+        .player-body {
+          position: relative;
+          height: 100vh; }
+
+        .title-and-button {
+          display: table-row;
+          width: 100%; }
+          .title-and-button .button-container {
+            display: table-cell;
+            padding-right: 5px;
+            vertical-align: top; }
+          .title-and-button .title-container {
+            display: table-cell;
+            vertical-align: top; }
+            .title-and-button .title-container h1 {
+              font-size: 1.6em;
+              font-weight: 800;
+              letter-spacing: -0.05em;
+              line-height: 1.25em;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              width: calc(100vw - 80px);
+              white-space: nowrap; }
+              .title-and-button .title-container h1 a {
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer; }
+              .title-and-button .title-container h1 small {
+                text-transform: uppercase;
+                font-size: .5em;
+                line-height: 1em;
+                display: block;
+                font-weight: 300;
+                letter-spacing: 0em; }
+          .title-and-button .logo {
+            fill: #fff;
+            width: 24px;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer; }
+
+        .button.player {
+          display: inline-block;
+          width: 36px;
+          height: 36px;
+          line-height: 34px;
+          border: 1px solid #ffff;
+          border-radius: 50%;
+          text-align: center;
+          text-decoration: none;
+          color: #fff;
+          cursor: pointer; }
+          .button.player:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            line-height: 36px; }
+          .button.player[data-state="loading"]:before {
+            content: '\f110'; }
+          .button.player[data-state="ready"]:before, .button.player[data-state="paused"]:before {
+            content: '\f04b'; }
+          .button.player[data-state="playing"]:before {
+            content: '\f04c'; }
+
+        .waveform-container {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 30px;
+          height: 50px; }
+
+        .waveform-background, .waveform-progress {
+          background-repeat: no-repeat;
+          background-size: 100% 50px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          height: 50px; }
+
+        .waveform-progress {
+          width: 0; }
+
+        ul.actions {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          position: absolute;
+          bottom: 10px;
+          left: 0;
+          width: calc(100% - 65px);
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+          ul.actions li {
+            display: inline;
+            margin-right: 1em; }
+            ul.actions li a {
+              color: #fff;
+              text-transform: uppercase;
+              font-size: .8em;
+              text-decoration: none;
+              cursor: pointer; }
+              ul.actions li a:hover {
+                text-decoration: underline; }
+              ul.actions li a .filesize {
+                display: none; }
+
+        .time {
+          position: absolute;
+          bottom: 10px;
+          right: 0;
+          text-align: right; }
+
+        ul.buttons {
+          margin: calc(50vh - 23px) 0 0 0;
+          padding: 0;
+          list-style-type: none;
+          display: block;
+          text-align: center; }
+          ul.buttons li {
+            display: inline-block; }
+            ul.buttons li a {
+              background: rgba(255, 255, 255, 0.75);
+              display: block;
+              border-radius: 50%;
+              padding: 7px;
+              width: 18px;
+              height: 18px;
+              line-height: 18px;
+              text-align: center;
+              transition: all .3s ease;
+              cursor: pointer;
+              color: #000;
+              font-size: 1em; }
+              ul.buttons li a img {
+                width: 12px;
+                margin: 4px auto 0 auto;
+                display: block; }
+              ul.buttons li a:hover {
+                background: #fff; }
+
+        .copyable {
+          cursor: pointer; }
+
+        @media screen and (min-width: 620px) {
+          .card.player {
+            padding: 0;
+            display: table-row;
+            width: 100vw; }
+          .artwork-container {
+            display: table-cell;
+            height: 100vh;
+            vertical-align: top; }
+            .artwork-container img {
+              display: block;
+              margin: 0;
+              height: 100vh; }
+          .player-body {
+            display: table-cell;
+            width: 100%;
+            height: calc(100vh - 20px);
+            vertical-align: top;
+            padding: 10px; }
+          .waveform-background, .waveform-progress {
+            left: 10px;
+            right: 10px; }
+          .title-and-button .title-container h1 {
+            width: calc(100vw - 240px); }
+          .title-and-button .title-container .logo {
+            top: 15px;
+            right: 15px; }
+          ul.actions {
+            left: 10px; }
+            ul.actions li a .filesize {
+              display: inline; }
+          .time {
+            right: 10px; }
+          ul.buttons {
+            margin: calc(50vh - 23px) 0 0 0;
+            padding: 0;
+            list-style-type: none;
+            display: block;
+            text-align: center; }
+            ul.buttons li {
+              display: inline-block; }
+              ul.buttons li a {
+                width: 32px;
+                height: 32px;
+                line-height: 32px;
+                font-size: 1.5em; }
+                ul.buttons li a img {
+                  width: 24px; } }
+
+        body.playlist ol.playlist {
+          height: calc(100vh - 150px);
+          overflow: scroll;
+          list-style: none;
+          margin: 0;
+          transition: opacity .3s ease;
+          width: 100%; }
+          body.playlist ol.playlist.loading {
+            opacity: .5; }
+          body.playlist ol.playlist li.item {
+            background: #333;
+            display: table;
+            width: 100%;
+            height: 50px;
+            overflow: hidden;
+            font-size: .8em; }
+            @media screen and (min-width: 620px) {
+              body.playlist ol.playlist li.item {
+                font-size: .9em; } }
+            body.playlist ol.playlist li.item, body.playlist ol.playlist li.item * {
+              cursor: pointer; }
+            body.playlist ol.playlist li.item .playlist-left {
+              display: table-cell;
+              width: 50px;
+              height: 50px; }
+              body.playlist ol.playlist li.item .playlist-left img {
+                width: 50px;
+                height: 50px;
+                display: block; }
+            body.playlist ol.playlist li.item .playlist-body {
+              display: table-cell;
+              vertical-align: middle;
+              padding: 0 7px; }
+              body.playlist ol.playlist li.item .playlist-body .episode-date {
+                display: none; }
+                @media screen and (min-width: 620px) {
+                  body.playlist ol.playlist li.item .playlist-body .episode-date {
+                    display: block;
+                    width: 20%;
+                    float: left; } }
+                @media screen and (min-width: 800px) {
+                  body.playlist ol.playlist li.item .playlist-body .episode-date {
+                    width: 15%; } }
+                @media screen and (min-width: 1024px) {
+                  body.playlist ol.playlist li.item .playlist-body .episode-date {
+                    width: 10%; } }
+                @media screen and (min-width: 1680px) {
+                  body.playlist ol.playlist li.item .playlist-body .episode-date {
+                    width: 5%; } }
+              body.playlist ol.playlist li.item .playlist-body .episode-title {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 80%;
+                float: left;
+                font-weight: bold;
+                letter-spacing: -.05em; }
+                @media screen and (min-width: 620px) {
+                  body.playlist ol.playlist li.item .playlist-body .episode-title {
+                    width: 70%; } }
+                @media screen and (min-width: 800px) {
+                  body.playlist ol.playlist li.item .playlist-body .episode-title {
+                    width: 75%; } }
+                @media screen and (min-width: 1024px) {
+                  body.playlist ol.playlist li.item .playlist-body .episode-title {
+                    width: 80%;
+                    font-size: 1.2em; } }
+                @media screen and (min-width: 1680px) {
+                  body.playlist ol.playlist li.item .playlist-body .episode-title {
+                    width: 85%; } }
+              body.playlist ol.playlist li.item .playlist-body .episode-duration {
+                width: 15%;
+                float: right;
+                color: #666;
+                text-align: right; }
+            body.playlist ol.playlist li.item:hover {
+              background: #181818; }
+            body.playlist ol.playlist li.item.active {
+              background: #222; }
+              body.playlist ol.playlist li.item.active:hover, body.playlist ol.playlist li.item.active:focus {
+                background: #111; }
+              body.playlist ol.playlist li.item.active:active {
+                background: #000; }
+          body.playlist ol.playlist li.more {
+            width: 100%;
+            height: 50px;
+            display: block; }
+            body.playlist ol.playlist li.more a {
+              display: block;
+              width: 100%;
+              text-align: center;
+              line-height: 50px;
+              background: #400;
+              color: rgba(255, 255, 255, 0.5);
+              text-decoration: none;
+              cursor: pointer; }
+              body.playlist ol.playlist li.more a:hover {
+                color: #fff; }
+        </style>
+        <link rel="stylesheet" href="/static/fonts/font-awesome/css/font-awesome.css">
+    </head>
+    <body>
+        <div class="card-container">
+            <div class="active player card">
+                <div class="artwork-container">
+                    <img src="/static/artwork.png">
+                </div>
+
+                <div class="player-body">
+                    <div class="title-and-button">
+                        <div class="button-container">
+                            <a class="player button" data-state="ready" data-action="playpause" href="javascript:;"></a>
+                        </div>
+
+                        <div class="title-container">
+                            <h1>
+                                <a href="/" target="_blank">
+                                    <small class="podcast-name">Sample podcast</small>
+                                    A mockup player
+                                </a>
+                            </h1>
+
+                            <a href="//podiant.co/" target="_blank">
+                                <img class="logo" src="/static/podiant.svg">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="waveform-container">
+                        <div class="waveform-background" style="background-image: url('/static/waveform.png'); background-size: 600px 50px;">&nbsp;</div>
+                        <div class="waveform-progress" style="background-image: url('/static/waveform.png'); width: 25%; background-size: 600px 50px;">&nbsp;</div>
+                    </div>
+
+                    <ul class="actions">
+                        <li><a data-action="embed" href="javascript:;">Embed</a></li>
+                    </ul>
+                    <spcn class="time">30:00</spcn>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Play button</title>
+        <style>
+        .button.player {
+          display: inline-block;
+          width: 36px;
+          height: 36px;
+          line-height: 34px;
+          border: 1px solid #ffff;
+          border-radius: 50%;
+          text-align: center;
+          text-decoration: none;
+          color: #fff;
+          cursor: pointer; }
+          .button.player:before {
+            font: normal normal normal 14px/1 FontAwesome;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            line-height: 36px; }
+          .button.player[data-state="loading"]:before {
+            content: '\f110'; }
+          .button.player[data-state="ready"]:before, .button.player[data-state="paused"]:before {
+            content: '\f04b'; }
+          .button.player[data-state="playing"]:before {
+            content: '\f04c'; }
+
+          body {
+            background: transparent; }
+            body.button .player {
+              display: block;
+              border-color: #333;
+              color: #333;
+              width: calc(100vw - 2px);
+              height: calc(100vh - 2px);
+              line-height: calc(100vh - 2px); }
+              body.button .player:hover {
+                background: #333;
+                color: #fff; }
+        </style>
+        <link rel="stylesheet" href="/static/fonts/font-awesome/css/font-awesome.css">
+    </head>
+    <body class="button">
+        <a class="player button" data-state="ready" data-action="playpause" href="javascript:;"></a>
+    </body>
+</html>
