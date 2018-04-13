@@ -4,7 +4,7 @@ var path = require('path');
 var moment = require('moment');
 
 var Template = function(filename, helpers) {
-    var templatePath = path.join(__dirname, filename);
+    var templatePath = path.join(__dirname, '../' + filename);
     var self = {
         render: function(context) {
             return new Promise(
@@ -46,6 +46,32 @@ var Template = function(filename, helpers) {
 Handlebars.registerHelper('date',
     function(value, format) {
         return moment(value).format(format);
+    }
+);
+
+Handlebars.registerHelper('exists',
+    function(value, context) {
+        if(Array.isArray(value)) {
+            if(!value.length) {
+                return context.inverse(this);
+            }
+        } else {
+            if(!Object.keys(value).length) {
+                return context.inverse(this);
+            }
+        }
+
+        if(value) {
+            return context.fn(this);
+        }
+
+        return context.inverse(this);
+    }
+);
+
+Handlebars.registerHelper('yield',
+    function(block) {
+        return block;
     }
 );
 

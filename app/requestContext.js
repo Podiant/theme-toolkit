@@ -1,8 +1,8 @@
 var fs = require('fs');
 var mime = require('mime-types')
 var path = require('path');
-var Template = require('./template');
-var Data = require('./data');
+var Template = require('./utils/template');
+var Data = require('./utils/data');
 var extend = require('./utils/extend');
 
 module.exports = function(meta) {
@@ -115,12 +115,7 @@ module.exports = function(meta) {
 
                             var wrapTheme = function(html) {
                                 return new Template(
-                                    '../theme/layout.hbs',
-                                    {
-                                        yield: function(block) {
-                                            return block;
-                                        }
-                                    }
+                                    '../theme/layout.hbs'
                                 ).render(
                                     extend(
                                         {

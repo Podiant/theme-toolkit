@@ -7,7 +7,7 @@ module.exports = function(filename) {
             return new Promise(
                 function(resolve, reject) {
                     fs.readFile(
-                        path.join(__dirname, '../data/' + filename + '.json'),
+                        path.join(__dirname, '../../data/' + filename + '.json'),
                         'utf8',
                         function(err, data) {
                             if(err) {

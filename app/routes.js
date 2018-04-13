@@ -14,7 +14,13 @@ module.exports = {
         );
     },
     '/e/:slug/': function(slug) {
-        return this.html(slug);
+        var self = this;
+
+        return self.data('episodes/' + slug).then(
+            function(context) {
+                return self.template('episode_detail', context);
+            }
+        );
     },
     '/iframe/': function(slug) {
         return this.static('iframe.html');
