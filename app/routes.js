@@ -21,5 +21,8 @@ module.exports = {
     },
     '/button/': function(slug) {
         return this.static('button.html');
+    },
+    '/app.js': function(slug) {
+        return this.static('app.js');
     }
 };
