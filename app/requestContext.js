@@ -1,9 +1,35 @@
+var fs = require('fs');
+var mime = require('mime-types')
+var path = require('path');
 var Template = require('./template');
 var Data = require('./data');
 var extend = require('./utils/extend');
 
-module.exports = function() {
+module.exports = function(meta) {
     var self = {
+        path: meta.path,
+        method: meta.method,
+        GET: (
+            function(qs) {
+                if(!qs) {
+                    return {};
+                }
+
+                var split = qs.split('&');
+                var pair, key, value;
+                var returned = {};
+
+                for(var i = 0; i < split.length; i ++) {
+                    pair = split[i].split('=');
+                    key = decodeURIComponent(pair[0]);
+                    value = decodeURIComponent(pair[1]);
+
+                    returned[key] = value;
+                }
+
+                return returned;
+            }
+        )(meta.GET),
         respond: function(code, contentType, content) {
             return new Promise(
                 function(resolve, reject) {
@@ -23,6 +49,33 @@ module.exports = function() {
             return new Promise(
                 function(resolve, reject) {
                     new Data(filename).load().then(resolve).catch(reject);
+                }
+            );
+        },
+        static: function(filename) {
+            var extname = path.extname(filename);
+
+            return new Promise(
+                function(resolve, reject) {
+                    fs.readFile(
+                        path.join(__dirname, 'static/' + filename),
+                        function(err, content) {
+                            if(err) {
+                                reject(err);
+                                return;
+                            }
+
+                            resolve(
+                                {
+                                    code: 200,
+                                    headers: {
+                                        'Content-Type': mime.lookup(extname)
+                                    },
+                                    content: content
+                                }
+                            );
+                        }
+                    );
                 }
             );
         },
