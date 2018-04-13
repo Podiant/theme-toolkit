@@ -27,7 +27,11 @@
     "nodemon": "^1.17.3"
   },
   "dependencies": {
+    "chalk": "^2.3.2",
     "handlebars": "^4.0.11",
-    "moment": "^2.22.0"
+    "install": "^0.11.0",
+    "mime-types": "^2.1.18",
+    "moment": "^2.22.0",
+    "npm": "^5.8.0"
   }
 }

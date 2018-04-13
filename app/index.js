@@ -1,7 +1,9 @@
-var http = require('http');
 var fs = require('fs');
+var http = require('http');
+var mime = require('mime-types')
 var path = require('path');
 var url = require('url');
+var chalk = require('chalk');
 var routes = require('./routes');
 var RequestContext = require('./requestContext');
 
@@ -9,7 +11,14 @@ http.createServer(
     function(request, response) {
         var requestPath = url.parse(request.url).pathname;
         var query = url.parse(request.url).query;
-        var context = new RequestContext();
+        var context = new RequestContext(
+            {
+                method: request.method,
+                path: requestPath,
+                GET: query
+            }
+        );
+
         var viewResponse = false;
         var notFound = function() {
             response.writeHead(
@@ -28,9 +37,10 @@ http.createServer(
             response.write('<p>Check you typed the right URL or <a href="/">go back to the homepage</a>.</p>');
             response.write('</body></html>');
             response.end();
+
+            console.debug(chalk.red('⨯', request.method), request.url);
         };
 
-        console.debug(request.method, request.url);
         Object.keys(routes).forEach(
             function(routePath) {
                 var formattedEx = routePath.replace(/\:([\w-]+)/, '([^/]+)');
@@ -68,6 +78,8 @@ http.createServer(
                     response.writeHead(r.code, r.headers);
                     response.write(r.content);
                     response.end();
+
+                    console.debug(chalk.green('✓', request.method), request.url);
                 }
             ).catch(
                 function(err) {
@@ -91,6 +103,7 @@ http.createServer(
                     response.write('</body></html>');
                     response.end();
 
+                    console.debug(chalk.red('⨯', request.method), request.url);
                     console.error(err);
                 }
             );
@@ -106,36 +119,17 @@ http.createServer(
                 path.join(__dirname, '../' + requestPath),
                 function(err, data) {
                     if(err) {
+                        console.debug(chalk.red('⨯', request.method), request.url);
                         console.error(err);
                         notFound();
                         return;
                     }
 
                     if(!ok) {
-                        var contentType = 'application/octet-stream';
-
-                        switch (extname) {
-                            case '.js':
-                                contentType = 'text/javascript';
-                                break;
-                            case '.css':
-                                contentType = 'text/css';
-                                break;
-                            case '.png':
-                                contentType = 'image/png';
-                                break;
-                            case '.jpg':
-                                contentType = 'image/jpg';
-                                break;
-                            case '.svg':
-                                contentType = 'image/svg+xml';
-                                break;
-                        }
-
                         response.writeHead(
                             200,
                             {
-                                'Content-Type': contentType
+                                'Content-Type': mime.lookup(extname)
                             }
                         );
 
@@ -143,6 +137,7 @@ http.createServer(
                     }
 
                     response.end(data, 'utf-8');
+                    console.debug(chalk.green('✓', request.method), request.url);
                 }
             );
 
