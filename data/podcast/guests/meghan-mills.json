@@ -1,0 +1,82 @@
+{
+    "menu_selection": "guest_list",
+    "main_menu": [
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Home",
+            "menu_item_url": "/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Blog",
+            "menu_item_url": "/b/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "About the show",
+            "menu_item_url": "/about/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Meet the hosts",
+            "menu_item_url": "/hosts/"
+        },
+        {
+            "menu_item_selected": true,
+            "menu_item_title": "Guests",
+            "menu_item_url": "/g/"
+        }
+    ],
+    "view": {
+        "name": "guest_detail"
+    },
+    "object": {
+        "_pk": 1,
+        "title": "Meghan Mills",
+        "image": "/static/meghan.jpg",
+        "description": "<p>Suspendisse vitae elit eget ante porttitor imperdiet. Duis libero urna, ullamcorper non lectus id, egestas auctor sem. Nullam.</p>\n",
+        "share_url": "/g/meghan-mills/",
+        "links": [
+            {
+                "link_title": "Follow Meghan on Twitter",
+                "link_url": "javascript:;",
+                "link_icon": "<i class=\"fa fa-twitter\"></i>"
+            },
+            {
+                "link_title": "Meghan's Website",
+                "link_url": "javascript:;",
+                "link_icon": "<i class=\"fa fa-globe\"></i>"
+            }
+        ],
+        "episodes": [
+            {
+                "episode_image": "/static/3.png",
+                "episode_title": "Suspendisse sit amet massa ultricies quam auctor malesuada vel in elit",
+                "episode_button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
+                "episode_url": "/e/5ad12bf5111b4/",
+                "episode_summary": "Morbi massa diam, ultricies quis elit et, sollicitudin malesuada dui. Nam quam urna, accumsan sed lacus et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque...",
+                "podcast_name": "The Foocast",
+                "podcast_url": "/"
+            },
+            {
+                "episode_image": "/static/6.png",
+                "episode_title": "Donec erat velit, pulvinar a nunc quis",
+                "episode_button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
+                "episode_url": "/e/5ad12bf813672/",
+                "episode_summary": "Morbi massa diam, ultricies quis elit et, sollicitudin malesuada dui. Nam quam urna, accumsan sed lacus et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque...",
+                "podcast_name": "The Foocast",
+                "podcast_url": "/"
+            },
+            {
+                "episode_image": "/static/9.png",
+                "episode_title": "Pellentesque dapibus massa diam",
+                "episode_button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
+                "episode_url": "/e/5ad12bfb14b69/",
+                "episode_summary": "Morbi massa diam, ultricies quis elit et, sollicitudin malesuada dui. Nam quam urna, accumsan sed lacus et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque...",
+                "podcast_name": "The Foocast",
+                "podcast_url": "/"
+            }
+        ],
+        "_url": "/g/meghan-mills/"
+    }
+}

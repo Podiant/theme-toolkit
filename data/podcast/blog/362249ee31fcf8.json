@@ -1,0 +1,52 @@
+{
+    "menu_selection": "blogpost_list",
+    "main_menu": [
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Home",
+            "menu_item_url": "/"
+        },
+        {
+            "menu_item_selected": true,
+            "menu_item_title": "Blog",
+            "menu_item_url": "/b/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "About the show",
+            "menu_item_url": "/about/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Meet the hosts",
+            "menu_item_url": "/hosts/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Guests",
+            "menu_item_url": "/g/"
+        }
+    ],
+    "view": {
+        "name": "blogpost_detail"
+    },
+    "object": {
+        "_id": 4,
+        "_pk": 4,
+        "image": null,
+        "title": "Poll post",
+        "description": "<p>This is a poll. There are three choices you can make.</p>\n",
+        "published": "2018-04-14 19:07:22",
+        "share_url": "/b/362249ee31fcf8/",
+        "link_url": "/b/362249ee31fcf8/",
+        "link_target": "",
+        "share_urls": {
+            "pinterest_share_url": "javascript:;",
+            "facebook_share_url": "javascript:;",
+            "twitter_share_url": "javascript:;"
+        },
+        "is_poll": true,
+        "embed": "\n\n<form action=\"\" class=\"poll-form\">\n    \n        <label class=\"checkbox\">\n            <input name=\"poll\" type=\"radio\" value=\"1\">\n            The first option\n        </label>\n    \n        <label class=\"checkbox\">\n            <input name=\"poll\" type=\"radio\" value=\"2\">\n            The second option\n        </label>\n    \n        <label class=\"checkbox\">\n            <input name=\"poll\" type=\"radio\" value=\"3\">\n            The third option\n        </label>\n    \n\n    <button type=\"submit\" class=\"btn btn-success btn-block\" disabled>Submit</button>\n    <input type='hidden' name='csrfmiddlewaretoken' value='UrjMFqIGLlGhbxWit5tgwsW2BHtXTzJltQHHsJJfrIY9BT78njPW9kui1asYXtAb' />\n</form>\n",
+        "_url": "/b/362249ee31fcf8/"
+    }
+}

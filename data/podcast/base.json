@@ -1,0 +1,155 @@
+{
+    "podcast_description": "<p>Phasellus vitae placerat sapien. Phasellus at diam sit amet justo pharetra mollis. Ut nec mi vitae massa scelerisque tristique. Vestibulum dictum lobortis lorem at vestibulum. Suspendisse vitae sem eget tellus rhoncus tincidunt id sit amet sem. Phasellus sodales odio et urna aliquam suscipit. Quisque ac magna eu urna aliquam cursus consequat quis nunc. Praesent aliquam purus a porttitor placerat.</p>\n",
+    "main_artwork": "/static/artwork.png",
+    "pinned_blog_posts": [],
+    "urls": {
+        "blog": "/b/",
+        "search": "/search/",
+        "home": "/",
+        "hosts": "/hosts/",
+        "guests": "/g/"
+    },
+    "is_podcast": true,
+    "social_links": [
+        {
+            "link_class": "facebook",
+            "link_title": "Facebook",
+            "link_url": "javascript:;"
+        },
+        {
+            "link_class": "twitter",
+            "link_title": "Twitter",
+            "link_url": "javascript:;"
+        }
+    ],
+    "is_network": false,
+    "rtl": false,
+    "is_paginated": true,
+    "podcast_name": "The Foocast",
+    "podcast_banner_image": "/static/banner.jpg",
+    "widgets": {
+        "kofi": "/3p/widget/leopard/kofi/"
+    },
+    "strings": {
+        "search": "Search",
+        "download_episode": "Download episode",
+        "transcript": "Transcript",
+        "share": "Share",
+        "blog": "Blog",
+        "about": "About the podcast",
+        "guests": "Guests",
+        "chapters": "Chapters",
+        "page_not_found": "Page not found",
+        "home": "Home",
+        "hosts": "Meet the hosts",
+        "latest_episode": "Latest episode",
+        "read_more": "Read more",
+        "guest": "Guest",
+        "links": "Links",
+        "description": "Show notes"
+    },
+    "hosts": [
+        {
+            "host_image": "/static/aubrey.jpg",
+            "host_name_split": ["Aubrey", "White"],
+            "host_name": "Audrey White",
+            "host_url": "/hosts/#host-1",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnAubreyWhite",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "facebook",
+                    "link_title": "Facebook",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        },
+        {
+            "host_image": "/static/norman.jpg",
+            "host_name_split": ["Norman", "Martinez"],
+            "host_name": "Norman Martinez",
+            "host_url": "/hosts/#host-2",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnNormanMartinez",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        },
+        {
+            "host_image": "/static/violet.jpg",
+            "host_name_split": ["Violet", "Ryan"],
+            "host_name": "Violet Ryan",
+            "host_url": "/hosts/#host-3",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnVioletRyan",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        }
+    ],
+    "podcast_banner_colour": "#000",
+    "podcast_url": "/",
+    "podcast_subtitle": "Just another Podiant podcast",
+    "subscription_links": [
+        {
+            "link_class": "apple",
+            "link_title": "Subscribe via Apple Podcasts",
+            "link_url": "javascript:;",
+            "link_icon": "/static/apple.svg"
+        },
+        {
+            "link_class": "google",
+            "link_title": "Subscribe via Google Play Music",
+            "link_url": "javascript:;",
+            "link_icon": "/static/google.svg"
+        },
+        {
+            "link_class": "overcast",
+            "link_title": "Subscribe via Overcast",
+            "link_url": "javascript:;",
+            "link_icon": "/static/overcast.svg"
+        },
+        {
+            "link_class": "pcast",
+            "link_title": "Subscribe via Pocket Casts",
+            "link_url": "javascript:;",
+            "link_icon": "/static/pcast.svg"
+        },
+        {
+            "link_class": "tunein",
+            "link_title": "Subscribe via TuneIn",
+            "link_url": "javascript:;",
+            "link_icon": "/static/tunein.svg"
+        },
+        {
+            "link_class": "rss",
+            "link_title": "Subscribe via RSS",
+            "link_url": "javascript:;",
+            "link_icon": "/static/rss.svg"
+        }
+    ],
+    "podiant_url": "https://podiant.co/",
+    "podiant_logo": "/static/podiant.svg"
+}

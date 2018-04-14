@@ -1,0 +1,74 @@
+{
+    "menu_selection": "guest_list",
+    "main_menu": [
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Home",
+            "menu_item_url": "/"
+        },
+        {
+            "menu_item_selected": true,
+            "menu_item_title": "Blog",
+            "menu_item_url": "/b/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "About the show",
+            "menu_item_url": "/about/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Meet the hosts",
+            "menu_item_url": "/hosts/"
+        },
+        {
+            "menu_item_selected": true,
+            "menu_item_title": "Guests",
+            "menu_item_url": "/g/"
+        }
+    ],
+    "object_list": [
+        {
+            "_id": 1,
+            "_pk": 1,
+            "title": "Meghan Mills",
+            "image": "/static/meghan.jpg",
+            "description": "<p>Suspendisse vitae elit eget ante porttitor imperdiet. Duis libero urna, ullamcorper non lectus id, egestas auctor sem. Nullam.</p>\n",
+            "share_url": "/g/meghan-mills/",
+            "links": [
+                {
+                    "link_title": "Follow Meghan on Twitter",
+                    "link_url": "javascript:;",
+                    "link_icon": "<i class=\"fa fa-twitter\"></i>"
+                },
+                {
+                    "link_title": "Meghan's Website",
+                    "link_url": "javascript:;",
+                    "link_icon": "<i class=\"fa fa-globe\"></i>"
+                }
+            ],
+            "_url": "/g/meghan-mills/"
+        },
+        {
+            "_id": 2,
+            "_pk": 2,
+            "title": "Armando King",
+            "image": "/static/armando.jpg",
+            "description": "<p>Vivamus tristique nec augue vitae pharetra. Nulla vitae tristique mi. Vivamus commodo leo ac lobortis venenatis. Nam id sodales sapien.</p>\n",
+            "share_url": "/g/armando-king/",
+            "links": [
+                {
+                    "link_title": "Follow Armando on Twitter",
+                    "link_url": "javascript:;",
+                    "link_icon": "<i class=\"fa fa-twitter\"></i>"
+                },
+                {
+                    "link_title": "Connect with Armando on LinkedIn",
+                    "link_url": "javascript:;",
+                    "link_icon": "<i class=\"fa fa-linkedin\"></i>"
+                }
+            ],
+            "_url": "/g/armando-king/"
+        }
+    ]
+}

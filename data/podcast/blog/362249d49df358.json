@@ -1,0 +1,50 @@
+{
+    "menu_selection": "blogpost_list",
+    "main_menu": [
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Home",
+            "menu_item_url": "/"
+        },
+        {
+            "menu_item_selected": true,
+            "menu_item_title": "Blog",
+            "menu_item_url": "/b/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "About the show",
+            "menu_item_url": "/about/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Meet the hosts",
+            "menu_item_url": "/hosts/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Guests",
+            "menu_item_url": "/g/"
+        }
+    ],
+    "view": {
+        "name": "blogpost_detail"
+    },
+    "object": {
+        "image": "https://dev-podiant.ams3.digitaloceanspaces.com/media/spoke/foo/undefined362249d0af1eb0.jpeg",
+        "title": "Image post",
+        "description": "<p>A post with an image. This is a kitten.</p>\n",
+        "published": "2018-04-14 19:07:05",
+        "share_url": "/b/362249d49df358/",
+        "link_url": "/b/362249d49df358/",
+        "link_target": "",
+        "share_urls": {
+            "pinterest_share_url": "javascript:;",
+            "facebook_share_url": "javascript:;",
+            "twitter_share_url": "javascript:;"
+        },
+        "is_poll": false,
+        "embed": null,
+        "_url": "/b/362249d49df358/"
+    }
+}

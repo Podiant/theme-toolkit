@@ -1,0 +1,45 @@
+{
+    "view": {
+        "name": "episode_detail"
+    },
+    "main_menu": [
+        {
+            "menu_item_selected": true,
+            "menu_item_title": "Home",
+            "menu_item_url": "/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Blog",
+            "menu_item_url": "/b/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Meet the hosts",
+            "menu_item_url": "/hosts/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Guests",
+            "menu_item_url": "/g/"
+        }
+    ],
+    "object": {
+        "_id": 11,
+        "_pk": 11,
+        "title": "Nullam cursus",
+        "image": "/artwork/11.png",
+        "description": "<p>Morbi massa diam, ultricies quis elit et, sollicitudin malesuada dui. Nam quam urna, accumsan sed lacus et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque.</p>",
+        "transcript": "",
+        "published": "2018-04-04 23:11:00",
+        "iframe": "<iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe>",
+        "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
+        "share_url": ".",
+        "download_url": "javascript:;",
+        "filesize": "82.2 MB",
+        "share_urls": {
+            "twitter_share_url": "javascript:;",
+            "facebook_share_url": "javascript:;"
+        }
+    }
+}

@@ -1,0 +1,108 @@
+{
+    "menu_selection": "blogpost_list",
+    "main_menu": [
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Home",
+            "menu_item_url": "/"
+        },
+        {
+            "menu_item_selected": true,
+            "menu_item_title": "Blog",
+            "menu_item_url": "/b/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "About the show",
+            "menu_item_url": "/about/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Meet the hosts",
+            "menu_item_url": "/hosts/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Guests",
+            "menu_item_url": "/g/"
+        }
+    ],
+    "object_list": [
+        {
+            "_id": 4,
+            "_pk": 4,
+            "image": null,
+            "title": "Poll post",
+            "summary": "This is a poll. There are three choices you can make.\n",
+            "published": "2018-04-14 19:07:22",
+            "share_url": "/b/362249ee31fcf8/",
+            "link_url": "/b/362249ee31fcf8/",
+            "link_target": "",
+            "share_urls": {
+                "pinterest_share_url": "javascript:;",
+                "facebook_share_url": "javascript:;",
+                "twitter_share_url": "javascript:;"
+            },
+            "is_poll": true,
+            "embed": "\n\n<form method=\"post\" action=\"/b/362249ee31fcf8/\" class=\"poll-form\">\n    \n        <label class=\"checkbox\">\n            <input name=\"poll\" type=\"radio\" value=\"1\">\n            The first option\n        </label>\n    \n        <label class=\"checkbox\">\n            <input name=\"poll\" type=\"radio\" value=\"2\">\n            The second option\n        </label>\n    \n        <label class=\"checkbox\">\n            <input name=\"poll\" type=\"radio\" value=\"3\">\n            The third option\n        </label>\n    \n\n    <button type=\"submit\" class=\"btn btn-success btn-block\" disabled>Submit</button>\n    <input type='hidden' name='csrfmiddlewaretoken' value='5jXdv2ybEeUTvfcmEPO5iyfehfcmVJGuEIl8ilzKkBcLVBncy3aLVqNuHIbnZDxk' />\n</form>\n",
+            "_url": "/b/362249ee31fcf8/"
+        },
+        {
+            "_id": 3,
+            "_pk": 3,
+            "image": null,
+            "title": "Link post",
+            "summary": "This post is a link to another website.\n",
+            "published": "2018-04-14 19:07:03",
+            "share_url": "/b/362249dc918aa0/",
+            "link_url": "javascript:;",
+            "link_target": " target=\"_blank\"",
+            "share_urls": {
+                "pinterest_share_url": "javascript:;",
+                "facebook_share_url": "javascript:;",
+                "twitter_share_url": "javascript:;"
+            },
+            "is_poll": false,
+            "embed": "<div class=\"media\"><div class=\"media-left\"><a href=\"javascript:;\"><img class=\"media-object\" style=\"max-width: 150px;\" src=\"/static/podiant.png\"></a></div><div class=\"media-body\"><h4 class=\"media-heading\"><a href=\"javascript:;\">Home</a></h4></div></div>",
+            "_url": "/b/362249dc918aa0/"
+        },
+        {
+            "_id": 2,
+            "_pk": 2,
+            "image": "/static/kitten.jpg",
+            "title": "Image post",
+            "summary": "A post with an image. This is a kitten.\n",
+            "published": "2018-04-14 19:07:05",
+            "share_url": "/b/362249d49df358/",
+            "link_url": "/b/362249d49df358/",
+            "link_target": "",
+            "share_urls": {
+                "pinterest_share_url": "javascript:;",
+                "facebook_share_url": "javascript:;",
+                "twitter_share_url": "javascript:;"
+            },
+            "is_poll": false,
+            "embed": null,
+            "_url": "/b/362249d49df358/"
+        },
+        {
+            "_id": 1,
+            "_pk": 1,
+            "image": null,
+            "title": "Text post",
+            "summary": "This is a standard text post filled with standard text post things\n",
+            "published": "2018-04-14 19:07:40",
+            "share_url": "/b/36224966e40f38/",
+            "link_url": "/b/36224966e40f38/",
+            "link_target": "",
+            "share_urls": {
+                "pinterest_share_url": "javascript:;",
+                "facebook_share_url": "javascript:;",
+                "twitter_share_url": "javascript:;"
+            },
+            "is_poll": false,
+            "embed": null,
+            "_url": "/b/36224966e40f38/"
+        }
+    ]
+}
