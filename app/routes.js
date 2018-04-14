@@ -53,5 +53,25 @@ module.exports = {
                 return self.template('search_list', context);
             }
         );
-    }
+    },
+    '/b/': function() {
+        var self = this;
+        var page = self.GET.page ? parseInt(self.GET.page) : 1;
+
+        return self.data('blog_posts').then(
+            function(context) {
+                context.page_obj = new Paginator(context.object_list, page);
+                return self.template('blogpost_list', context);
+            }
+        );
+    },
+    '/b/:slug/': function(slug) {
+        var self = this;
+
+        return self.data('blog/' + slug).then(
+            function(context) {
+                return self.template('blogpost_detail', context);
+            }
+        );
+    },
 };
