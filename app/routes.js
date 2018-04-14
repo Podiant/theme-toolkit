@@ -74,4 +74,24 @@ module.exports = {
             }
         );
     },
+    '/g/': function() {
+        var self = this;
+        var page = self.GET.page ? parseInt(self.GET.page) : 1;
+
+        return self.data('guests').then(
+            function(context) {
+                context.page_obj = new Paginator(context.object_list, page);
+                return self.template('guest_list', context);
+            }
+        );
+    },
+    '/g/:slug/': function(slug) {
+        var self = this;
+
+        return self.data('guests/' + slug).then(
+            function(context) {
+                return self.template('guest_detail', context);
+            }
+        );
+    },
 };
