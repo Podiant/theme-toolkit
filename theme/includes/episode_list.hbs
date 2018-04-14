@@ -1,0 +1,51 @@
+<!--
+The episode list, shown when the user visits the homepage and views more
+than the first 10 episodes.
+
+This template is rendered via infinite scrolling, so it's automatically
+appended to the bottom of the page when the user scrolls past the 10th
+episode.
+-->
+
+<!-- Loop through the next 10 episodes -->
+{{# each page_obj.object_list }}
+    <!-- Link to the episode and show the title and subtitle -->
+    <h2>
+        <a href="{{ share_url }}">{{ title }}</a><br>
+        <small>{{ subtitle }}</small>
+    </h2>
+
+    <!-- Show the player -->
+    {{{ iframe }}}
+
+    <!-- Show a summary of the episode -->
+    {{{ summary }}}
+
+    <!-- Link to the episode and write the words "Read more" -->
+    <a href="{{ share_url }}">{{ ../strings.read_more }}</a>
+
+    <!-- Link to the downloadable file for the episode, and show the filesize -->
+    <a href="{{ download_url }}" download>
+        {{ ../strings.download_episode }} ({{ filesize }})
+    </a>
+
+    <!-- If the episode has a published date, show it -->
+    {{ date published 'MMMM D, YYYY' }}
+
+    <!-- Write the word "Share" -->
+    {{ ../strings.share }}&nbsp;&nbsp;
+
+    {{# with share_urls }}
+        <!-- Links to share content via Twitter, Facebook and Pinterest -->
+        <ul>
+            <li><a href="{{ twitter_share_url }}" target="_blank">Twitter</a></li>
+            <li><a href="{{ facebook_share_url }}" target="_blank">Facebook</a></li>
+            <li><a href="{{ pinterest_share_url }}" target="_blank">Pinterest</a></li>
+        </ul>
+    {{/ with }}
+{{/ each }}
+
+<!-- If there are more than 10 episodes to show, add an link to the next 10 -->
+{{# if page_obj.has_next }}
+    <a href="?page={{ page_obj.next_page_number }}">Older episodes</a>
+{{/ if }}

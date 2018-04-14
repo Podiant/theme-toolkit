@@ -1,0 +1,115 @@
+<!--
+The homepage template, shown when the user is looking at the first 10 episodes
+(andn any pinned blog posts) of the podcast
+-->
+
+<!-- Write the words "About the podcast" -->
+<h2>{{ strings.about }}</h2>
+<!--
+Show the episode description. Use three braces to ensure content
+that contains HTML displays correctly
+-->
+{{{ podcast_description }}}
+
+<!-- List of subscription links (Apple Podcasts, Pocket Casts, Overcast, etc) on tablet and desktop -->
+<ul>
+    {{# each subscription_links }}
+        <li>
+            <a href="{{ link_url }}" target="_blank">
+                {{ link_title }}
+            </a>
+        </li>
+    {{/ each }}
+</ul>
+
+<!-- If host info has been added for the podcast, show it here -->
+{{# exists hosts }}
+    <!--
+    Write the words "Meet the host" or "Meet the hosts", depending on how many
+    hosts have been added
+    -->
+    <h2>{{ strings.hosts }}</h2>
+
+    <ul>
+        {{# each hosts }}
+            <!-- Loop through the hosts -->
+            <li>
+                <!-- Show the host's image and name, linking to the Hosts page -->
+                <a href="{{ host_url }}">
+                    <img src="{{ host_image }}">
+                    <h3>{{ host_name }}</h3>
+                </a>
+            </li>
+        {{/ each }}
+    </ul>
+{{/ exists }}
+
+<!-- Loop through any pinned blog posts. There should either be 0 or 1 -->
+{{# each pinned_blog_posts }}
+    <!-- Not all blog posts need a title. Only show this section if a title is set -->
+    {{# exists post_title }}
+        <h2>
+            <!-- Link to the post and show the title -->
+            <a href="{{ post_url }}">{{ post_title }}</a>
+        </h2>
+    {{/ exists }}
+
+    <!-- If the blog post contains an image, show it here -->
+    {{# exists post_image }}
+        <a href="{{ post_url }}"{{{ target }}}>
+            <img src="{{ post_image }}" style="max-width: 100%;">
+        </a>
+    {{/ exists }}
+
+    <!-- Some blog posts have embeddable content, like polls or videos. Show that here -->
+    {{# exists post_embed }}{{{ post_embed }}}{{/ exists }}
+
+    <!-- Show an excerpt of the post, if there is any text -->
+    {{# exists post_summary }}{{{ post_summary }}}{{/ exists }}
+
+    <!-- Show the published date of the blog post, linking to the blog post -->
+    <a href="{{ share_url }}">{{ ../strings.read_more }}</a>
+{{/ each }}
+
+<!-- Loop through each episode in the list -->
+{{# each page_obj.object_list }}
+    <!-- Link to the episode and show the title and subtitle -->
+    <h2>
+        <a href="{{ share_url }}">{{ title }}</a><br>
+        <small>{{ subtitle }}</small>
+    </h2>
+
+    <!-- Show the player -->
+    {{{ iframe }}}
+
+    <!-- Show a summary of the episode -->
+    {{{ summary }}}
+
+    <!-- Link to the episode and write the words "Read more" -->
+    <a href="{{ share_url }}">{{ ../strings.read_more }}</a>
+
+    <!-- Link to the downloadable file for the episode, and show the filesize -->
+    <a href="{{ download_url }}" download>
+        {{ ../strings.download_episode }} ({{ filesize }})
+    </a>
+
+    <!-- If the episode has a published date, show it -->
+    {{ date published 'MMMM D, YYYY' }}
+
+    <!-- Write the word "Share" -->
+    {{ ../strings.share }}&nbsp;&nbsp;
+
+    {{# with share_urls }}
+        <!-- Links to share content via Twitter, Facebook and Pinterest -->
+        <ul>
+            <li><a href="{{ twitter_share_url }}" target="_blank">Twitter</a></li>
+            <li><a href="{{ facebook_share_url }}" target="_blank">Facebook</a></li>
+            <li><a href="{{ pinterest_share_url }}" target="_blank">Pinterest</a></li>
+        </ul>
+    {{/ with }}
+{{/ each }}
+
+<!-- If there are more than 10 episodes to show, add an link to the next 10 -->
+{{# if page_obj.has_next }}
+    <a href="?page={{ page_obj.next_page_number }}">Older episodes</a>
+{{/ if }}

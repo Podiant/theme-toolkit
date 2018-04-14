@@ -1,0 +1,75 @@
+<!--
+This is your base template. An HTML document consists of a single
+<html> tag, inside of which is a <head> tag and a <body> tag. We already
+include these tags for you, so everything you add here will be added to the
+<body> tag.
+-->
+
+<!-- Podcast logo, linking to the homepage -->
+<a href="{{ podcast_url }}">
+    <img src="{{ main_artwork }}">
+</a>
+
+<!-- Podcast name, linking to the homepage -->
+<h1>
+    <a href="{{ podcast_url }}">{{ podcast_name }}</a>
+</h1>
+
+<!-- Podcast subtitle -->
+<p>{{ podcast_subtitle }}</p>
+
+<ul>
+    <!-- Main menu items -->
+    {{# each main_menu }}
+        <li>
+            <a href="{{ menu_item_url }}">{{ menu_item_title }}</a>
+        </li>
+    {{/ each }}
+
+    <!-- Link to a modal that pops up when clicked, with a simple search form -->
+    <li>
+        <a href="{{ urls.search }}">
+            <!-- Write the word "Search" -->
+            {{ strings.search }}
+        </a>
+    </li>
+</ul>
+
+<!-- List of subscription links (Apple Podcasts, Pocket Casts, Overcast, etc) -->
+<ul>
+    {{# each subscription_links }}
+        <li class="subscribe-{{ link_class }}">
+            <a href="{{ link_url }}" target="_blank">
+                <img src="{{ link_icon }}">
+                Subscribe via {{ link_title }}
+            </a>
+        </li>
+    {{/ each }}
+</ul>
+
+<!-- List of social media links (Twitter, Facebook, etc) -->
+<ul>
+    {{# each social_links }}
+        <li>
+            <a href="{{ link_url }}" target="_blank">
+                {{ link_title }}
+            </a>
+        </li>
+    {{/ each }}
+</ul>
+
+<!--
+Include the relevant template for this page. You can move this
+elsewhere, but do not remove it or your theme won't work.
+-->
+{{ yield main }}
+
+<!--
+Credit Podiant. You don't have to include this, but it's nice to be nice.
+-->
+<footer>
+    <a href="{{ podiant_url }}" target="_blank">
+        Podcast powered by
+        <img src="{{ podiant_logo }}" height="25" alt="Podiant podcast hosting" title="Podiant" data-toggle="tooltip" />
+    </a>
+</footer>
