@@ -42,5 +42,16 @@ module.exports = {
                 return self.template('host_list', context);
             }
         );
+    },
+    '/search/': function(slug) {
+        var self = this;
+        var page = self.GET.page ? parseInt(self.GET.page) : 1;
+
+        return self.data('search_results').then(
+            function(context) {
+                context.page_obj = new Paginator(context.object_list, page);
+                return self.template('search_list', context);
+            }
+        );
     }
 };
