@@ -1,0 +1,34 @@
+<!-- Generic page template, shown when a user visits a page like "About us"
+or "Contact us". Also shown in certain other circumstances, as in when Podiant
+needs to show aribrary content at a specific URL -->
+
+<header class="masthead" style="background-color: {{ podcast_banner_colour }}; background-image: url('{{# exists object.image }}{{ object.image }}{{ else }}{{ podcast_banner_image }}{{/ exists }}')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-heading">
+                    <h1>{{ object.title }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{{# with object }}
+    <!--
+    "object" is the name of the main variable. It's a bit like using a loop,
+    but it sets the context for the rest of the template so that you can refer
+    to properties inside the object, without having to write "{{ object.title }}"
+    for example
+    -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    {{{ description }}}
+                </div>
+            </div>
+        </div>
+    </article>
+{{/ with }}

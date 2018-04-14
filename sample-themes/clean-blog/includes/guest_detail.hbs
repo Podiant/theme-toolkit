@@ -1,0 +1,60 @@
+<!-- The guest template, shown when a user visits a guest's page -->
+
+<!-- Page Header -->
+<header class="masthead" style="background-color: {{ podcast_banner_colour }}; background-image: url('{{# exists object.image }}{{ object.image }}{{ else }}{{ podcast_banner_image }}{{/ exists }}')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-heading">
+                    <h1>{{ object.title }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{{# with object }}
+    <!--
+    "object" is the name of the main variable. It's a bit like using a loop,
+    but it sets the context for the rest of the template so that you can refer
+    to properties inside the object, without having to write "{{ object.title }}"
+    for example
+    -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    {{{ description }}}
+
+                    {{# each links }}
+                        <li class="list-inline-item">
+                            <a href="{{ link_url }}" title="{{ link_title }}" target="_blank">
+                                {{{ link_icon }}}
+                            </a>
+                        </li>
+                    {{/ each }}
+
+                    {{# exists episodes }}
+                        <hr>
+                        <h2>Episodes featuring {{ title }}</h2>
+                    {{/ exists }}
+
+                    {{# each episodes }}
+                        <div class="post-preview">
+                            <h2 class="post-title">
+                                {{{ episode_button }}}
+                                <a href="{{ episode_url }}">{{ episode_title }}</a>
+                            </h2>
+                            <a href="{{ episode_url }}">
+                                <h3 class="post-subtitle">
+                                    {{{ episode_summary }}}
+                                </h3>
+                            </a>
+                        </div>
+                    {{/ each }}
+                </div>
+            </div>
+        </div>
+    </article>
+{{/ with }}

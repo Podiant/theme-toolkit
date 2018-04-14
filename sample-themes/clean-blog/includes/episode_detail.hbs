@@ -1,0 +1,88 @@
+<!-- The episode template, shown when a user visits a specific episode -->
+
+<header class="masthead" style="background-color: {{ podcast_banner_colour }}; background-image: url('{{ podcast_banner_image }}')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>{{ object.title }}</h1>
+                    <span class="subheading">{{ object.subtitle }}</span>
+
+                    <ul class="list-inline text-center list-subscription-links">
+                        {{# each subscription_links }}
+                            <li class="list-inline-item">
+                                <a href="{{ link_url }}" title="{{ link_title }}" target="_blank">
+                                    <img src="{{ link_icon }}" />
+                                </a>
+                            </li>
+                        {{/ each }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{{# with object }}
+    <!--
+    "object" is the name of the main variable. It's a bit like using a loop,
+    but it sets the context for the rest of the template so that you can refer
+    to properties inside the object, without having to write "{{ object.title }}"
+    for example
+    -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="responsive-embed">{{{ iframe }}}</div>
+                    {{{ description }}}
+
+                    {{# exists guests }}
+                        <h2>{{ ../strings.guests }}</h2>
+                        <ul class="list-unstyled">
+                            {{# each guests }}
+                                <li class="media my-4">
+                                    <a class="mr-3" href="{{ guest_url }}">
+                                        <img src="{{ guest_image }}" class="" width="75" height="75">
+                                    </a>
+
+                                    <div class="media-body">
+                                        <h3 class="mt-0 mb-1">
+                                            <a href="{{ guest_url }}">{{ guest_name }}</a>
+                                        </h3>
+                                    </div>
+                                </li>
+                            {{/ each }}
+                        </ul>
+                    {{/ exists }}
+                </div>
+            </div>
+        </div>
+
+        {{# exists similar_episodes }}
+            <br />
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <h2>You may also like...</h2>
+                        {{# each similar_episodes }}
+                            <div class="post-preview">
+                                <h3 class="post-title">
+                                    {{{ episode_button }}}
+                                    <a href="{{ episode_url }}">{{ episode_title }}</a>
+                                </h3>
+                                <a href="{{ episode_url }}">
+                                    <h4 class="post-subtitle">
+                                        {{{ episode_summary }}}
+                                    </h4>
+                                </a>
+                            </div>
+                        {{/ each }}
+                    </div>
+                </div>
+            </div>
+        {{/ exists }}
+    </article>
+{{/ with }}
