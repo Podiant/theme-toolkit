@@ -1,0 +1,71 @@
+<!-- The guest template, shown when a user visits a guest's page -->
+
+{{# with object }}
+    <!--
+    "object" is the name of the main variable. It's a bit like using a loop,
+    but it sets the context for the rest of the template so that you can refer
+    to properties inside the object, without having to write "{{ object.title }}"
+    for example
+    -->
+
+    <article class="single guest">
+        <header>
+            <!-- Link to the guest and show their name -->
+            <h1 class="article-title">
+                <a href="{{ share_url }}">{{ title }}</a>
+            </h1>
+        </header>
+
+        <div class="body">
+            <div class="media">
+                <div class="media-left">
+                    <a href="{{ share_url }}">
+                        <!-- Add the guest's image, linking to the guest page -->
+                        <img class="media-object" src="{{ image }}" width="162">
+                    </a>
+                </div>
+
+                <div class="media-body">
+                    <!--
+                    Show the guest's biography. Use three braces to ensure content that
+                    contains HTML displays correctly
+                    -->
+                    <div class="lead">{{{ description }}}</div>
+
+                    <ul class="list-unstyled">
+                        <!-- Loop through any links to the guest's websites -->
+                        {{# each links }}
+                            <li>
+                                <a href="{{ link_url }}" target="_blank">{{ link_title }}</a>
+                            </li>
+                        {{/ each }}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Write "Episodes John Smith appears in" -->
+            <h2>Episodes {{ title }} appears in</h2>
+
+            <ul class="media-list">
+                <!-- Loop through the episodes the guest appears in -->
+                {{# each episodes }}
+                    <li class="media">
+                        <div class="media-left">
+                            <a href="{{ episode_url }}">
+                                <img src="{{ episode_image }}" class="media-object" width="75" height="75">
+                            </a>
+                        </div>
+
+                        <div class="media-body">
+                            <h3 class="media-heading">
+                                <a href="{{ episode_url }}">{{ episode_title }}</a>
+                            </h3>
+
+                            {{{ episode_summary }}}
+                        </div>
+                    </li>
+                {{/ each }}
+            </ul>
+        </div>
+    </article>
+{{/ with }}
