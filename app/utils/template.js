@@ -63,6 +63,10 @@ Handlebars.registerHelper('date',
 
 Handlebars.registerHelper('exists',
     function(value, context) {
+        if(value === undefined || value === null) {
+            return context.inverse(this);
+        }
+
         if(Array.isArray(value)) {
             if(!value.length) {
                 return context.inverse(this);
