@@ -1,11 +1,11 @@
 var fs = require('fs');
 var mime = require('mime-types')
 var path = require('path');
-var Template = require('./utils/template');
-var Data = require('./utils/data');
-var extend = require('./utils/extend');
+var Template = require('./template');
+var Data = require('./data');
+var extend = require('./extend');
 
-module.exports = function(meta) {
+module.exports = function(renderingContext, meta) {
     var self = {
         path: meta.path,
         method: meta.method,
@@ -58,7 +58,7 @@ module.exports = function(meta) {
             return new Promise(
                 function(resolve, reject) {
                     fs.readFile(
-                        path.join(__dirname, 'static/' + filename),
+                        path.join(__dirname, '../static/' + filename),
                         function(err, content) {
                             if(err) {
                                 reject(err);
@@ -87,6 +87,7 @@ module.exports = function(meta) {
                 function(resolve, reject) {
                     try {
                         var template = new Template(
+                            renderingContext,
                             '../theme/includes/' + name + '.hbs'
                         )
                     } catch(err) {
@@ -94,14 +95,16 @@ module.exports = function(meta) {
                         return;
                     }
 
-                    self.data('base').then(
+                    self.data(renderingContext + '/base').then(
                         function(baseContext) {
                             var context = extend(
                                 baseContext, subContext
                             );
 
                             var wrapBase = function(html, css) {
-                                return new Template('templates/base.hbs',
+                                return new Template(
+                                    renderingContext,
+                                    'templates/base.hbs',
                                     {
                                         css_block: function() {
                                             return Template.safe(css);
@@ -115,6 +118,7 @@ module.exports = function(meta) {
 
                             var wrapTheme = function(html) {
                                 return new Template(
+                                    renderingContext,
                                     '../theme/layout.hbs'
                                 ).render(
                                     extend(
@@ -127,7 +131,9 @@ module.exports = function(meta) {
                             };
 
                             var wrapCSS = function() {
-                                return new Template('../theme/styles.hbs.css').render(context);
+                                return new Template(
+                                    renderingContext,
+                                    '../theme/styles.hbs.css').render(context);
                             };
 
                             template.render(context).then(

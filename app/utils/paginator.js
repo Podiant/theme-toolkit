@@ -3,7 +3,6 @@ var paginate = function(list, number) {
     var firstIndex = (rpp * number) - rpp;
     var lastIndex = firstIndex + rpp;
 
-    console.log(firstIndex, lastIndex);
     return list.slice(firstIndex, lastIndex);
 };
 

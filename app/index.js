@@ -4,14 +4,30 @@ var mime = require('mime-types')
 var path = require('path');
 var url = require('url');
 var chalk = require('chalk');
-var routes = require('./routes');
-var RequestContext = require('./requestContext');
+var RequestContext = require('./utils/requestContext');
+var baseContext = process.argv.length > 2 ? process.argv[2] : 'podcast';
+
+switch(baseContext) {
+    case 'podcast':
+    case 'network':
+        break;
+
+    default:
+        console.error(
+            chalk.red('Unknown context. Run "npm start" or "npm start podcast" to test podcast-related theme features, or "npm start network" to test network-related features.')
+        );
+
+        return;
+}
+
+var routes = require('./routes/' + baseContext);
 
 http.createServer(
     function(request, response) {
         var requestPath = url.parse(request.url).pathname;
         var query = url.parse(request.url).query;
         var context = new RequestContext(
+            baseContext,
             {
                 method: request.method,
                 path: requestPath,

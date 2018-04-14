@@ -11,6 +11,7 @@ module.exports = function(filename) {
                         'utf8',
                         function(err, data) {
                             if(err) {
+                                console.error(err);
                                 reject(new Error('Data file could not be read. Make sure you\'ve created the appropriate file.'));
                                 return;
                             }

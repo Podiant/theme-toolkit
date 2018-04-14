@@ -3,7 +3,18 @@ var fs = require('fs');
 var path = require('path');
 var moment = require('moment');
 
-var Template = function(filename, helpers) {
+var Template = function(baseContext, filename, helpers) {
+    switch(baseContext) {
+        case 'podcast':
+            break;
+
+        case 'network':
+            break;
+
+        default:
+            throw new Error('Unknown template rendering context: ' + baseContext);
+    }
+
     var templatePath = path.join(__dirname, '../' + filename);
     var self = {
         render: function(context) {
@@ -12,6 +23,7 @@ var Template = function(filename, helpers) {
                     fs.readFile(templatePath, 'utf8',
                         function(err, data) {
                             if(err) {
+                                console.error(err);
                                 reject(new Error('Template file could not be read. Make sure you\'ve created the appropriate file.'));
                                 return;
                             }
