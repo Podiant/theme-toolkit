@@ -30,5 +30,8 @@ module.exports = {
     },
     '/app.js': function(slug) {
         return this.static('app.js');
+    },
+    '/404/': function(slug) {
+        return this.template('page_not_found');
     }
 };
