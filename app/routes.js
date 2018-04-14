@@ -94,4 +94,13 @@ module.exports = {
             }
         );
     },
+    '/about/': function(slug) {
+        var self = this;
+
+        return self.data('pages/about').then(
+            function(context) {
+                return self.template('page_detail', context);
+            }
+        );
+    },
 };
