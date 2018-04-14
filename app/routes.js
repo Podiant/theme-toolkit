@@ -33,5 +33,14 @@ module.exports = {
     },
     '/404/': function(slug) {
         return this.template('page_not_found');
+    },
+    '/hosts/': function(slug) {
+        var self = this;
+
+        return self.data('hosts').then(
+            function(context) {
+                return self.template('host_list', context);
+            }
+        );
     }
 };
