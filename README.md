@@ -67,6 +67,7 @@ You'll find theme files in the _theme_ folder. Here's what you can expect to fin
   - _guest_detail.hbs_ - the single guest template
   - _host_list.hbs_ - the hostd list template
   - _page_detail.hbs_ - the arbitrary page template (used to display pages podcasters create for their shows)
+  - _podcast_list.hbs_ - the podcast list template, used for network-enabled themes
   - _search_list.hbs_ - the search results template
   - _page_not_found.hbs_ - the 404 template
 
