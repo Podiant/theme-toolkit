@@ -48,7 +48,7 @@ You should see a message like this:
 Development server now listening at http://0.0.0.0:8000/
 ```
 
-Point your browser to http://localhost:8000/ and you should see a website that looks like a Podiant podcast page.
+Point your browser to http://localhost:8000/ and you should see a pretty ugly website! This is the "naked theme", which gives you a bunch of HTML and virtually no styling, so you can start to build your own theme, without having to tear apart something else.
 
 Building your theme
 -------------------
