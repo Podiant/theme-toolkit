@@ -85,6 +85,11 @@ Any problems?
 
 If you find a bug, you can log an issue using the Issues section above.
 
+Todo
+----
+
+- Add network mode, via `npm start network`, for testing themes against podcast networks
+
 Who made this?
 --------------
 
