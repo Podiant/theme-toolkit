@@ -73,6 +73,11 @@ You'll find theme files in the _theme_ folder. Here's what you can expect to fin
 
 Open the _theme_ folder in your favourite text editor, and get coding. As you make changes, refresh your browser to see how your theme will look.
 
+Getting inspiration from an existing theme
+------------------------------------------
+
+The _sample-themes_ folder contains the first four themes that were added to Podiant, and a copy of the naked theme so you can refer back to it if need be. Between these five folders, you'll have a pretty comprehensive overview of what it's possible to achieve when building a Podiant theme.
+
 Customising the information provided to a theme
 -----------------------------------------------
 
