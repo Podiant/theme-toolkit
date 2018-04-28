@@ -1,0 +1,200 @@
+{
+    "subscription_links": [
+        {
+            "link_class": "apple",
+            "link_title": "Subscribe via Apple Podcasts",
+            "link_url": "javascript:;",
+            "link_icon": "/static/apple.svg"
+        },
+        {
+            "link_class": "google",
+            "link_title": "Subscribe via Google Play Music",
+            "link_url": "javascript:;",
+            "link_icon": "/static/google.svg"
+        },
+        {
+            "link_class": "overcast",
+            "link_title": "Subscribe via Overcast",
+            "link_url": "javascript:;",
+            "link_icon": "/static/overcast.svg"
+        },
+        {
+            "link_class": "pcast",
+            "link_title": "Subscribe via Pocket Casts",
+            "link_url": "javascript:;",
+            "link_icon": "/static/pcast.svg"
+        },
+        {
+            "link_class": "tunein",
+            "link_title": "Subscribe via TuneIn",
+            "link_url": "javascript:;",
+            "link_icon": "/static/tunein.svg"
+        },
+        {
+            "link_class": "rss",
+            "link_title": "Subscribe via RSS",
+            "link_url": "javascript:;",
+            "link_icon": "/static/rss.svg"
+        }
+    ],
+    "podcast_banner_colour": "#900",
+    "podcast_subtitle": "Another Podiant podcast",
+    "podcast_url": "/foo/",
+    "urls": {
+        "blog": "/foo/b/",
+        "home": "/foo/",
+        "search": "/foo/search/",
+        "hosts": "/foo/hosts/",
+        "guests": "/foo/g/"
+    },
+    "podcast_banner_image": "/static/banner.jpg",
+    "rtl": false,
+    "hosts": [
+        {
+            "host_image": "/static/aubrey.jpg",
+            "host_name_split": ["Aubrey", "White"],
+            "host_name": "Audrey White",
+            "host_url": "/hosts/#host-1",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnAubreyWhite",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "facebook",
+                    "link_title": "Facebook",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        },
+        {
+            "host_image": "/static/norman.jpg",
+            "host_name_split": ["Norman", "Martinez"],
+            "host_name": "Norman Martinez",
+            "host_url": "/hosts/#host-2",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnNormanMartinez",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        },
+        {
+            "host_image": "/static/violet.jpg",
+            "host_name_split": ["Violet", "Ryan"],
+            "host_name": "Violet Ryan",
+            "host_url": "/hosts/#host-3",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnVioletRyan",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        }
+    ],
+    "widgets": {},
+    "network_menu_selection": "network_podcast_list",
+    "menu_selection": "episode_list",
+    "strings": {
+        "search": "Search",
+        "download_episode": "Download episode",
+        "transcript": "Transcript",
+        "share": "Share",
+        "blog": "Blog",
+        "about": "About the podcast",
+        "guests": "Guests",
+        "chapters": "Chapters",
+        "page_not_found": "Page not found",
+        "home": "Home",
+        "hosts": "Meet the hosts",
+        "latest_episode": "Latest episode",
+        "read_more": "Read more",
+        "guest": "Guest",
+        "links": "Links",
+        "description": "Show notes"
+    },
+    "view": {
+        "name": "home"
+    },
+    "is_podcast": true,
+    "main_artwork": "/static/artwork.png",
+    "social_links": [
+        {
+            "link_class": "facebook",
+            "link_title": "Facebook",
+            "link_url": "javascript:;"
+        },
+        {
+            "link_class": "twitter",
+            "link_title": "Twitter",
+            "link_url": "javascript:;"
+        }
+    ],
+    "pinned_blog_posts": [],
+    "main_menu": [
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Home",
+            "menu_item_url": "/foo/"
+        },
+        {
+            "menu_item_selected": true,
+            "menu_item_title": "Blog",
+            "menu_item_url": "/foo/b/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "About the show",
+            "menu_item_url": "/foo/about/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Meet the hosts",
+            "menu_item_url": "/foo/hosts/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Guests",
+            "menu_item_url": "/foo/g/"
+        }
+    ],
+    "podcast_description": "<p>Phasellus vitae placerat sapien. Phasellus at diam sit amet justo pharetra mollis. Ut nec mi vitae massa scelerisque tristique. Vestibulum dictum lobortis lorem at vestibulum. Suspendisse vitae sem eget tellus rhoncus tincidunt id sit amet sem. Phasellus sodales odio et urna aliquam suscipit. Quisque ac magna eu urna aliquam cursus consequat quis nunc. Praesent aliquam purus a porttitor placerat.</p>\n",
+    "podcast_name": "The Foocast",
+    "object": {
+        "_id": 3,
+        "_pk": 3,
+        "image": null,
+        "title": "Link post",
+        "description": "<p>This post is a link to another website.</p>\n",
+        "published": "2018-04-14 19:07:03",
+        "share_url": "/b/362249dc918aa0/",
+        "link_url": "javascript:;",
+        "link_target": " target=\"_blank\"",
+        "share_urls": {
+            "pinterest_share_url": "javascript:;",
+            "facebook_share_url": "javascript:;",
+            "twitter_share_url": "javascript:;"
+        },
+        "is_poll": false,
+        "embed": "<div class=\"media\"><div class=\"media-left\"><a href=\"javascript:;\"><img class=\"media-object\" style=\"max-width: 150px;\" src=\"/static/podiant.png\"></a></div><div class=\"media-body\"><h4 class=\"media-heading\"><a href=\"javascript:;\">Home</a></h4></div></div>",
+        "_url": "/b/362249dc918aa0/"
+    }
+}

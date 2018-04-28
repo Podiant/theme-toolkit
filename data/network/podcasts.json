@@ -1,0 +1,205 @@
+{
+    "network_menu_selection": "network_episode_list",
+    "network_main_menu": [
+        {
+            "menu_item_url": "/",
+            "menu_item_title": "Home",
+            "menu_item_selected": true
+        },
+        {
+            "menu_item_url": "/hosts/",
+            "menu_item_title": "Meet the hosts",
+            "menu_item_selected": false
+        },
+        {
+            "menu_item_url": "/about/",
+            "menu_item_title": "About",
+            "menu_item_selected": false
+        }
+    ],
+    "object_list": [
+        {
+            "_id": 1,
+            "_pk": 1,
+            "title": "The Foocast",
+            "subtitle": "Another Podiant podcast",
+            "image": "/static/artwork.png",
+            "summary": "",
+            "share_url": "/foo/",
+            "hosts": [
+                {
+                    "host_image": "/static/aubrey.jpg",
+                    "host_name_split": ["Aubrey", "White"],
+                    "host_name": "Audrey White",
+                    "host_url": "/hosts/#host-1"
+                },
+                {
+                    "host_image": "/static/norman.jpg",
+                    "host_name_split": ["Norman", "Martinez"],
+                    "host_name": "Norman Martinez",
+                    "host_url": "/hosts/#host-2"
+                }
+            ],
+            "subscription_links": [
+                {
+                    "link_class": "apple",
+                    "link_title": "Subscribe via Apple Podcasts",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/apple.svg"
+                },
+                {
+                    "link_class": "google",
+                    "link_title": "Subscribe via Google Play Music",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/google.svg"
+                },
+                {
+                    "link_class": "overcast",
+                    "link_title": "Subscribe via Overcast",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/overcast.svg"
+                },
+                {
+                    "link_class": "pcast",
+                    "link_title": "Subscribe via Pocket Casts",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/pcast.svg"
+                },
+                {
+                    "link_class": "tunein",
+                    "link_title": "Subscribe via TuneIn",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/tunein.svg"
+                },
+                {
+                    "link_class": "rss",
+                    "link_title": "Subscribe via RSS",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/rss.svg"
+                }
+            ]
+        },
+        {
+            "_id": 2,
+            "_pk": 2,
+            "title": "The Barcast",
+            "subtitle": "Another Podiant podcast",
+            "image": "/static/artwork.png",
+            "summary": "All about bar.\n",
+            "share_url": "/foo/",
+            "hosts": [
+                {
+                    "host_image": "/static/norman.jpg",
+                    "host_name_split": ["Norman", "Martinez"],
+                    "host_name": "Norman Martinez",
+                    "host_url": "/hosts/#host-2"
+                },
+                {
+                    "host_image": "/static/violet.jpg",
+                    "host_name_split": ["Violet", "Ryan"],
+                    "host_name": "Violet Ryan",
+                    "host_url": "/hosts/#host-3"
+                }
+            ],
+            "subscription_links": [
+                {
+                    "link_class": "apple",
+                    "link_title": "Subscribe via Apple Podcasts",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/apple.svg"
+                },
+                {
+                    "link_class": "google",
+                    "link_title": "Subscribe via Google Play Music",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/google.svg"
+                },
+                {
+                    "link_class": "overcast",
+                    "link_title": "Subscribe via Overcast",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/overcast.svg"
+                },
+                {
+                    "link_class": "pcast",
+                    "link_title": "Subscribe via Pocket Casts",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/pcast.svg"
+                },
+                {
+                    "link_class": "tunein",
+                    "link_title": "Subscribe via TuneIn",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/tunein.svg"
+                },
+                {
+                    "link_class": "rss",
+                    "link_title": "Subscribe via RSS",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/rss.svg"
+                }
+            ]
+        },
+        {
+            "_id": 3,
+            "_pk": 3,
+            "title": "The Bazcast",
+            "subtitle": "Another Podiant podcast",
+            "image": "/static/artwork.png",
+            "summary": "",
+            "share_url": "/foo/",
+            "hosts": [
+                {
+                    "host_image": "/static/aubrey.jpg",
+                    "host_name_split": ["Aubrey", "White"],
+                    "host_name": "Audrey White",
+                    "host_url": "/hosts/#host-1"
+                },
+                {
+                    "host_image": "/static/violet.jpg",
+                    "host_name_split": ["Violet", "Ryan"],
+                    "host_name": "Violet Ryan",
+                    "host_url": "/hosts/#host-3"
+                }
+            ],
+            "subscription_links": [
+                {
+                    "link_class": "apple",
+                    "link_title": "Subscribe via Apple Podcasts",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/apple.svg"
+                },
+                {
+                    "link_class": "google",
+                    "link_title": "Subscribe via Google Play Music",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/google.svg"
+                },
+                {
+                    "link_class": "overcast",
+                    "link_title": "Subscribe via Overcast",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/overcast.svg"
+                },
+                {
+                    "link_class": "pcast",
+                    "link_title": "Subscribe via Pocket Casts",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/pcast.svg"
+                },
+                {
+                    "link_class": "tunein",
+                    "link_title": "Subscribe via TuneIn",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/tunein.svg"
+                },
+                {
+                    "link_class": "rss",
+                    "link_title": "Subscribe via RSS",
+                    "link_url": "javascript:;",
+                    "link_icon": "/static/rss.svg"
+                }
+            ]
+        }
+    ]
+}

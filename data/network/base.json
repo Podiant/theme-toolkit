@@ -1,0 +1,125 @@
+{
+    "network_name": "Foonet",
+    "network_banner_colour": "#900",
+    "network_banner_image": "/static/banner.jpg",
+    "network_podcasts": [
+        {
+            "podcast_url": "/foo/",
+            "podcast_name": "The Foocast"
+        },
+        {
+            "podcast_url": "/baz/",
+            "podcast_name": "The Bazcast"
+        },
+        {
+            "podcast_url": "/bar/",
+            "podcast_name": "The Barcast"
+        }
+    ],
+    "network_strings": {
+        "search": "Search",
+        "download_episode": "Download episode",
+        "home": "Home",
+        "read_more": "Read more",
+        "page_not_found": "Page not found",
+        "latest_episode": "Latest episode",
+        "share": "Share",
+        "about": "About the network",
+        "hosts": "Meet the host",
+        "blog": "Blog",
+        "podcasts": "Podcasts"
+    },
+    "network_subtitle": "Just another Podiant network",
+    "network_logo": "/static/img/logo.jpg",
+    "is_network": true,
+    "network_description": "Fusce non sollicitudin ante, at vestibulum diam. Ut varius, erat vitae feugiat consectetur, augue justo vulputate lorem, ac vestibulum odio nulla dignissim lorem.",
+    "network_rtl": false,
+    "network_widgets": {},
+    "network_social_links": [
+        {
+            "link_class": "facebook",
+            "link_title": "Facebook",
+            "link_url": "javascript:;"
+        },
+        {
+            "link_class": "twitter",
+            "link_title": "Twitter",
+            "link_url": "javascript:;"
+        }
+    ],
+    "is_paginated": false,
+    "network_url": "/",
+    "network_urls": {
+        "blog": "/blog/",
+        "home": "/",
+        "podcasts": "/podcasts/",
+        "hosts": "/hosts/"
+    },
+    "network_hosts": [
+        {
+            "host_image": "/static/aubrey.jpg",
+            "host_name_split": ["Aubrey", "White"],
+            "host_name": "Audrey White",
+            "host_url": "/hosts/#host-1",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnAubreyWhite",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "facebook",
+                    "link_title": "Facebook",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        },
+        {
+            "host_image": "/static/norman.jpg",
+            "host_name_split": ["Norman", "Martinez"],
+            "host_name": "Norman Martinez",
+            "host_url": "/hosts/#host-2",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnNormanMartinez",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        },
+        {
+            "host_image": "/static/violet.jpg",
+            "host_name_split": ["Violet", "Ryan"],
+            "host_name": "Violet Ryan",
+            "host_url": "/hosts/#host-3",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnVioletRyan",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        }
+    ],
+    "menu_selection": "",
+    "view": {
+        "name": "podcast_list"
+    },
+    "podiant_url": "https://podiant.co/",
+    "podiant_logo": "/static/img/logo-small.svg"
+}
