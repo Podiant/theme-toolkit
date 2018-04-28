@@ -38,7 +38,7 @@ jQuery(document).ready(
             }
         );
 
-        $(document).on('click', '.nav-textfield a',
+        $('body').on('click', '.nav-textfield a',
             function(e) {
                 var field = $(this).attr('href').substr(1);
                 var body = $(this).closest('.body');
@@ -50,6 +50,17 @@ jQuery(document).ready(
                 $(this).closest('li').addClass('active');
 
                 e.preventDefault();
+            }
+        );
+
+        $('body').on('click', 'a[data-toggle="active"]',
+            function(e) {
+                var self = $(this);
+                var href = self.attr('href');
+                var element = $(href);
+
+                e.preventDefault();
+                element.toggleClass('active');
             }
         );
     }
