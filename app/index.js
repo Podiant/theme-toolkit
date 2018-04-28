@@ -59,7 +59,7 @@ http.createServer(
 
         Object.keys(routes).forEach(
             function(routePath) {
-                var formattedEx = routePath.replace(/\:([\w-]+)/, '([^/]+)').replace(/\./, '\\.');
+                var formattedEx = routePath.replace(/\:([\w-]+)/g, '([^/]+)').replace(/\./, '\\.');
                 var pathEx = new RegExp('^' + formattedEx + '$');
                 var matches = requestPath.match(pathEx);
                 var args = [];
