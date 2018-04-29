@@ -4,10 +4,37 @@ module.exports = {
     '/': function() {
         var self = this;
         var page = self.GET.page ? parseInt(self.GET.page) : 1;
+        var template = process.argv.length > 3 ? process.argv[3] : 'podcasts';
 
-        return self.data('network/podcasts').then(
+        switch(template) {
+            case 'podcasts':
+                return self.data('network/podcasts').then(
+                    function(context) {
+                        return self.template('podcast_list', context);
+                    }
+                );
+
+            case 'episodes':
+                return self.data('network/home').then(
+                    function(context) {
+                        if(page > 1) {
+                            return self.template('episode_list', context);
+                        }
+
+                        return self.template('home', context);
+                    }
+                );
+
+            default:
+                throw new Error('Unknown template option "' + template + '"');
+        }
+    },
+    '/about/': function() {
+        var self = this;
+
+        return self.data('network/network_pages/about').then(
             function(context) {
-                return self.template('podcast_list', context);
+                return self.template('page_detail', context);
             }
         );
     },
@@ -35,7 +62,7 @@ module.exports = {
     '/hosts/': function(slug) {
         var self = this;
 
-        return self.data('network/hosts').then(
+        return self.data('network/network_hosts').then(
             function(context) {
                 return self.template('host_list', context);
             }
@@ -104,10 +131,10 @@ module.exports = {
             }
         );
     },
-    '/:podcast/about/': function(podcast, slug) {
+    '/:podcast/about/': function(podcast) {
         var self = this;
 
-        return self.data('network/pages/about').then(
+        return self.data('network/podcast_pages/about').then(
             function(context) {
                 return self.template('page_detail', context);
             }
@@ -116,7 +143,7 @@ module.exports = {
     '/:podcast/hosts/': function(podcast) {
         var self = this;
 
-        return self.data('network/hosts').then(
+        return self.data('network/podcast_hosts').then(
             function(context) {
                 return self.template('host_list', context);
             }
