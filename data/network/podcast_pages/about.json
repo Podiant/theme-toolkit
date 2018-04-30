@@ -149,6 +149,7 @@
         }
     ],
     "pinned_blog_posts": [],
+    "menu_selection": "page_detail",
     "main_menu": [
         {
             "menu_item_selected": false,
@@ -156,12 +157,12 @@
             "menu_item_url": "/foo/"
         },
         {
-            "menu_item_selected": true,
+            "menu_item_selected": false,
             "menu_item_title": "Blog",
             "menu_item_url": "/foo/b/"
         },
         {
-            "menu_item_selected": false,
+            "menu_item_selected": true,
             "menu_item_title": "About the show",
             "menu_item_url": "/foo/about/"
         },
@@ -176,23 +177,19 @@
             "menu_item_url": "/foo/g/"
         }
     ],
-    "podcast_description": "<p>Phasellus vitae placerat sapien. Phasellus at diam sit amet justo pharetra mollis. Ut nec mi vitae massa scelerisque tristique. Vestibulum dictum lobortis lorem at vestibulum. Suspendisse vitae sem eget tellus rhoncus tincidunt id sit amet sem. Phasellus sodales odio et urna aliquam suscipit. Quisque ac magna eu urna aliquam cursus consequat quis nunc. Praesent aliquam purus a porttitor placerat.</p>\n",
-    "podcast_name": "The Foocast",
+    "is_podcast": true,
     "object": {
+        "_id": 1,
+        "_pk": 1,
+        "title": "About the show",
         "image": "/static/kitten.jpg",
-        "title": "Image post",
-        "description": "<p>A post with an image. This is a kitten.</p>\n",
-        "published": "2018-04-14 19:07:05",
-        "share_url": "/b/362249d49df358/",
-        "link_url": "/b/362249d49df358/",
-        "link_target": "",
+        "description": "<strong>Headings</strong> <h1>Header one</h1> <h2>Header two</h2> <h3>Header three</h3> <h4>Header four</h4> <h5>Header five</h5> <h6>Header six</h6> <h2>Blockquotes</h2> Single line blockquote: <blockquote>Stay hungry. Stay foolish.</blockquote> Multi line blockquote with a cite reference: <blockquote>People think focus means saying yes to the thing you've got to focus on. But that's not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick carefully. I'm actually as proud of the things we haven't done as the things I have done. Innovation is saying no to 1,000 things. <cite>Steve Jobs - Apple Worldwide Developers' Conference, 1997</cite></blockquote> <h2>Tables</h2> <table> <tbody> <tr> <th>Employee</th> <th class=\"views\">Salary</th> <th></th> </tr> <tr class=\"odd\"> <td><a href=\"javascript:;\">Jane</a></td> <td>$1</td> <td>Because that's all Steve Job' needed for a salary.</td> </tr> <tr class=\"even\"> <td><a href=\"javascript:;\">John</a></td> <td>$100K</td> <td>For all the blogging he does.</td> </tr> <tr class=\"odd\"> <td><a href=\"javascript:;\">Jane</a></td> <td>$100M</td> <td>Pictures are worth a thousand words, right? So Tom x 1,000.</td> </tr> <tr class=\"even\"> <td><a href=\"javascript:;\">Jane</a></td> <td>$100B</td> <td>With hair like that?! Enough said...</td> </tr> </tbody> </table> <h2>Definition lists</h2> <dl><dt>Definition list title</dt><dd>Definition list division.</dd><dt>Startup</dt><dd>A startup company or startup is a company or temporary organization designed to search for a repeatable and scalable business model.</dd><dt>#dowork</dt><dd>Coined by Rob Dyrdek and his personal body guard Christopher \"Big Black\" Boykins, \"Do Work\" works as a self motivator, to motivating your friends.</dd><dt>Do it live</dt><dd>I'll let Bill O'Reilly <a title=\"We'll do it live\" href=\"https://www.youtube.com/watch?v=O_HyZ5aW76c\">explain</a> this one.</dd></dl><h2>Embedded content</h2><iframe width=\"720\" height=\"405\" src=\"https://www.youtube.com/embed/9YjamKkEuN4\" frameborder=\"0\" allow=\"encrypted-media\"></iframe><h2>Unordered lists (nested)</h2> <ul> <li>List item one <ul> <li>List item one <ul> <li>List item one</li> <li>List item two</li> <li>List item three</li> <li>List item four</li> </ul> </li> <li>List item two</li> <li>List item three</li> <li>List item four</li> </ul> </li> <li>List item two</li> <li>List item three</li> <li>List item four</li> </ul> <h2>Ordered list (nested)</h2> <ol> <li>List item one <ol> <li>List item one <ol> <li>List item one</li> <li>List item two</li> <li>List item three</li> <li>List item four</li> </ol> </li> <li>List item two</li> <li>List item three</li> <li>List item four</li> </ol> </li> <li>List item two</li> <li>List item three</li> <li>List item four</li> </ol> <h2>HTML tags</h2> These supported tags come from the WordPress.com code <a title=\"Code\" href=\"http://en.support.wordpress.com/code/\">FAQ</a>. <strong>Address tag</strong> <address>1 Infinite Loop Cupertino, CA 95014 United States</address><strong>Anchor tag (aka link)</strong> This is an example of a <a title=\"Apple\" href=\"http://apple.com\">link</a>. <strong>Abbreviation tag</strong> The abbreviation <abbr title=\"Seriously\">srsly</abbr> is short for \"seriously\". <strong>Acronym tag</strong> The acronym <acronym title=\"For the Win\">ftw</acronym> stands for \"for the win\". <strong>Big tag</strong> This test is <big>big</big> deal, but this tag is no longer supported in HTML5. <strong>Cite tag</strong> \"Code is poetry.\" --<cite>Automattic</cite> <strong>Code tag</strong> You will learn later on in these tests that <code>word-wrap: break-word;</code> will be your best friend. <strong>Delete tag</strong> This tag will let you <del>strikeout text</del>, but this tag is no longer supported in HTML5 (use the <code>&lt;strike&gt;</code> instead). <strong>Emphasize tag</strong> The emphasize tag should <em>italicize</em> text. <strong>Insert tag</strong> This tag should denote <ins>inserted</ins> text. <strong>Keyboard tag</strong> This scarcely known tag emulates <kbd>keyboard text</kbd>, which is usually styled like the <code>&lt;code&gt;</code> tag. <strong>Preformatted tag</strong> This tag styles large blocks of code. <pre>.post-title { margin: 0 0 5px; font-weight: bold; font-size: 38px; line-height: 1.2; }</pre> <strong>Quote tag</strong> <q>Developers, developers, developers...</q> --Steve Ballmer <strong>Strong tag</strong> This tag shows <strong>bold<strong> text.</strong></strong> <strong>Subscript tag</strong> Getting our science styling on with H<sub>2</sub>O, which should push the \"2\" down. <strong>Superscript tag</strong> Still sticking with science and Isaac Newton's E = MC<sup>2</sup>, which should lift the 2 up. <strong>Teletype tag</strong> This rarely used tag emulates <tt>teletype text</tt>, which is usually styled like the <code>&lt;code&gt;</code> tag. <strong>Variable tag</strong> This allows you to denote <var>variables</var>.",
+        "share_url": "/foo/about/",
         "share_urls": {
-            "pinterest_share_url": "javascript:;",
+            "twitter_share_url": "javascript:;",
             "facebook_share_url": "javascript:;",
-            "twitter_share_url": "javascript:;"
+            "pinterest_share_url": "javascript:;"
         },
-        "is_poll": false,
-        "embed": null,
-        "_url": "/b/362249d49df358/"
+        "_url": "/foo/about/"
     }
 }

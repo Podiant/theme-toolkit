@@ -1,0 +1,113 @@
+{
+    "network_menu_selection": "network_host_list",
+    "is_podcast": false,
+    "network_main_menu": [
+        {
+            "menu_item_url": "/",
+            "menu_item_title": "Home",
+            "menu_item_selected": false
+        },
+        {
+            "menu_item_url": "/hosts/",
+            "menu_item_title": "Meet the hosts",
+            "menu_item_selected": true
+        },
+        {
+            "menu_item_url": "/about/",
+            "menu_item_title": "About",
+            "menu_item_selected": false
+        }
+    ],
+    "object_list": [
+        {
+            "_pk": 1,
+            "image": "/static/aubrey.jpg",
+            "title": "Audrey White",
+            "description": "Proin ut feugiat turpis. Cras iaculis auctor mauris, vel convallis felis laoreet eu. Pellentesque sodales nulla sit amet leo tincidunt faucibus",
+            "links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnAubreyWhite",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "facebook",
+                    "link_title": "Facebook",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ],
+            "hosted_podcasts": [
+                {
+                    "podcast_image": "/static/1.png",
+                    "podcast_url": "/foo/",
+                    "podcast_name": "The Foocast"
+                },
+                {
+                    "podcast_image": "/static/3.png",
+                    "podcast_url": "/baz/",
+                    "podcast_name": "The Bazcast"
+                }
+            ]
+        },
+        {
+            "_pk": 2,
+            "image": "/static/norman.jpg",
+            "title": "Norman Martinez",
+            "description": "Mauris venenatis diam non facilisis ornare. Mauris consequat mauris nisi, quis sollicitudin nunc semper et. Morbi quis rutrum arcu.",
+            "links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnNormanMartinez",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ],
+            "hosted_podcasts": [
+                {
+                    "podcast_image": "/static/2.png",
+                    "podcast_url": "/bar/",
+                    "podcast_name": "The Barcast"
+                },
+                {
+                    "podcast_image": "/static/3.png",
+                    "podcast_url": "/baz/",
+                    "podcast_name": "The Bazcast"
+                }
+            ]
+        },
+        {
+            "_pk": 3,
+            "image": "/static/violet.jpg",
+            "title": "Violet Ryan",
+            "description": "Mauris tempor dapibus finibus. Donec metus dolor, tempus nec aliquet vestibulum, facilisis vitae dolor. Donec bibendum, felis a dictum ullamcorper, metus tellus commodo felis.",
+            "links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnVioletRyan",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ],
+            "hosted_podcasts": [
+                {
+                    "podcast_image": "/static/1.png",
+                    "podcast_url": "/foo/",
+                    "podcast_name": "The Foocast"
+                }
+            ]
+        }
+    ]
+}

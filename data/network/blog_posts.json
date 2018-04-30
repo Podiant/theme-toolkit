@@ -111,8 +111,6 @@
         }
     ],
     "widgets": {},
-    "network_menu_selection": "network_podcast_list",
-    "menu_selection": "episode_list",
     "strings": {
         "search": "Search",
         "download_episode": "Download episode",

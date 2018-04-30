@@ -1,19 +1,22 @@
 {
     "network_name": "Foonet",
-    "network_banner_colour": "#900",
+    "network_banner_colour": "#1D2935",
     "network_banner_image": "/static/banner.jpg",
     "network_podcasts": [
         {
             "podcast_url": "/foo/",
-            "podcast_name": "The Foocast"
-        },
-        {
-            "podcast_url": "/baz/",
-            "podcast_name": "The Bazcast"
+            "podcast_name": "The Foocast",
+            "podcast_artwork": "/static/1.png"
         },
         {
             "podcast_url": "/bar/",
-            "podcast_name": "The Barcast"
+            "podcast_name": "The Barcast",
+            "podcast_artwork": "/static/2.png"
+        },
+        {
+            "podcast_url": "/baz/",
+            "podcast_name": "The Bazcast",
+            "podcast_artwork": "/static/3.png"
         }
     ],
     "network_strings": {
@@ -25,12 +28,30 @@
         "latest_episode": "Latest episode",
         "share": "Share",
         "about": "About the network",
-        "hosts": "Meet the host",
+        "hosts": "Meet the hosts",
         "blog": "Blog",
         "podcasts": "Podcasts"
     },
     "network_subtitle": "Just another Podiant network",
-    "network_logo": "/static/img/logo.jpg",
+    "network_logo": "/static/img/logo.png",
+    "network_menu_selection": "network_episode_list",
+    "network_main_menu": [
+        {
+            "menu_item_url": "/",
+            "menu_item_title": "Home",
+            "menu_item_selected": true
+        },
+        {
+            "menu_item_url": "/hosts/",
+            "menu_item_title": "Meet the hosts",
+            "menu_item_selected": false
+        },
+        {
+            "menu_item_url": "/about/",
+            "menu_item_title": "About",
+            "menu_item_selected": false
+        }
+    ],
     "is_network": true,
     "network_description": "Fusce non sollicitudin ante, at vestibulum diam. Ut varius, erat vitae feugiat consectetur, augue justo vulputate lorem, ac vestibulum odio nulla dignissim lorem.",
     "network_rtl": false,

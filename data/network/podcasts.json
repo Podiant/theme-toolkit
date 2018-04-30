@@ -1,22 +1,4 @@
 {
-    "network_menu_selection": "network_episode_list",
-    "network_main_menu": [
-        {
-            "menu_item_url": "/",
-            "menu_item_title": "Home",
-            "menu_item_selected": true
-        },
-        {
-            "menu_item_url": "/hosts/",
-            "menu_item_title": "Meet the hosts",
-            "menu_item_selected": false
-        },
-        {
-            "menu_item_url": "/about/",
-            "menu_item_title": "About",
-            "menu_item_selected": false
-        }
-    ],
     "object_list": [
         {
             "_id": 1,

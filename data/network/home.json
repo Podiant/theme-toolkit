@@ -37,7 +37,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bf31017a/",
+            "share_url": "/foo/e/5ad12bf31017a/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -46,7 +46,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bf31017a/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bf31017a/"
         },
         {
             "_id": 2,
@@ -57,7 +60,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bf410b6b/",
+            "share_url": "/foo/e/5ad12bf410b6b/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -66,7 +69,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bf410b6b/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bf410b6b/"
         },
         {
             "_id": 3,
@@ -77,7 +83,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bf5111b4/",
+            "share_url": "/foo/e/5ad12bf5111b4/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -86,7 +92,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bf5111b4/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bf5111b4/"
         },
         {
             "_id": 4,
@@ -97,7 +106,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bf6121aa/",
+            "share_url": "/foo/e/5ad12bf6121aa/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -106,7 +115,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bf6121aa/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bf6121aa/"
         },
         {
             "_id": 5,
@@ -117,7 +129,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bf712434/",
+            "share_url": "/foo/e/5ad12bf712434/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -126,7 +138,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bf712434/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bf712434/"
         },
         {
             "_id": 6,
@@ -137,7 +152,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bf813672/",
+            "share_url": "/foo/e/5ad12bf813672/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -146,7 +161,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bf813672/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bf813672/"
         },
         {
             "_id": 7,
@@ -157,7 +175,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bf913f65/",
+            "share_url": "/foo/e/5ad12bf913f65/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -166,7 +184,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bf913f65/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bf913f65/"
         },
         {
             "_id": 8,
@@ -177,7 +198,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bfa142a0/",
+            "share_url": "/foo/e/5ad12bfa142a0/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -186,7 +207,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bfa142a0/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bfa142a0/"
         },
         {
             "_id": 9,
@@ -197,7 +221,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bfb14b69/",
+            "share_url": "/foo/e/5ad12bfb14b69/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -206,7 +230,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bfb14b69/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bfb14b69/"
         },
         {
             "_id": 10,
@@ -217,7 +244,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bfc15ad5/",
+            "share_url": "/foo/e/5ad12bfc15ad5/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -226,7 +253,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bfc15ad5/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bfc15ad5/"
         },
         {
             "_id": 11,
@@ -237,7 +267,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bfd15b1c/",
+            "share_url": "/foo/e/5ad12bfd15b1c/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -246,7 +276,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bfd15b1c/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bfd15b1c/"
         },
         {
             "_id": 12,
@@ -257,7 +290,7 @@
             "published": "2018-04-04 23:11:00",
             "iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
             "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
-            "share_url": "/e/5ad12bfe1649e/",
+            "share_url": "/foo/e/5ad12bfe1649e/",
             "download_url": "javascript:;",
             "filesize": "24.0 MB",
             "share_urls": {
@@ -266,7 +299,10 @@
                 "facebook_share_url": "javascript:;"
             },
             "guests": [],
-            "_url": "/e/5ad12bfe1649e/"
+            "podcast_name": "The Foocast",
+            "podcast_url": "/foo/",
+            "podcast_image": "/static/artwork.png",
+            "_url": "/foo/e/5ad12bfe1649e/"
         }
     ]
 }
