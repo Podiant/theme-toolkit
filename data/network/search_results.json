@@ -30,7 +30,7 @@
     "query": "lorem ipsum",
     "object_list": [
         {
-            "url": "/e/5ad12bf31017a/",
+            "url": "/foo/e/5ad12bf31017a/",
             "title": "The kitchen sink",
             "title_highlighted": "The kitchen sink",
             "description_highlighted": "This episode has everything you might expect to have to style in a theme",
@@ -38,7 +38,7 @@
             "image": "/static/1.png"
         },
         {
-            "url": "/e/5ad12bf813672/",
+            "url": "/foo/e/5ad12bf813672/",
             "title": "Donec erat velit, pulvinar a nunc quis",
             "title_highlighted": "Donec erat velit, <strong>pulvinar a nunc</strong> quis",
             "description_highlighted": "...<strong>ultricies quis elit et</strong>, sollicitudin malesuada dui. Nam quam urna, accumsan sed lacus et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque...",
@@ -46,7 +46,7 @@
             "image": "/static/6.png"
         },
         {
-            "url": "/e/5ad12bfe1649e/",
+            "url": "/foo/e/5ad12bfe1649e/",
             "title": "Phasellus fermentum justo vel odio tincidunt",
             "title_highlighted": "...<strong>justo vel odio</strong> tincidunt",
             "description_highlighted": "Morbi massa diam, ultricies quis elit et, sollicitudin malesuada dui. Nam quam urna, accumsan sed lacus et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque...",
