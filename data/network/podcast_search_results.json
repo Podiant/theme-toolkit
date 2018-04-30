@@ -1,0 +1,206 @@
+{
+    "subscription_links": [
+        {
+            "link_class": "apple",
+            "link_title": "Subscribe via Apple Podcasts",
+            "link_url": "javascript:;",
+            "link_icon": "/static/apple.svg"
+        },
+        {
+            "link_class": "google",
+            "link_title": "Subscribe via Google Play Music",
+            "link_url": "javascript:;",
+            "link_icon": "/static/google.svg"
+        },
+        {
+            "link_class": "overcast",
+            "link_title": "Subscribe via Overcast",
+            "link_url": "javascript:;",
+            "link_icon": "/static/overcast.svg"
+        },
+        {
+            "link_class": "pcast",
+            "link_title": "Subscribe via Pocket Casts",
+            "link_url": "javascript:;",
+            "link_icon": "/static/pcast.svg"
+        },
+        {
+            "link_class": "tunein",
+            "link_title": "Subscribe via TuneIn",
+            "link_url": "javascript:;",
+            "link_icon": "/static/tunein.svg"
+        },
+        {
+            "link_class": "rss",
+            "link_title": "Subscribe via RSS",
+            "link_url": "javascript:;",
+            "link_icon": "/static/rss.svg"
+        }
+    ],
+    "podcast_banner_colour": "#900",
+    "podcast_subtitle": "Another Podiant podcast",
+    "podcast_url": "/foo/",
+    "urls": {
+        "blog": "/foo/b/",
+        "home": "/foo/",
+        "search": "/foo/search/",
+        "hosts": "/foo/hosts/",
+        "guests": "/foo/g/"
+    },
+    "podcast_banner_image": "/static/banner.jpg",
+    "rtl": false,
+    "hosts": [
+        {
+            "host_image": "/static/aubrey.jpg",
+            "host_name_split": ["Aubrey", "White"],
+            "host_name": "Audrey White",
+            "host_url": "/hosts/#host-1",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnAubreyWhite",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "facebook",
+                    "link_title": "Facebook",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        },
+        {
+            "host_image": "/static/norman.jpg",
+            "host_name_split": ["Norman", "Martinez"],
+            "host_name": "Norman Martinez",
+            "host_url": "/hosts/#host-2",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnNormanMartinez",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        },
+        {
+            "host_image": "/static/violet.jpg",
+            "host_name_split": ["Violet", "Ryan"],
+            "host_name": "Violet Ryan",
+            "host_url": "/hosts/#host-3",
+            "host_links": [
+                {
+                    "link_class": "twitter",
+                    "link_title": "@pdnVioletRyan",
+                    "link_url": "javascript:;"
+                },
+                {
+                    "link_class": "globe",
+                    "link_title": "Website",
+                    "link_url": "javascript:;"
+                }
+            ]
+        }
+    ],
+    "widgets": {},
+    "network_menu_selection": "network_podcast_list",
+    "menu_selection": "episode_list",
+    "strings": {
+        "search": "Search",
+        "download_episode": "Download episode",
+        "transcript": "Transcript",
+        "share": "Share",
+        "blog": "Blog",
+        "about": "About the podcast",
+        "guests": "Guests",
+        "chapters": "Chapters",
+        "page_not_found": "Page not found",
+        "home": "Home",
+        "hosts": "Meet the hosts",
+        "latest_episode": "Latest episode",
+        "read_more": "Read more",
+        "guest": "Guest",
+        "links": "Links",
+        "description": "Show notes"
+    },
+    "view": {
+        "name": "home"
+    },
+    "is_podcast": true,
+    "main_artwork": "/static/artwork.png",
+    "social_links": [
+        {
+            "link_class": "facebook",
+            "link_title": "Facebook",
+            "link_url": "javascript:;"
+        },
+        {
+            "link_class": "twitter",
+            "link_title": "Twitter",
+            "link_url": "javascript:;"
+        }
+    ],
+    "pinned_blog_posts": [],
+    "main_menu": [
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Home",
+            "menu_item_url": "/foo/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Blog",
+            "menu_item_url": "/foo/b/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "About the show",
+            "menu_item_url": "/foo/about/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Meet the hosts",
+            "menu_item_url": "/foo/hosts/"
+        },
+        {
+            "menu_item_selected": false,
+            "menu_item_title": "Guests",
+            "menu_item_url": "/foo/g/"
+        }
+    ],
+    "query": "lorem ipsum",
+    "object_list": [
+        {
+            "url": "/foo/e/5ad12bf31017a/",
+            "title": "The kitchen sink",
+            "title_highlighted": "The kitchen sink",
+            "description_highlighted": "This episode has everything you might expect to have to style in a theme",
+            "description": "This episode has everything you might expect to have to style in a theme",
+            "image": "/static/1.png"
+        },
+        {
+            "url": "/foo/e/5ad12bf813672/",
+            "title": "Donec erat velit, pulvinar a nunc quis",
+            "title_highlighted": "Donec erat velit, <strong>pulvinar a nunc</strong> quis",
+            "description_highlighted": "...<strong>ultricies quis elit et</strong>, sollicitudin malesuada dui. Nam quam urna, accumsan sed lacus et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque...",
+            "description": "Morbi massa diam, ultricies quis elit et, sollicitudin malesuada dui. Nam quam urna, accumsan sed lacus et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque...",
+            "image": "/static/6.png"
+        },
+        {
+            "url": "/foo/e/5ad12bfe1649e/",
+            "title": "Phasellus fermentum justo vel odio tincidunt",
+            "title_highlighted": "...<strong>justo vel odio</strong> tincidunt",
+            "description_highlighted": "Morbi massa diam, ultricies quis elit et, sollicitudin malesuada dui. Nam quam urna, accumsan sed lacus et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque...",
+            "description": "...Nam quam urna, <strong>accumsan sed lacus</strong> et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque...",
+            "image": "/static/12.png"
+        }
+    ]
+}

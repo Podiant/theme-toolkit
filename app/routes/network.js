@@ -70,11 +70,11 @@ module.exports = {
             }
         );
     },
-    '/search/': function(slug) {
+    '/search/': function() {
         var self = this;
         var page = self.GET.page ? parseInt(self.GET.page) : 1;
 
-        return self.data('network/search_results').then(
+        return self.data('network/network_search_results').then(
             function(context) {
                 context.page_obj = new Paginator(context.object_list, page);
                 return self.template('search_list', context);
@@ -148,6 +148,17 @@ module.exports = {
         return self.data('network/podcast_hosts').then(
             function(context) {
                 return self.template('host_list', context);
+            }
+        );
+    },
+    '/:podcast/search/': function(podcast) {
+        var self = this;
+        var page = self.GET.page ? parseInt(self.GET.page) : 1;
+
+        return self.data('network/podcast_search_results').then(
+            function(context) {
+                context.page_obj = new Paginator(context.object_list, page);
+                return self.template('search_list', context);
             }
         );
     }
