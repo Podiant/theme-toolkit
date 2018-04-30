@@ -17,6 +17,8 @@ module.exports = {
             case 'episodes':
                 return self.data('network/home').then(
                     function(context) {
+                        context.page_obj = new Paginator(context.object_list, page);
+
                         if(page > 1) {
                             return self.template('episode_list', context);
                         }
