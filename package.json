@@ -24,7 +24,7 @@
   "homepage": "https://github.com/Podiant/theme-toolkit#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.18.10"
   },
   "dependencies": {
     "chalk": "^2.3.2",
