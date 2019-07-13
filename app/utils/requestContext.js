@@ -101,7 +101,40 @@ module.exports = function(renderingContext, meta) {
                                 baseContext, subContext
                             );
 
-                            var wrapBase = function(html, css) {
+                            var wrapInjections = function() {
+                                var componentsFilename = path.join(
+                                    __dirname,
+                                    '../',
+                                    '../',
+                                    'theme',
+                                    'components.json'
+                                );
+
+                                return new Promise(
+                                    function(resolve, reject) {
+                                        if (fs.existsSync(componentsFilename)) {
+                                            fs.readFile(
+                                                componentsFilename,
+                                                'utf8',
+                                                function(err, content) {
+                                                    if(err) {
+                                                        reject(err);
+                                                        return;
+                                                    }
+
+                                                    resolve(
+                                                        content ? JSON.parse(content) : []
+                                                    );
+                                                }
+                                            );
+                                        } else {
+                                            resolve('');
+                                        }
+                                    }
+                                );
+                            }
+
+                            var wrapBase = function(html, css, components) {
                                 return new Template(
                                     renderingContext,
                                     'templates/base.hbs',
@@ -111,6 +144,42 @@ module.exports = function(renderingContext, meta) {
                                         },
                                         html_block: function() {
                                             return html;
+                                        },
+                                        theme_head: function() {
+                                            if(!Array.isArray(components)) {
+                                                return '';
+                                            }
+
+                                            var h = '';
+                                            var url = function(component, path) {
+                                                return `https://cdnjs.cloudflare.com/ajax/libs/${component.library}/${component.version}/${path}`;
+                                            };
+
+                                            var component = function(component) {
+                                                var t = '';
+
+                                                if (Array.isArray(component.css)) {
+                                                    for(var i = 0; i < component.css.length; i ++) {
+                                                        t += '<link rel="stylesheet" href="' + url(component, component.css[i]) + '">';
+                                                    }
+                                                }
+
+                                                if (Array.isArray(component.js)) {
+                                                    for(var i = 0; i < component.js.length; i ++) {
+                                                        t += '<script src="' + url(component, component.js[i]) + '"></script>';
+                                                    }
+                                                }
+
+                                                return t;
+                                            };
+
+                                            for (var i = 0; i < components.length; i ++) {
+                                                h += component(
+                                                    components[i]
+                                                );
+                                            }
+
+                                            return Template.safe(h);
                                         }
                                     }
                                 ).render();
@@ -142,17 +211,25 @@ module.exports = function(renderingContext, meta) {
                                         function(rendered2) {
                                             wrapCSS().then(
                                                 function(rendered3) {
-                                                    wrapBase(rendered2, rendered3).then(
-                                                        function(html) {
-                                                            self.html(html).then(
-                                                                resolve
-                                                            ).catch(
-                                                                reject
-                                                            );
+                                                    wrapInjections().then(
+                                                        function(injections) {
+                                                            wrapBase(
+                                                                rendered2,
+                                                                rendered3,
+                                                                injections
+                                                            ).then(
+                                                                function(html) {
+                                                                    self.html(html).then(
+                                                                        resolve
+                                                                    ).catch(
+                                                                        reject
+                                                                    );
+                                                                }
+                                                            ).catch(reject);
                                                         }
-                                                    ).catch(reject)
+                                                    ).catch(reject);
                                                 }
-                                            )
+                                            );
                                         }
                                     ).catch(reject);
                                 }
