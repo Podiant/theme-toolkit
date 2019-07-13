@@ -188,6 +188,7 @@
         "published": "2016-07-21 06:06:56",
         "iframe": "<iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe>",
         "button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
+        "mini_player": "<iframe src=\"/iframe-mini/\" width=\"100%\" height=\"40\" frameborder=\"0\"></iframe>",
         "share_url": ".",
         "download_url": "javascript:;",
         "filesize": "82.2 MB",

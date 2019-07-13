@@ -25,6 +25,9 @@ module.exports = {
     '/iframe/': function(slug) {
         return this.static('iframe.html');
     },
+    '/iframe-mini/': function(slug) {
+        return this.static('iframe-mini.html');
+    },
     '/button/': function(slug) {
         return this.static('button.html');
     },
