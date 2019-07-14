@@ -1,7 +1,7 @@
 var Handlebars = require('handlebars');
 var fs = require('fs');
 var path = require('path');
-var moment = require('moment');
+var helpers = require('../helpers/index');
 
 var Template = function(baseContext, filename, helpers) {
     switch(baseContext) {
@@ -55,39 +55,9 @@ var Template = function(baseContext, filename, helpers) {
     return self;
 };
 
-Handlebars.registerHelper('date',
-    function(value, format) {
-        return moment(value).format(format);
-    }
-);
-
-Handlebars.registerHelper('exists',
-    function(value, context) {
-        if(value === undefined || value === null) {
-            return context.inverse(this);
-        }
-
-        if(Array.isArray(value)) {
-            if(!value.length) {
-                return context.inverse(this);
-            }
-        } else {
-            if(!Object.keys(value).length) {
-                return context.inverse(this);
-            }
-        }
-
-        if(value) {
-            return context.fn(this);
-        }
-
-        return context.inverse(this);
-    }
-);
-
-Handlebars.registerHelper('yield',
-    function(block) {
-        return block;
+Object.keys(helpers).forEach(
+    (key) => {
+        Handlebars.registerHelper(key, helpers[key]);
     }
 );
 
