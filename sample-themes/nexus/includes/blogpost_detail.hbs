@@ -1,68 +1,68 @@
 <!-- The blog post template, shown when a user visits a specific blog post -->
 
 {{# with object }}
-    <!--
-    "object" is the name of the main variable. It's a bit like using a loop,
-    but it sets the context for the rest of the template so that you can refer
-    to properties inside the object, without having to write "{{ object.title }}"
-    for example
-    -->
+  <!--
+  "object" is the name of the main variable. It's a bit like using a loop,
+  but it sets the context for the rest of the template so that you can refer
+  to properties inside the object, without having to write "{{ object.title }}"
+  for example
+  -->
 
-    <!-- If the blog post contains an image, show it here -->
-    {{# exists image }}
-        <div class="unit">
-            <img src="{{ image }}" />
+  <!-- If the blog post contains an image, show it here -->
+  {{# exists image }}
+    <div class="unit">
+      <img src="{{ image }}" />
+    </div>
+  {{/ exists }}
+
+  &nbsp;
+
+  <article class="post">
+    <div class="row">
+      <div class="col-md-1 hidden-sm hidden-xs">
+        <!-- Links to share content via Twitter, Facebook and Pinterest -->
+        <ul class="share buttons">
+          <li class="twitter"><a href="{{ share_urls.twitter_share_url }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li class="facebook"><a href="{{ share_urls.facebook_share_url }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li class="pinterest"><a href="{{ share_urls.pinterest_share_url }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-11 col-xs-12">
+        <div class="body">
+          {{# exists title }}
+            <h1><a href="{{ share_url }}">{{ title }}</a></h1>
+          {{/ exists }}
+
+          <!-- Some blog posts have embeddable content, like polls or videos. Show that here -->
+          {{# exists embed }}{{{ embed }}}{{/ exists }}
+
+          <!-- Show the text of the post, if there is any -->
+          {{# exists description }}{{{ description }}}{{/ exists }}
         </div>
-    {{/ exists }}
+      </div>
+    </div>
+  </article>
 
-    &nbsp;
+  <hr />
 
-    <article class="post">
-        <div class="row">
-            <div class="col-md-1 hidden-sm hidden-xs">
-                <!-- Links to share content via Twitter, Facebook and Pinterest -->
-                <ul class="share buttons">
-                    <li class="twitter"><a href="{{ share_urls.twitter_share_url }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                    <li class="facebook"><a href="{{ share_urls.facebook_share_url }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                    <li class="pinterest"><a href="{{ share_urls.pinterest_share_url }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-                </ul>
-            </div>
+  <!-- Show the published date of the blog post -->
+  <i class="fa fa-calendar"></i>
+  <span>{{ date published ../theme_options.date_format }}</span>
 
-            <div class="col-md-11 col-xs-12">
-                <div class="body">
-                    {{# exists title }}
-                        <h1><a href="{{ share_url }}">{{ title }}</a></h1>
-                    {{/ exists }}
+  <span class="pull-right">
+    <!-- Write the word "Share" -->
+    {{ ../strings.share }}&nbsp;&nbsp;
+    {{# with share_urls }}
+      <!-- Links to share content via Twitter, Facebook and Pinterest -->
+      <a href="{{ twitter_share_url }}" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="{{ facebook_share_url }}" target="_blank"><i class="fa fa-facebook"></i></a>
+      <a href="{{ pinterest_share_url }}" target="_blank"><i class="fa fa-pinterest"></i></a>
+    {{/ with }}
+  </span>
 
-                    <!-- Some blog posts have embeddable content, like polls or videos. Show that here -->
-                    {{# exists embed }}{{{ embed }}}{{/ exists }}
+  <hr />
 
-                    <!-- Show the text of the post, if there is any -->
-                    {{# exists description }}{{{ description }}}{{/ exists }}
-                </div>
-            </div>
-        </div>
-    </article>
-
-    <hr>
-
-    <!-- Show the published date of the blog post -->
-    <i class="fa fa-calendar"></i>
-    <span>{{ date published 'MMMM D YYYY' }}</span>
-
-    <span class="pull-right">
-        <!-- Write the word "Share" -->
-        {{ ../strings.share }}&nbsp;&nbsp;
-        {{# with share_urls }}
-            <!-- Links to share content via Twitter, Facebook and Pinterest -->
-            <a href="{{ twitter_share_url }}" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="{{ facebook_share_url }}" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="{{ pinterest_share_url }}" target="_blank"><i class="fa fa-pinterest"></i></a>
-        {{/ with }}
-    </span>
-
-    <hr>
-
-    <!-- Show the commnets section, if the podcaster has enabled it -->
-    {{ yield comments }}
+  <!-- Show the commnets section, if the podcaster has enabled it -->
+  {{ yield comments }}
 {{/ with }}

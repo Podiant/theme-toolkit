@@ -2,56 +2,56 @@
 
 <!-- Show the relevant page title -->
 {{# if is_network }}
-    <h1>{{ network_strings.hosts }}</h1>
+  <h1>{{ network_strings.hosts }}</h1>
 {{ else }}
-    <h1>{{ strings.hosts }}</h1>
+  <h1>{{ strings.hosts }}</h1>
 {{/ if }}
 
 <div class="media-list">
-    <!-- Loop through the hosts -->
-    {{# each object_list }}
-        <div id="host-{{ _id }}" class="media">
-            <div class="media-left">
-                {{# exists image }}
-                    <!-- Add the host's image, linking to this section in the page -->
-                    <img src="{{ image }}" class="media-object" width="150" height="150" style="max-width: none;">
-                {{/ exists }}
-            </div>
+  <!-- Loop through the hosts -->
+  {{# each object_list }}
+    <div id="host-{{ _id }}" class="media">
+      <div class="media-left">
+        {{# exists image }}
+          <!-- Add the host's image, linking to this section in the page -->
+          <img src="{{ image }}" class="media-object" width="150" height="150" style="max-width: none;" />
+        {{/ exists }}
+      </div>
 
-            <div class="media-body">
-                <!-- Show the host's name -->
-                <h2 class="media-heading">{{ title }}</h2>
+      <div class="media-body">
+        <!-- Show the host's name -->
+        <h2 class="media-heading">{{ title }}</h2>
 
-                <!--
-                Show the host's biography. Use three braces to ensure content that
-                contains HTML displays correctly
-                -->
-                {{{ description }}}
+        <!--
+        Show the host's biography. Use three braces to ensure content that
+        contains HTML displays correctly
+        -->
+        {{{ description }}}
 
-                <!-- If in network mode, show a list of the podcasts this person hosts -->
-                {{# if ../is_network }}
-                    <p>
-                        Host of
-                        {{# each hosted_podcasts }}
-                            <a href="{{ podcast_url }}">
-                                <!-- Show the podcast artwork and name, and link to the podcast -->
-                                <img src="{{ podcast_image }}" title="{{ podcast_name }}" width="30" />
-                                {{ podcast_name }}
-                            </a>
-                        {{/ each }}
-                    </p>
-                {{/ if }}
+        <!-- If in network mode, show a list of the podcasts this person hosts -->
+        {{# if ../is_network }}
+          <p>
+            Host of
+            {{# each hosted_podcasts }}
+              <a href="{{ podcast_url }}">
+                <!-- Show the podcast artwork and name, and link to the podcast -->
+                <img src="{{ podcast_image }}" title="{{ podcast_name }}" width="30" />
+                {{ podcast_name }}
+              </a>
+            {{/ each }}
+          </p>
+        {{/ if }}
 
-                <small>
-                    <!-- Loop through any links to the host's websites -->
-                    {{# each links }}
-                        <a href="{{ link_url }}" class="text-muted" target="_blank">
-                            <i class="fa fa-{{ link_class }}"></i>
-                            {{ link_title }}
-                        </a>
-                    {{/ each }}
-                </small>
-            </div>
-        </div>
-    {{/ each }}
+        <small>
+          <!-- Loop through any links to the host's websites -->
+          {{# each links }}
+            <a href="{{ link_url }}" class="text-muted" target="_blank">
+              <i class="fa fa-{{ link_class }}"></i>
+              {{ link_title }}
+            </a>
+          {{/ each }}
+        </small>
+      </div>
+    </div>
+  {{/ each }}
 </div>
