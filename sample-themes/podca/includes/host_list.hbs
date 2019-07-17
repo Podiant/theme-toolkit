@@ -1,0 +1,51 @@
+<!-- The host list template, shown when the user visits the "Meet the hosts" page -->
+
+<!-- Add a top section with the word "Hosts" -->
+<section class="site-blocks-cover overlay inner-page-cover"{{# if podcast_banner_image }} style="background-image: url('{{ podcast_banner_image }}');"{{/ if }} data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row align-items-center justify-content-center text-center">
+      <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+        <h2 class="text-white font-weight-light mb-2 display-4">{{ strings.hosts }}</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main id="main" class="site-section">
+  <div class="container">
+    <div class="row">
+      <!--
+      Create a number of half-size empty grid columns so that the number of
+      hosts is always centred, even if there are fewer than 3 or the number
+      of hosts is not a multiple of 3.
+      -->
+
+      {{# grid_offset object_list.length 3 }}
+        <div class="col-md-3 col-lg-2 mb-5 mb-lg-5">&nbsp;</div>
+      {{/ grid_offset }}
+
+      <!-- Loop through the list of hosts -->
+      {{# each object_list }}
+        <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+          <div class="team-member">
+            <!-- Add the host's photo -->
+            <img src="{{ image }}" alt="Image" class="img-fluid" style="width: 100%;">
+
+            <div class="text">
+              <!-- Add the host's name, bio and a list of links with icons -->
+              <h2 class="mb-2 font-weight-light h4">{{ name }}</h2>
+              {{{ description }}}
+              <p>
+                {{# each links }}
+                  <a href="{{ link_url }}" class="text-white p-2" target="_blank" rel="noreferrer">
+                    <span class="fa fa-{{ link_class }}"></span>
+                  </a>
+                {{/ each }}
+              </p>
+            </div>
+          </div>
+        </div>
+      {{/ each }}
+    </div>
+  </div>
+</main>
