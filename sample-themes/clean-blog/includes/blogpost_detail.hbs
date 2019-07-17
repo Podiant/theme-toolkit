@@ -1,45 +1,45 @@
 <!-- The blog post template, shown when a user visits a specific blog post -->
 
 <header class="masthead" style="background-color: {{ podcast_banner_colour }}; background-image: url('{{# exists object.image }}{{ object.image }}{{ else }}{{ podcast_banner_image }}{{/ exists }}')">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="post-heading">
-                    <h1>{{ object.title }}</h1>
-                    {{# exists object.subtitle }}<h2 class="subheading">{{ object.subtitle }}</h2>{{/ exists }}
-                    {{# exists object.published }}
-                        <span class="meta">
-                            Published on {{ date object.published 'MMMM D, YYYY' }}
-                        </span>
-                    {{/ exists }}
-                </div>
-            </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{ object.title }}</h1>
+          {{# exists object.subtitle }}<h2 class="subheading">{{ object.subtitle }}</h2>{{/ exists }}
+          {{# exists object.published }}
+            <span class="meta">
+              Published on {{ date object.published theme_options.date_format }}
+            </span>
+          {{/ exists }}
         </div>
+      </div>
     </div>
+  </div>
 </header>
 
 {{# with object }}
-    <!--
-    "object" is the name of the main variable. It's a bit like using a loop,
-    but it sets the context for the rest of the template so that you can refer
-    to properties inside the object, without having to write "{{ object.title }}"
-    for example
-    -->
+  <!--
+  "object" is the name of the main variable. It's a bit like using a loop,
+  but it sets the context for the rest of the template so that you can refer
+  to properties inside the object, without having to write "{{ object.title }}"
+  for example
+  -->
 
-    <article>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    {{# exists embed }}<div class="responsive-embed">{{{ embed }}}</div>{{/ exists }}
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          {{# exists embed }}<div class="responsive-embed">{{{ embed }}}</div>{{/ exists }}
 
-                    {{# exists image }}
-                        <img src="{{ image }}" style="max-width: 100%;" />
-                    {{/ exists }}
+          {{# exists image }}
+            <img src="{{ image }}" style="max-width: 100%;" />
+          {{/ exists }}
 
-                    {{# exists description }}{{{ description }}}{{/ exists }}
-                </div>
-            </div>
+          {{# exists description }}{{{ description }}}{{/ exists }}
         </div>
-    </article>
+      </div>
+    </div>
+  </article>
 {{/ with }}

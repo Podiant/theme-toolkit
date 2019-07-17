@@ -2,53 +2,53 @@
 
 <!-- Page Header -->
 <header class="masthead" style="background-color: {{ podcast_banner_colour }}; background-image: url('{{ podcast_banner_image }}')">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="post-heading">
-                    <h1>{{ strings.guests }}</h1>
-                </div>
-            </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-heading">
+          <h1>{{ strings.guests }}</h1>
         </div>
+      </div>
     </div>
+  </div>
 </header>
 
 <article>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <ul class="list-unstyled">
-                    {{# each page_obj.object_list }}
-                        <li class="media my-4">
-                            <a class="mr-3" href="{{ share_url }}">
-                                <img src="{{ image }}" class="" width="150" height="150">
-                            </a>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-unstyled">
+          {{# each page_obj.object_list }}
+            <li class="media my-4">
+              <a class="mr-3" href="{{ share_url }}">
+                <img src="{{ image }}" class="" width="150" height="150" />
+              </a>
 
-                            <div class="media-body">
-                                <h2 class="mt-0 mb-1">
-                                    <a href="{{ share_url }}">{{ title }}</a>
-                                </h2>
-                                {{{ description }}}
-                            </div>
-                        </li>
-                    {{/ each }}
-                </ul>
+              <div class="media-body">
+                <h2 class="mt-0 mb-1">
+                  <a href="{{ share_url }}">{{ title }}</a>
+                </h2>
+                {{{ description }}}
+              </div>
+            </li>
+          {{/ each }}
+        </ul>
 
-                <!--
-                If there are any more guests to view, add previous/next page links and a
-                range of buttons linking to individual pages
-                -->
-                <div class="clearfix">
-                    {{# if page_obj.has_previous }}
-                            <a class="btn btn-primary float-left" href="?page={{ page_obj.previous_page_number }}">&larr; Previous Page</a>
-                    {{/ if }}
+        <!--
+        If there are any more guests to view, add previous/next page links and a
+        range of buttons linking to individual pages
+        -->
+        <div class="clearfix">
+          {{# if page_obj.has_previous }}
+            <a class="btn btn-primary float-left" href="?page={{ page_obj.previous_page_number }}">&larr; {{ theme_options.string_guest_list_next }}</a>
+          {{/ if }}
 
-                    {{# if page_obj.has_next }}
-                        <a class="btn btn-primary float-right" href="?page={{ page_obj.next_page_number }}">Next Page &rarr;</a>
-                    {{/ if }}
-                </div>
-            </div>
+          {{# if page_obj.has_next }}
+            <a class="btn btn-primary float-right" href="?page={{ page_obj.next_page_number }}">{{ theme_options.string_guest_list_next }} &rarr;</a>
+          {{/ if }}
         </div>
+      </div>
     </div>
+  </div>
 </article>
