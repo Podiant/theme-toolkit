@@ -30,10 +30,9 @@ var Template = function(baseContext, filename, helpers) {
 
                             try {
                                 var compiled = Handlebars.compile(data);
+                                var final = compiled(context);
 
-                                resolve(
-                                    compiled(context)
-                                );
+                                resolve(final);
                             } catch(err) {
                                 reject(err);
                             }

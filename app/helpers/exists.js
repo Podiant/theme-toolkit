@@ -18,4 +18,4 @@ module.exports = function exists(value, context) {
     }
 
     return context.inverse(this);
-}
+};

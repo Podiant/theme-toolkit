@@ -95,7 +95,60 @@ module.exports = function(renderingContext, meta) {
                         return;
                     }
 
-                    self.data(renderingContext + '/base').then(
+                    var baseData = function() {
+                        return new Promise(
+                            function(resolve, reject) {
+                                var optionsFilename = path.join(
+                                    __dirname,
+                                    '../',
+                                    '../',
+                                    'theme',
+                                    'options.json'
+                                );
+
+                                self.data(renderingContext + '/base').then(
+                                    function(data) {
+                                        try {
+                                            if (fs.existsSync(optionsFilename)) {
+                                                fs.readFile(
+                                                    optionsFilename,
+                                                    'utf8',
+                                                    function(err, content) {
+                                                        if(err) {
+                                                            reject(err);
+                                                            return;
+                                                        }
+
+                                                        var themeOptions = {};
+
+                                                        JSON.parse(content).forEach(
+                                                            function(fieldset) {
+                                                                fieldset[1].fields.forEach(
+                                                                    function(field) {
+                                                                        if(field.default) {
+                                                                            themeOptions[field.name] = field.default;
+                                                                        }
+                                                                    }
+                                                                )
+                                                            }
+                                                        );
+
+                                                        data.theme_options = themeOptions;
+                                                    }
+                                                );
+                                            }
+
+                                            resolve(data);
+                                        } catch (err) {
+                                            reject(err);
+                                        }
+                                    }
+                                );
+                            }
+                        );
+                    };
+
+                    baseData().then(
                         function(baseContext) {
                             var context = extend(
                                 baseContext, subContext
