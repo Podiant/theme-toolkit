@@ -3,5 +3,6 @@ module.exports = {
     exists: require('./exists'),
     yield: require('./yield'),
     grid_offset: require('./grid-offset'),
+    tokenize: require('./tokenize'),
     urlencode: require('./urlencode')
 };
