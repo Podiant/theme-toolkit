@@ -1,65 +1,65 @@
 <!-- The blog post template, shown when a user visits a specific blog post -->
 
 {{# with object }}
-    <!--
-    "object" is the name of the main variable. It's a bit like using a loop,
-    but it sets the context for the rest of the template so that you can refer
-    to properties inside the object, without having to write "{{ object.title }}"
-    for example
-    -->
+  <!--
+  "object" is the name of the main variable. It's a bit like using a loop,
+  but it sets the context for the rest of the template so that you can refer
+  to properties inside the object, without having to write "{{ object.title }}"
+  for example
+  -->
 
-    <article class="single post">
-        <header>
-            <span class="date">
-                <span class="day">{{ date published 'D' }}</span>
-                <span class="month-short">{{ date published 'MMM' }}</span>
-                <span class="month-long">{{ date published 'MMMM' }}</span>
-            </span>
+  <article class="single post">
+    <header>
+      <span class="date">
+        <span class="day">{{ date published 'D' }}</span>
+        <span class="month-short">{{ date published 'MMM' }}</span>
+        <span class="month-long">{{ date published 'MMMM' }}</span>
+      </span>
 
-            <!-- Not all blog posts need a title. Only show this section if a title is set -->
-            {{# exists title }}
-                <h2 class="article-title">
-                    <a href="{{ link_url }}"{{{ link_target }}}>{{ title }}</a>
-                </h2>
-            {{/ exists }}
-        </header>
+      <!-- Not all blog posts need a title. Only show this section if a title is set -->
+      {{# exists title }}
+        <h2 class="article-title">
+          <a href="{{ link_url }}"{{{ link_target }}}>{{ title }}</a>
+        </h2>
+      {{/ exists }}
+    </header>
 
-        <section class="body">
-            <!-- If the blog post contains an image, show it here -->
-            {{# exists image }}
-                <a href="{{ link_url }}"{{{ link_target }}}>
-                    <img src="{{ image }}" style="max-width: 100%;">
-                </a>
-            {{/ exists }}
+    <section class="body">
+      <!-- If the blog post contains an image, show it here -->
+      {{# exists image }}
+        <a href="{{ link_url }}"{{{ link_target }}}>
+          <img src="{{ image }}" style="max-width: 100%;" />
+        </a>
+      {{/ exists }}
 
-            <!-- Some blog posts have embeddable content, like polls or videos. Show that here -->
-            {{# exists embed }}{{{ embed }}}{{/ exists }}
+      <!-- Some blog posts have embeddable content, like polls or videos. Show that here -->
+      {{# exists embed }}{{{ embed }}}{{/ exists }}
 
-            <!-- Show the text of the post, if there is any -->
-            {{# exists description }}{{{ description }}}{{/ exists }}
-        </section>
+      <!-- Show the text of the post, if there is any -->
+      {{# exists description }}{{{ description }}}{{/ exists }}
+    </section>
 
-        <section class="comments">
-            <!-- Show the commnets section, if the podcaster has enabled it -->
-            {{ yield comments }}
-        </section>
+    <section class="comments">
+      <!-- Show the commnets section, if the podcaster has enabled it -->
+      {{ yield comments }}
+    </section>
 
-        <footer>
-            <!-- Show the published date of the blog post -->
-            <i class="fa fa-calendar"></i>
-            {{ date published 'MMMM D, YYYY' }}
+    <footer>
+      <!-- Show the published date of the blog post -->
+      <i class="fa fa-calendar"></i>
+      {{ date published ../theme_options.date_format }}
 
-            <span class="pull-right">
-                <!-- Write the word "Share" -->
-                {{ ../strings.share }}&nbsp;&nbsp;
+      <span class="pull-right">
+        <!-- Write the word "Share" -->
+        {{ ../strings.share }}&nbsp;&nbsp;
 
-                {{# with share_urls }}
-                    <!-- Links to share content via Twitter, Facebook and Pinterest -->
-                    <a href="{{ twitter_share_url }}" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a href="{{ facebook_share_url }}" target="_blank"><i class="fa fa-facebook"></i></a>
-                    <a href="{{ pinterest_share_url }}" target="_blank"><i class="fa fa-pinterest"></i></a>
-                {{/ with }}
-            </span>
-        </footer>
-    </article>
+        {{# with share_urls }}
+          <!-- Links to share content via Twitter, Facebook and Pinterest -->
+          <a href="{{ twitter_share_url }}" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a href="{{ facebook_share_url }}" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="{{ pinterest_share_url }}" target="_blank"><i class="fa fa-pinterest"></i></a>
+        {{/ with }}
+      </span>
+    </footer>
+  </article>
 {{/ with }}

@@ -1,170 +1,170 @@
 <section class="episodes">
-    <!-- If there is a published episode, show it here -->
-    {{# with page_obj.first_object }}
-        <h2 class="welcome">{{ ../strings.latest_episode }}</h2>
+  <!-- If there is a published episode, show it here -->
+  {{# with page_obj.first_object }}
+    <h2 class="welcome">{{ ../strings.latest_episode }}</h2>
 
-        <article class="episode in-list" data-id="episode-{{ slug }}">
-            <header>
-                <span class="date">
-                    <span class="day">{{ date published 'D' }}</span>
-                    <span class="month-short">{{ date published 'MMM' }}</span>
-                    <span class="month-long">{{ date published 'MMMM' }}</span>
-                </span>
+    <article class="episode in-list" data-id="episode-{{ slug }}">
+      <header>
+        <span class="date">
+          <span class="day">{{ date published 'D' }}</span>
+          <span class="month-short">{{ date published 'MMM' }}</span>
+          <span class="month-long">{{ date published 'MMMM' }}</span>
+        </span>
 
-                <!-- Link to the episode and show the title and subtitle -->
-                <h1 class="article-title">
-                    <a href="{{ share_url }}">{{ title }}</a>
-                    <small class="article-subtitle">{{ subtitle }}</small>
-                </h1>
-            </header>
+        <!-- Link to the episode and show the title and subtitle -->
+        <h1 class="article-title">
+          <a href="{{ share_url }}">{{ title }}</a>
+          <small class="article-subtitle">{{ subtitle }}</small>
+        </h1>
+      </header>
 
-            <!-- Show the player -->
-            {{{ iframe }}}
+      <!-- Show the player -->
+      {{{ iframe }}}
 
-            <section class="body">
-                <!-- Show a summary of the episode -->
-                {{{ summary }}}
-            </section>
+      <section class="body">
+        <!-- Show a summary of the episode -->
+        {{{ summary }}}
+      </section>
 
-            <footer>
-                <!-- Link to the episode and write the words "Read more" -->
-                <a href="{{ share_url }}">
-                    <i class="fa fa-eye"></i>
-                    {{ ../strings.read_more }}
-                </a>
+      <footer>
+        <!-- Link to the episode and write the words "Read more" -->
+        <a href="{{ share_url }}">
+          <i class="fa fa-eye"></i>
+          {{ ../strings.read_more }}
+        </a>
 
-                <!-- Link to the downloadable file for the episode, and show the filesize -->
-                <a href="{{ download_url }}" download>
-                    <i class="fa fa-download"></i>
-                    {{ ../strings.download_episode }} ({{ filesize }})
-                </a>
+        <!-- Link to the downloadable file for the episode, and show the filesize -->
+        <a href="{{ download_url }}" download>
+          <i class="fa fa-download"></i>
+          {{ ../strings.download_episode }} ({{ filesize }})
+        </a>
 
-                <!-- If the episode has a published date, show it -->
-                <i class="fa fa-calendar"></i>
-                {{ date published 'MMMM D, YYYY' }}
+        <!-- If the episode has a published date, show it -->
+        <i class="fa fa-calendar"></i>
+        {{ date published ../theme_options.date_format }}
 
-                <span class="pull-right">
-                    <!-- Write the word "Share" -->
-                    {{ ../strings.share }}&nbsp;&nbsp;
+        <span class="pull-right">
+          <!-- Write the word "Share" -->
+          {{ ../strings.share }}&nbsp;&nbsp;
 
-                    {{# with share_urls }}
-                        <!-- Links to share content via Twitter, Facebook and Pinterest -->
-                        <a href="{{ twitter_share_url }}" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a href="{{ facebook_share_url }}" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="{{ pinterest_share_url }}" target="_blank"><i class="fa fa-pinterest"></i></a>
-                    {{/ with }}
-                </span>
+          {{# with share_urls }}
+            <!-- Links to share content via Twitter, Facebook and Pinterest -->
+            <a href="{{ twitter_share_url }}" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="{{ facebook_share_url }}" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="{{ pinterest_share_url }}" target="_blank"><i class="fa fa-pinterest"></i></a>
+          {{/ with }}
+        </span>
 
-                <div class="clearfix guest-footer hidden-xs">
-                    <!-- Show this footer on tablet and desktop -->
-                    {{# each guests }}
-                        <a href="{{ guest_url }}">
-                            <img class="img-circle" src="{{ guest_image }}" width="32" alt="{{ guest_name }}">
-                        </a>
-                    {{/ each }}
-                </div>
-            </footer>
-        </article>
-    {{/ with }}
-
-    {{# unless page_obj.count }}
-        <!-- Show this text if no episodes have been published yet -->
-        <p>There are no published episodes yet.</p>
-    {{/ unless }}
-
-    <article class="about well">
-        <!-- Write the words "About the podcast" -->
-        <h2>{{ ../strings.about }}</h2>
-
-        <div class="body">
-            <!--
-            Show the episode description. Use three braces to ensure content
-            that contains HTML displays correctly
-            -->
-            {{{ podcast_description }}}
+        <div class="clearfix guest-footer hidden-xs">
+          <!-- Show this footer on tablet and desktop -->
+          {{# each guests }}
+            <a href="{{ guest_url }}">
+              <img class="img-circle" src="{{ guest_image }}" width="32" alt="{{ guest_name }}" />
+            </a>
+          {{/ each }}
         </div>
-
-        <!-- List of subscription links (Apple Podcasts, Pocket Casts, Overcast, etc) on tablet and desktop -->
-        <ul class="nav nav-pills subscribe-pills">
-            {{# each subscription_links }}
-                <li class="subscribe-{{ link_class }}">
-                    <a href="{{ link_url }}" target="_blank">
-                        <img src="{{ link_icon }}">&nbsp;
-                        {{ link_title }}
-                    </a>
-                </li>
-            {{/ each }}
-        </ul>
+      </footer>
     </article>
+  {{/ with }}
 
-    {{# each pinned_blog_posts }}
-        <!-- Loop through any pinned blog posts. There should either be 0 or 1 -->
-        <article class="post in-list">
-            <!-- Not all blog posts need a title. Only show this section if a title is set -->
-            {{# exists post_title }}
-                <header>
-                    <h2 class="article-title">
-                        <!-- Link to the post and show the title -->
-                        <a href="{{ post_url }}">{{ post_title }}</a>
-                    </h2>
-                </header>
-            {{/ exists }}
+  {{# unless page_obj.count }}
+    <!-- Show this text if no episodes have been published yet -->
+    <p>There are no published episodes yet.</p>
+  {{/ unless }}
 
-            <section class="body">
-                <!-- If the blog post contains an image, show it here -->
-                {{# exists post_image }}
-                    <a href="{{ post_url }}">
-                        <img src="{{ post_image }}" style="max-width: 100%;">
-                    </a>
-                {{/ exists }}
+  <article class="about well">
+    <!-- Write the words "About the podcast" -->
+    <h2>{{ ../strings.about }}</h2>
 
-                <!-- Some blog posts have embeddable content, like polls or videos. Show that here -->
-                {{# exists post_embed }}{{{ post_embed }}}{{/ exists }}
-
-                <!-- Show an excerpt of the post, if there is any text -->
-                {{# exists post_summary }}{{{ post_summary }}}{{/ exists }}
-            </section>
-
-            <footer>
-                <!-- Show the published date of the blog post, linking to the blog post -->
-                <a href="{{ post_url }}">
-                    <i class="fa fa-eye"></i>
-                    {{ ../strings.read_more }}
-                </a>
-            </footer>
-        </article>
-    {{/ each }}
-
-    <!--
-    All of that was just to show the first episode and any pinned blog posts,
-    along with info about the podcast. Now we're going to list the remaining
-    episodes in the podcast
-    -->
-
-    <div class="row">
-        <!-- Loop through each subsequent episode in the list (all but the first) -->
-        {{# each page_obj.subsequent_objects }}
-            <div class="col-md-4">
-                <article class="episode in-list grid-item">
-                    <a class="hidden-xs hidden-sm" href="{{ share_url }}">
-                        <img src="{{ image }}" width="262" height="262">
-                    </a>
-
-                    <header>
-                        <!-- Link to the episode and show the title and subtitle -->
-                        <h3 class="article-title">
-                            <a href="{{ share_url }}">{{ title }}</a>
-                        </h3>
-                    </header>
-
-                    <div class="body">
-                        <!-- Show a summary of the episode -->
-                        {{{ summary }}}
-                    </div>
-                </article>
-            </div>
-        {{/ each }}
+    <div class="body">
+      <!--
+      Show the episode description. Use three braces to ensure content
+      that contains HTML displays correctly
+      -->
+      {{{ podcast_description }}}
     </div>
+
+    <!-- List of subscription links (Apple Podcasts, Pocket Casts, Overcast, etc) on tablet and desktop -->
+    <ul class="nav nav-pills subscribe-pills">
+      {{# each subscription_links }}
+        <li class="subscribe-{{ link_class }}">
+          <a href="{{ link_url }}" target="_blank">
+            <img src="{{ link_icon }}" />&nbsp;
+            {{ link_title }}
+          </a>
+        </li>
+      {{/ each }}
+    </ul>
+  </article>
+
+  {{# each pinned_blog_posts }}
+    <!-- Loop through any pinned blog posts. There should either be 0 or 1 -->
+    <article class="post in-list">
+      <!-- Not all blog posts need a title. Only show this section if a title is set -->
+      {{# exists post_title }}
+        <header>
+          <h2 class="article-title">
+            <!-- Link to the post and show the title -->
+            <a href="{{ post_url }}">{{ post_title }}</a>
+          </h2>
+        </header>
+      {{/ exists }}
+
+      <section class="body">
+        <!-- If the blog post contains an image, show it here -->
+        {{# exists post_image }}
+          <a href="{{ post_url }}">
+            <img src="{{ post_image }}" style="max-width: 100%;" />
+          </a>
+        {{/ exists }}
+
+        <!-- Some blog posts have embeddable content, like polls or videos. Show that here -->
+        {{# exists post_embed }}{{{ post_embed }}}{{/ exists }}
+
+        <!-- Show an excerpt of the post, if there is any text -->
+        {{# exists post_summary }}{{{ post_summary }}}{{/ exists }}
+      </section>
+
+      <footer>
+        <!-- Show the published date of the blog post, linking to the blog post -->
+        <a href="{{ post_url }}">
+          <i class="fa fa-eye"></i>
+          {{ ../strings.read_more }}
+        </a>
+      </footer>
+    </article>
+  {{/ each }}
+
+  <!--
+  All of that was just to show the first episode and any pinned blog posts,
+  along with info about the podcast. Now we're going to list the remaining
+  episodes in the podcast
+  -->
+
+  <div class="row">
+    <!-- Loop through each subsequent episode in the list (all but the first) -->
+    {{# each page_obj.subsequent_objects }}
+      <div class="col-md-4">
+        <article class="episode in-list grid-item">
+          <a class="hidden-xs hidden-sm" href="{{ share_url }}">
+            <img src="{{ image }}" width="262" height="262" />
+          </a>
+
+          <header>
+            <!-- Link to the episode and show the title and subtitle -->
+            <h3 class="article-title">
+              <a href="{{ share_url }}">{{ title }}</a>
+            </h3>
+          </header>
+
+          <div class="body">
+            <!-- Show a summary of the episode -->
+            {{{ summary }}}
+          </div>
+        </article>
+      </div>
+    {{/ each }}
+  </div>
 </section>
 
 <!--
@@ -172,23 +172,23 @@ If there are any more episodes to view, add previous/next page links and a range
 of buttons linking to individual pages
 -->
 {{# if page_obj.has_next_or_previous }}
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            <li{{# unless page_obj.has_previous }} class="disabled"{{/ unless }}>
-                <a{{# if page_obj.has_previous }} href="?page={{ page_obj.previous_page_number }}"{{/ if }} aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            {{# each paginator.page_range }}
-                <li{{# if selected }} class="active"{{/ if }}>
-                    <a href="?page={{ number }}">{{ number }}</a>
-                </li>
-            {{/ each }}
-            <li{{# unless page_obj.has_next }} class="disabled"{{/ unless }}>
-                <a{{# if page_obj.has_next }} href="?page={{ page_obj.next_page_number }}"{{/ if }} aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li{{# unless page_obj.has_previous }} class="disabled"{{/ unless }}>
+        <a{{# if page_obj.has_previous }} href="?page={{ page_obj.previous_page_number }}"{{/ if }} aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {{# each paginator.page_range }}
+        <li{{# if selected }} class="active"{{/ if }}>
+          <a href="?page={{ number }}">{{ number }}</a>
+        </li>
+      {{/ each }}
+      <li{{# unless page_obj.has_next }} class="disabled"{{/ unless }}>
+        <a{{# if page_obj.has_next }} href="?page={{ page_obj.next_page_number }}"{{/ if }} aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 {{/ if }}

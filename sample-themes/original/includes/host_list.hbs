@@ -1,52 +1,52 @@
 <!-- The host list template, shown when the user visits the "Meet the hosts" page -->
 
 <article class="single page">
-    <header>
-        <h1 class="article-title">
+  <header>
+    <h1 class="article-title">
+      <!--
+      Link back to this page, writing the word "Meet the host" or "Meet the hosts|",
+      depending on the number of hosts the podcast has
+      -->
+      <a href="{{ urls.hosts }}">{{ strings.hosts }}</a>
+    </h1>
+  </header>
+
+  <section class="body">
+    <ul class="media-list">
+      {{# each object_list }}
+        <!-- Loop through the hosts -->
+        <li id="host-{{ _id }}" class="media">
+          <div class="media-left">
+            {{# exists image }}
+              <!-- Add the host's image, linking to this section in the page -->
+              <img src="{{ image }}" class="media-object" width="150" height="150" />
+            {{/ exists }}
+          </div>
+
+          <div class="media-body">
+            <!-- Show the host's name -->
+            <h2 class="media-heading">{{ title }}</h2>
+
             <!--
-            Link back to this page, writing the word "Meet the host" or "Meet the hosts|",
-            depending on the number of hosts the podcast has
+            Show the host's biography. Use three braces to ensure content that
+            contains HTML displays correctly
             -->
-            <a href="{{ urls.hosts }}">{{ strings.hosts }}</a>
-        </h1>
-    </header>
+            {{{ description }}}
 
-    <section class="body">
-        <ul class="media-list">
-            {{# each object_list }}
-                <!-- Loop through the hosts -->
-                <li id="host-{{ _id }}" class="media">
-                    <div class="media-left">
-                        {{# exists image }}
-                            <!-- Add the host's image, linking to this section in the page -->
-                            <img src="{{ image }}" class="media-object" width="150" height="150">
-                        {{/ exists }}
-                    </div>
+            <small>
+              <!-- Loop through any links to the host's websites -->
+              {{# each links }}
+                <a href="{{ link_url }}" class="text-muted" target="_blank">
+                  <i class="fa fa-{{ link_class }}"></i>
+                  {{ link_title }}
+                </a>
+              {{/ each }}
+            </small>
+          </div>
+        </li>
+      {{/ each }}
+    </ul>
 
-                    <div class="media-body">
-                        <!-- Show the host's name -->
-                        <h2 class="media-heading">{{ title }}</h2>
-
-                        <!--
-                        Show the host's biography. Use three braces to ensure content that
-                        contains HTML displays correctly
-                        -->
-                        {{{ description }}}
-
-                        <small>
-                            <!-- Loop through any links to the host's websites -->
-                            {{# each links }}
-                                <a href="{{ link_url }}" class="text-muted" target="_blank">
-                                    <i class="fa fa-{{ link_class }}"></i>
-                                    {{ link_title }}
-                                </a>
-                            {{/ each }}
-                        </small>
-                    </div>
-                </li>
-            {{/ each }}
-        </ul>
-
-        &nbsp;
-    </section>
+    &nbsp;
+  </section>
 </article>
