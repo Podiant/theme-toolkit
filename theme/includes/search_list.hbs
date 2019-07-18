@@ -1,59 +1,59 @@
 <!-- The search list template, shown when the user searches the podcast for a specific string -->
 
 <h2>
-    <!-- Write the word "Search" -->
-    {{ strings.search }}
+  <!-- Write the word "Search" -->
+  {{ strings.search }}
 
-    <!-- Show the search query the user typed -->
-    <small>{{ query }}</small>
+  <!-- Show the search query the user typed -->
+  <small>{{ query }}</small>
 </h2>
 
 <ul>
-    <!-- Loop through the search results -->
-    {{# each page_obj.object_list }}
-        <li>
-            <!--
-            If the search result has an image, show it here and link it
-            to the relevant page
-            -->
-            {{# if image }}
-                <a href="{{ url }}">
-                    <img src="{{ image }}">
-                </a>
-            {{/ if }}
+  <!-- Loop through the search results -->
+  {{# each page_obj.object_list }}
+    <li>
+      <!--
+      If the search result has an image, show it here and link it
+      to the relevant page
+      -->
+      {{# if image }}
+        <a href="{{ url }}">
+          <img src="{{ image }}" />
+        </a>
+      {{/ if }}
 
-            <h2>
-                <!--
-                Show the title of the found result, highlighting in bold
-                any words that match the user's search criteria
-                -->
-                <a href="{{ url }}">{{{ title_highlighted }}}</a>
-            </h2>
+      <h2>
+        <!--
+        Show the title of the found result, highlighting in bold
+        any words that match the user's search criteria
+        -->
+        <a href="{{ url }}">{{{ title_highlighted }}}</a>
+      </h2>
 
-            <!--
-            Show the summary of the found result, highlighting in bold
-            any words that match the user's search criteria
-            -->
-            {{{ description_highlighted }}}
-        </li>
-    {{/ each }}
+      <!--
+      Show the summary of the found result, highlighting in bold
+      any words that match the user's search criteria
+      -->
+      {{{ description_highlighted }}}
+    </li>
+  {{/ each }}
 
-    <!-- Show this section if there are no search results -->
-    {{# unless page_obj.count }}
-        <li>
-            <p>Sorry, there aren&rsquo;t any items matching your search.</p>
+  <!-- Show this section if there are no search results -->
+  {{# unless page_obj.count }}
+    <li>
+      <p>{{ theme_options.string_no_resuots }}</p>
 
-            <!-- Add a form so the user can try their search again -->
-            <form>
-                <label>
-                    Search again
-                    <input type="search" name="q" value="{{ query }}">
-                </label>
+      <!-- Add a form so the user can try their search again -->
+      <form>
+        <label>
+          {{ theme_options.string_search_again }}
+          <input type="search" name="q" value="{{ query }}">
+        </label>
 
-                <button type="submit">Search</button>
-            </form>
-        </li>
-    {{/ unless }}
+        <button type="submit">{{ strings.search }}</button>
+      </form>
+    </li>
+  {{/ unless }}
 </ul>
 
 <!--
@@ -61,22 +61,26 @@ Show this if the user is viewing page 2 or more of the search results,
 or if there are more than 10 results to view
 -->
 {{# if page_obj.has_next_or_previous }}
-    <ul>
-        <!-- Link to the previous page of results -->
-        <li>
-            <a{{# if page_obj.has_previous }} href="?q={{ query }}&amp;page={{ page_obj.previous_page_number }}"{{/ if }}>Previous page</a>
-        </li>
+  <ul>
+    <!-- Link to the previous page of results -->
+    <li>
+      <a{{# if page_obj.has_previous }} href="?q={{ query }}&amp;page={{ page_obj.previous_page_number }}"{{/ if }}>
+        {{ theme_options.string_search_list_prev }}
+      </a>
+    </li>
 
-        <!-- Loop through the numbered pages and add a link for each -->
-        {{# each paginator.page_range }}
-            <li>
-                <a href="?q={{ query }}&amp;page={{ number }}">{{ number }}</a>
-            </li>
-        {{/ each }}
+    <!-- Loop through the numbered pages and add a link for each -->
+    {{# each paginator.page_range }}
+      <li>
+        <a href="?q={{ query }}&amp;page={{ number }}">{{ number }}</a>
+      </li>
+    {{/ each }}
 
-        <!-- Link to the next page of results -->
-        <li>
-            <a{{# if page_obj.has_next }} href="?q={{ query }}&amp;page={{ page_obj.next_page_number }}"{{/ if }}>Next page</a>
-        </li>
-    </ul>
+    <!-- Link to the next page of results -->
+    <li>
+      <a{{# if page_obj.has_next }} href="?q={{ query }}&amp;page={{ page_obj.next_page_number }}"{{/ if }}>
+        {{ theme_options.string_search_list_next }}
+      </a>
+    </li>
+  </ul>
 {{/ if }}

@@ -1,47 +1,47 @@
 <!-- The blog post template, shown when a user visits a specific blog post -->
 
 {{# with object }}
-    <!--
-    "object" is the name of the main variable. It's a bit like using a loop,
-    but it sets the context for the rest of the template so that you can refer
-    to properties inside the object, without having to write "{{ object.title }}"
-    for example
-    -->
-    <!-- Not all blog posts need a title. Only show this section if a title is set -->
-    {{# exists title }}
-        <header>
-            <h2>
-                <a href="{{ share_url }}">{{ title }}</a><br>
-                <small>{{ subtitle }}</small>
-            </h2>
-        </header>
-    {{/ exists }}
+  <!--
+  "object" is the name of the main variable. It's a bit like using a loop,
+  but it sets the context for the rest of the template so that you can refer
+  to properties inside the object, without having to write "{{ object.title }}"
+  for example
+  -->
+  <!-- Not all blog posts need a title. Only show this section if a title is set -->
+  {{# exists title }}
+    <header>
+      <h2>
+        <a href="{{ share_url }}">{{ title }}</a><br>
+        <small>{{ subtitle }}</small>
+      </h2>
+    </header>
+  {{/ exists }}
 
-    <!-- If the blog post contains an image, show it here -->
-    {{# exists image }}
-        <img src="{{ image }}" style="max-width: 100%;" />
-    {{/ exists }}
+  <!-- If the blog post contains an image, show it here -->
+  {{# exists image }}
+    <img src="{{ image }}" style="max-width: 100%;" />
+  {{/ exists }}
 
-    <!-- Some blog posts have embeddable content, like polls or videos. Show that here -->
-    {{# exists embed }}{{{ embed }}}{{/ exists }}
+  <!-- Some blog posts have embeddable content, like polls or videos. Show that here -->
+  {{# exists embed }}{{{ embed }}}{{/ exists }}
 
-    <!-- Show the text of the post, if there is any -->
-    {{# exists description }}{{{ description }}}{{/ exists }}
+  <!-- Show the text of the post, if there is any -->
+  {{# exists description }}{{{ description }}}{{/ exists }}
 
-    <!-- Show the commnets section, if the podcaster has enabled it -->
-    {{ yield comments }}
+  <!-- Show the commnets section, if the podcaster has enabled it -->
+  {{ yield comments }}
 
-    <!-- Show the published date of the blog post -->
-    {{ date published 'MMMM D, YYYY' }}
+  <!-- Show the published date of the blog post -->
+  {{ date published ../theme_options.date_format }}
 
-    <!-- Write the word "Share" -->
-    <p>{{ ../strings.share }}</p>
-    {{# with share_urls }}
-        <!-- Links to share content via Twitter, Facebook and Pinterest -->
-        <ul>
-            <li><a href="{{ twitter_share_url }}" target="_blank">Twitter</a></li>
-            <li><a href="{{ facebook_share_url }}" target="_blank">Facebook</a></li>
-            <li><a href="{{ pinterest_share_url }}" target="_blank">Pinterest</a></li>
-        </ul>
-    {{/ with }}
+  <!-- Write the word "Share" -->
+  <p>{{ ../strings.share }}</p>
+  {{# with share_urls }}
+    <!-- Links to share content via Twitter, Facebook and Pinterest -->
+    <ul>
+      <li><a href="{{ twitter_share_url }}" target="_blank">Twitter</a></li>
+      <li><a href="{{ facebook_share_url }}" target="_blank">Facebook</a></li>
+      <li><a href="{{ pinterest_share_url }}" target="_blank">Pinterest</a></li>
+    </ul>
+  {{/ with }}
 {{/ with }}

@@ -8,36 +8,36 @@ guest.
 -->
 
 <h2>
-    <!-- Link back to this page, writing the word "Guests" -->
-    <a href="{{ urls.guests }}">{{ strings.guests }}</a>
+  <!-- Link back to this page, writing the word "Guests" -->
+  <a href="{{ urls.guests }}">{{ strings.guests }}</a>
 </h2>
 
 <!-- Loop through the guests -->
 {{# each page_obj.object_list }}
-    <a href="{{ share_url }}">
-        <!-- Add the guest's image, linking to the guest page -->
-        <img src="{{ image }}" class="media-object" width="150" height="150">
-    </a>
+  <a href="{{ share_url }}">
+    <!-- Add the guest's image, linking to the guest page -->
+    <img src="{{ image }}" class="media-object" width="150" height="150" />
+  </a>
 
-    <!-- Link to the guest and show their name -->
-    <a href="{{ share_url }}">{{ title }}</a>
+  <!-- Link to the guest and show their name -->
+  <a href="{{ share_url }}">{{ title }}</a>
 
-    <!--
-    Show the guest's biography. Use three braces to ensure content that
-    contains HTML displays correctly
-    -->
-    {{{ description }}}
+  <!--
+  Show the guest's biography. Use three braces to ensure content that
+  contains HTML displays correctly
+  -->
+  {{{ description }}}
 
-    <!-- Loop through any links to the guest's websites -->
-    <ul>
-        {{# each links }}
-            <li><a href="{{ link_url }}" target="_blank">{{ link_title }}</a></li>
-        {{/ each }}
-    </ul>
+  <!-- Loop through any links to the guest's websites -->
+  <ul>
+    {{# each links }}
+      <li><a href="{{ link_url }}" target="_blank">{{ link_title }}</a></li>
+    {{/ each }}
+  </ul>
 {{/ each }}
 
 <!-- If there are more than 10 guests to show, add an link to the next 10 -->
 
 {{# if page_obj.has_next }}
-    <a href="?page={{ page_obj.next_page_number }}">More guests</a>
+  <a href="?page={{ page_obj.next_page_number }}">{{ theme_options.string_guest_list_next }}</a>
 {{/ if }}

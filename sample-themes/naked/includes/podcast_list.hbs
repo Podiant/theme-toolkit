@@ -5,44 +5,44 @@
 
 <!-- Loop through the podcasts in the network -->
 <ul>
-    {{# each object_list }}
-        <li>
-            <a href="{{ share_url }}">
-                <!-- Show the podcast artwork, and link to the podcast -->
-                <img src="{{ image }}" style="max-width: none;">
+  {{# each object_list }}
+    <li>
+      <a href="{{ share_url }}">
+        <!-- Show the podcast artwork, and link to the podcast -->
+        <img src="{{ image }}" style="max-width: none;" />
+      </a>
+
+      <h2>
+        <!-- Show the podcast name and link to the podcast -->
+        <a href="{{ share_url }}">{{ title }}</a>
+      </h2>
+
+      <!-- Show the podcast subtitle -->
+      {{{ subtitle }}}
+
+      {{# exists hosts }}
+        <!-- Loop through the podcast hosts -->
+        Hosted by
+        {{# each hosts }}
+          <!-- Show a small host avatar -->
+          <img src="{{ host_image }}" title="{{ host_name }}" />
+
+          <!-- Show the host's name -->
+          {{ host_name }}&nbsp;
+        {{/ each }}
+      {{/ exists }}
+
+      <ul>
+        <!-- List of subscription links (Apple Podcasts, Pocket Casts, Overcast, etc) -->
+        {{# each subscription_links }}
+          <li class="subscribe-{{ link_class }}">
+            <a href="{{ link_url }}" target="_blank">
+              <img src="{{ link_icon }}" />
+              {{ link_title }}
             </a>
-
-            <h2>
-                <!-- Show the podcast name and link to the podcast -->
-                <a href="{{ share_url }}">{{ title }}</a>
-            </h2>
-
-            <!-- Show the podcast subtitle -->
-            {{{ subtitle }}}
-
-            {{# exists hosts }}
-                <!-- Loop through the podcast hosts -->
-                Hosted by
-                {{# each hosts }}
-                    <!-- Show a small host avatar -->
-                    <img src="{{ host_image }}" title="{{ host_name }}">
-
-                    <!-- Show the host's name -->
-                    {{ host_name }}&nbsp;
-                {{/ each }}
-            {{/ exists }}
-
-            <ul>
-                <!-- List of subscription links (Apple Podcasts, Pocket Casts, Overcast, etc) -->
-                {{# each subscription_links }}
-                    <li class="subscribe-{{ link_class }}">
-                        <a href="{{ link_url }}" target="_blank">
-                            <img src="{{ link_icon }}">
-                            {{ link_title }}
-                        </a>
-                    </li>
-                {{/ each }}
-            </ul>
-        </li>
-    {{/ each }}
+          </li>
+        {{/ each }}
+      </ul>
+    </li>
+  {{/ each }}
 </ul>

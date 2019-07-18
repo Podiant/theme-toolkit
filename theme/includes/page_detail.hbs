@@ -3,40 +3,40 @@ or "Contact us". Also shown in certain other circumstances, as in when Podiant
 needs to show aribrary content at a specific URL -->
 
 {{# with object }}
-    <!--
-    "object" is the name of the main variable. It's a bit like using a loop,
-    but it sets the context for the rest of the template so that you can refer
-    to properties inside the object, without having to write "{{ object.title }}"
-    for example
-    -->
+  <!--
+  "object" is the name of the main variable. It's a bit like using a loop,
+  but it sets the context for the rest of the template so that you can refer
+  to properties inside the object, without having to write "{{ object.title }}"
+  for example
+  -->
 
-    <!--
-    Not all pages have a title (or the title is rendered as prt of the
-    main content). If a title is present, show it and link back to the page
-    -->
-    {{# exists title }}
-        <h2>
-            <a href="{{ share_url }}">{{ title }}</a><br>
-        </h2>
-    {{/ exists }}
+  <!--
+  Not all pages have a title (or the title is rendered as prt of the
+  main content). If a title is present, show it and link back to the page
+  -->
+  {{# exists title }}
+    <h2>
+      <a href="{{ share_url }}">{{ title }}</a><br>
+    </h2>
+  {{/ exists }}
 
-    <!-- If the page has a header image, show it here -->
-    {{# exists image }}
-        <img src="{{ image }}" style="max-width: 100%;">
-    {{/ exists }}
+  <!-- If the page has a header image, show it here -->
+  {{# exists image }}
+    <img src="{{ image }}" style="max-width: 100%;" />
+  {{/ exists }}
 
-    <!-- Use three braces to ensure content that contains HTML displays correctly -->
-    {{{ description }}}
+  <!-- Use three braces to ensure content that contains HTML displays correctly -->
+  {{{ description }}}
 
-    <!-- Write the word "Share" -->
-    {{ ../strings.share }}&nbsp;&nbsp;
+  <!-- Write the word "Share" -->
+  {{ ../strings.share }}&nbsp;&nbsp;
 
-    {{# with share_urls }}
-        <!-- Links to share content via Twitter, Facebook and Pinterest -->
-        <ul>
-            <li><a href="{{ twitter_share_url }}" target="_blank">Twitter</a></li>
-            <li><a href="{{ facebook_share_url }}" target="_blank">Facebook</a></li>
-            <li><a href="{{ pinterest_share_url }}" target="_blank">Pinterest</a></li>
-        </ul>
-    {{/ with }}
+  {{# with share_urls }}
+    <!-- Links to share content via Twitter, Facebook and Pinterest -->
+    <ul>
+      <li><a href="{{ twitter_share_url }}" target="_blank">Twitter</a></li>
+      <li><a href="{{ facebook_share_url }}" target="_blank">Facebook</a></li>
+      <li><a href="{{ pinterest_share_url }}" target="_blank">Pinterest</a></li>
+    </ul>
+  {{/ with }}
 {{/ with }}
