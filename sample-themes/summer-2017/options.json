@@ -1,0 +1,77 @@
+[
+  [
+    "Typography and color",
+    {
+      "fields": [
+        {
+          "name": "body_font_family",
+          "default": "Roboto Slab",
+          "type": "typeface"
+        },
+        {
+          "name": "heading_font_family",
+          "default": "Assistant",
+          "type": "typeface"
+        },
+        {
+          "name": "colour_footer_background",
+          "default": "#dadada",
+          "type": "color",
+          "label": "Footer background color"
+        },
+        {
+          "name": "colour_footer",
+          "default": "#444",
+          "type": "color",
+          "label": "Footer foreground color"
+        }
+      ]
+    }
+  ],
+  [
+    "Static text",
+    {
+      "fields": [
+        {
+          "name": "string_related_episodes",
+          "default": "You might also like",
+          "label": "Related episodes heading"
+        },
+        {
+          "name": "string_guest_episodes",
+          "default": "Episodes @name appears in",
+          "label": "Guest episodes text",
+          "help": "Text for the \"Episodes [guest name] appears in\" heading. Place the text \"@name\" where the guest name should be inserted. For example, to make the phrase \"Episodes Jane Doe appears in\" translatable, use the text \"Episodes @name appears in\""
+        },
+        {
+          "name": "string_no_resuots",
+          "default": "Sorry, there aren’t any items matching your search.",
+          "label": "No search results found"
+        },
+        {
+          "name": "string_search_again",
+          "default": "Search again",
+          "label": "Search again"
+        }
+      ]
+    }
+  ],
+  [
+    "Miscellaneous",
+    {
+      "fields": [
+        {
+          "name": "date_format",
+          "default": "MMMM Do, YYYY",
+          "choices": [
+            ["YYYY-MM-DD", "1991-08-16"],
+            ["d MMMM YYYY", "16 August 1991"],
+            ["Do MMMM, YYYY", "16th August, 1991"],
+            ["MMMM Do, YYYY", "August 16th, 1991"],
+            ["dddd, MMMM Do, YYYY", "Friday, August 16th, 1991"]
+          ]
+        }
+      ]
+    }
+  ]
+]

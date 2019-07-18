@@ -1,284 +1,290 @@
 <!-- The episode template, shown when a user visits a specific episode -->
 
 {{# with object }}
+  <!--
+  "object" is the name of the main variable. It's a bit like using a loop,
+  but it sets the context for the rest of the template so that you can refer
+  to properties inside the object, without having to write "{{ object.title }}"
+  for example
+  -->
+
+  <article class="single episode" data-id="episode-{{ _id }}">
+    <header>
+      <!-- Link to the episode and show the title and subtitle -->
+      <h2 class="article-title">
+        <a href="{{ share_url }}">{{ title }}</a><br>
+        <small class="article-subtitle">{{ subtitle }}</small>
+      </h2>
+    </header>
+
+    <!-- Show the player -->
+    {{{ iframe }}}
+
     <!--
-    "object" is the name of the main variable. It's a bit like using a loop,
-    but it sets the context for the rest of the template so that you can refer
-    to properties inside the object, without having to write "{{ object.title }}"
-    for example
+    Review mode allows podcasters to send links to episodes before they're
+    published. Reviewers get a special URL with a form they can use to add
+    notes or approve the episode. You should leave this somewhere in your
+    template.
     -->
+    {{{ ../review_form }}}
 
-    <article class="single episode" data-id="episode-{{ _id }}">
-        <header>
-            <!-- Link to the episode and show the title and subtitle -->
-            <h2 class="article-title">
-                <a href="{{ share_url }}">{{ title }}</a><br>
-                <small class="article-subtitle">{{ subtitle }}</small>
-            </h2>
-        </header>
+    <section class="body">
+      <ul class="nav nav-pills nav-textfield">
+        <!-- Show a tabbed list of subpages for the episode -->
 
-        <!-- Show the player -->
-        {{{ iframe }}}
+        <!-- Start by showing the show notes tab, and make it the active tab -->
+        <li class="active">
+          <a href="#description">
+            <!-- Write the words "Show notes" -->
+            {{ ../strings.description }}
+          </a>
+        </li>
 
-        <!--
-        Review mode allows podcasters to send links to episodes before they're
-        published. Reviewers get a special URL with a form they can use to add
-        notes or approve the episode. You should leave this somewhere in your
-        template.
-        -->
-        {{{ ../review_form }}}
-
-        <section class="body">
-            <ul class="nav nav-pills nav-textfield">
-                <!-- Show a tabbed list of subpages for the episode -->
-
-                <!-- Start by showing the show notes tab, and make it the active tab -->
-                <li class="active">
-                    <a href="#description">
-                        <!-- Write the words "Show notes" -->
-                        {{ ../strings.description }}
-                    </a>
-                </li>
-
-                <!-- If a transcript is present, show a Transcript tab -->
-                {{# exists transcript }}
-                    <li>
-                        <a href="#transcript">
-                            <!-- Write the word "Transcript" -->
-                            {{ ../strings.transcript }}
-                        </a>
-                    </li>
-                {{/ exists }}
-
-                <!-- If external links have been added, show a Links tab -->
-                {{# exists links }}
-                    <li>
-                        <a href="#links">
-                            <!-- Write the word "Links" -->
-                            {{ ../strings.links }}
-                        </a>
-                    </li>
-                {{/ exists }}
-
-                <!-- If the episode has chapters, show a Chapters tab -->
-                {{# exists chapters }}
-                    <li class="hidden-xs">
-                        <a href="#chapters">
-                            <!-- Write the word "Chapters" -->
-                            {{ ../strings.chapters }}
-                        </a>
-                    </li>
-                {{/ exists }}
-
-                <!-- If the episode has any guests, show a Guests tab -->
-                {{# exists guests }}
-                    <li class="hidden-xs">
-                        <a href="#guests">
-                            <!-- Write the word "Guest" or "Guests", depending on the number of guests -->
-                            {{ ../strings.guests }}
-                        </a>
-                    </li>
-                {{/ exists }}
-            </ul>
-
-            <div data-field="description">
-                <!-- The contents for the show notes tab -->
-
-                <!-- Use three braces to ensure content that contains HTML displays correctly -->
-                {{{ description }}}
-
-                {{# exists guests }}
-                    <!-- If there are any guests, add a subheading and loop through the guests -->
-                    <div class="visible-xs">
-                        <div class="guest well">
-                            <h3 class="media-heading">{{ ../strings.guests }}</h3>
-
-                            <ul class="media-list guest-list">
-                                {{# each guests }}
-                                    <li class="media">
-                                        <div class="media-left">
-                                            <a href="{{ guest_url }}"><img class="media-object" src="{{ guest_image }}" width="80"></a>
-                                        </div>
-
-                                        <div class="media-body">
-                                            <h4 class="media-heading">
-                                                <a href="{{ guest_url }}">{{ guest_name }}</a>
-                                            </h4>
-
-                                            {{{ guest_biography }}}
-
-                                            <ul class="hidden-xs list-unstyled">
-                                                {{# each links }}
-                                                    <li>
-                                                        <a href="{{ link_url }}" target="_blank">{{ link_title }}</a>
-                                                    </li>
-                                                {{/ each }}
-                                            </ul>
-
-                                            <p class="visible-xs">
-                                                {{# each links }}
-                                                    <a href="{{ link_url }}" target="_blank">{{{ link_icon }}}</a>
-                                                {{/ each }}
-                                            </p>
-                                        </div>
-                                    </li>
-                                {{/ each }}
-                            </ul>
-                        </div>
-                    </div>
-                {{/ exists }}
-            </div>
-
-            {{# exists transcript }}
-                <div data-field="transcript" class="hidden">
-                    <!-- The content for the Transcript tab -->
-
-                    <!-- Use three braces to ensure content that contains HTML displays correctly -->
-                    {{{ transcript }}}
-                </div>
-            {{/ exists }}
-
-            {{# exists links }}
-                <!-- The content for the Links tab -->
-                <div data-field="links" class="hidden">
-                    <ul>
-                        {{# each links }}
-                            <li>
-                                <a href="{{ link_url }}" target="_blank">{{ link_title }}</a>
-                            </li>
-                        {{/ each }}
-                    </ul>
-                </div>
-            {{/ exists }}
-
-            {{# exists chapters }}
-                <div data-field="chapters" class="hidden hidden-xs">
-                    <!-- The content for the Links tab -->
-                    <table class="table">
-                        <tbody>
-                            {{# each chapters }}
-                                <tr>
-                                    <th width="10%">
-                                        <!-- Show a little lozenge with a timestamp for the chapter which, when clicked, takes the user to the chapter -->
-                                        <a class="badge timecode-link" href="{{ chapter_url }}" target="_self">{{ chapter_time }}</a>
-                                    </th>
-                                    <td>
-                                        <!-- If the chapter points to an external link, wrap the chapter title in a clickable link tag -->
-                                        {{# exists chapter_link }}<a href="{{ chapter_link }}" target="_blank">{{/ exists }}
-                                        {{ chapter_title }}
-
-                                        <!-- If we opened a clickable link tag, close it here -->
-                                        {{# exists chapter_link }}</a>{{/ exists }}
-                                    </td>
-                                </tr>
-                            {{/ each }}
-                        </tbody>
-                    </table>
-                </div>
-            {{/ exists }}
-
-            {{# exists guests }}
-                <div data-field="guests" class="hidden">
-                    <!-- The content for the Guests tab -->
-                    <ul class="media-list guest-list">
-                        {{# each guests }}
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="{{ guest_url }}"><img class="media-object" src="{{ guest_image }}" width="162"></a>
-                                </div>
-
-                                <div class="media-body">
-                                    <h4 class="media-heading">
-                                        <a href="{{ guest_url }}">{{ guest_name }}</a>
-                                    </h4>
-
-                                    {{{ guest_biography }}}
-
-                                    <ul class="hidden-xs list-unstyled">
-                                        {{# each links }}
-                                            <li>
-                                                <a href="{{ link_url }}" target="_blank">{{ link_title }}</a>
-                                            </li>
-                                        {{/ each }}
-                                    </ul>
-
-                                    <p class="visible-xs">
-                                        {{# each links }}
-                                            <a href="{{ link_url }}" target="_blank">{{{ link_icon }}}</a>
-                                        {{/ each }}
-                                    </p>
-                                </div>
-                            </li>
-                        {{/ each }}
-                    </ul>
-                </div>
-            {{/ exists }}
-        </section>
-
-        <section class="comments">
-            <!-- Show the commnets section, if the podcaster has enabled it -->
-            {{ yield comments }}
-        </section>
-
-        <section class="related">
-            {{# exists similar_episodes }}
-                <!-- Show this if there are similar episodes the listener might enjoy -->
-
-                <h2>You might also like</h2>
-                <ul class="media-list">
-                    {{# each similar_episodes }}
-                        <li class="media">
-                            <div class="media-left">
-                                <a href="{{ episode_url }}"><img src="{{ episode_image }}" class="media-object" width="150" height="150"></a>
-                            </div>
-
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    <a href="{{ episode_url }}">{{ episode_title }}</a>
-                                </h3>
-
-                                {{{ episode_summary }}}
-                                <small>From <a href="{{ podcast_url }}">{{ podcast_name }}</a></small>
-                            </div>
-                        </li>
-                    {{/ each }}
-                </ul>
-            {{/ exists }}
-        </section>
-
-        <footer>
-            <!-- Link to the downloadable file for the episode, and show the filesize -->
-            <a href="{{ download_url }}" download>
-                <i class="fa fa-download"></i>
-                {{ ../strings.download_episode }} ({{ filesize }})
+        <!-- If a transcript is present, show a Transcript tab -->
+        {{# exists transcript }}
+          <li>
+            <a href="#transcript">
+              <!-- Write the word "Transcript" -->
+              {{ ../strings.transcript }}
             </a>
+          </li>
+        {{/ exists }}
 
-            <!-- If the episode has a published date, show it -->
-            {{# exists published }}
-                <i class="fa fa-calendar"></i>
-                {{ date published 'MMMM D, YYYY' }}
-            {{/ exists }}
+        <!-- If external links have been added, show a Links tab -->
+        {{# exists links }}
+          <li>
+            <a href="#links">
+              <!-- Write the word "Links" -->
+              {{ ../strings.links }}
+            </a>
+          </li>
+        {{/ exists }}
 
-            <span class="pull-right">
-                <!-- Write the word "Share" -->
-                {{ ../strings.share }}&nbsp;&nbsp;
-                {{# with share_urls }}
-                    <!-- Links to share content via Twitter, Facebook and Pinterest -->
-                    <a href="{{ twitter_share_url }}" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a href="{{ facebook_share_url }}" target="_blank"><i class="fa fa-facebook"></i></a>
-                    <a href="{{ pinterest_share_url }}" target="_blank"><i class="fa fa-pinterest"></i></a>
-                {{/ with }}
-            </span>
+        <!-- If the episode has chapters, show a Chapters tab -->
+        {{# exists chapters }}
+          <li class="hidden-xs">
+            <a href="#chapters">
+              <!-- Write the word "Chapters" -->
+              {{ ../strings.chapters }}
+            </a>
+          </li>
+        {{/ exists }}
 
-            <div class="guest-footer hidden-xs">
-                <!-- Show this footer on tablet and desktop -->
-                {{# each guests }}
-                    <a href="{{ guest_url }}">
-                        <!-- Show a small avatar for the guest, and link it to their individual page -->
-                        <img class="img-circle" src="{{ guest_image }}" width="48" alt="{{ guest_name }}">
-                    </a>
+        <!-- If the episode has any guests, show a Guests tab -->
+        {{# exists guests }}
+          <li class="hidden-xs">
+            <a href="#guests">
+              <!-- Write the word "Guest" or "Guests", depending on the number of guests -->
+              {{ ../strings.guests }}
+            </a>
+          </li>
+        {{/ exists }}
+      </ul>
+
+      <div data-field="description">
+        <!-- The contents for the show notes tab -->
+
+        <!-- Use three braces to ensure content that contains HTML displays correctly -->
+        {{{ description }}}
+
+        {{# exists guests }}
+          <!-- If there are any guests, add a subheading and loop through the guests -->
+          <div class="visible-xs">
+            <div class="guest well">
+              <h3 class="media-heading">{{ ../strings.guests }}</h3>
+
+              <ul class="media-list guest-list">
+                {{# each guests }}
+                  <li class="media">
+                    <div class="media-left">
+                      <a href="{{ guest_url }}">
+                        <img class="media-object" src="{{ guest_image }}" width="80" />
+                      </a>
+                    </div>
+
+                    <div class="media-body">
+                      <h4 class="media-heading">
+                        <a href="{{ guest_url }}">{{ guest_name }}</a>
+                      </h4>
+
+                      {{{ guest_biography }}}
+
+                      <ul class="hidden-xs list-unstyled">
+                        {{# each links }}
+                          <li>
+                            <a href="{{ link_url }}" target="_blank">{{ link_title }}</a>
+                          </li>
+                        {{/ each }}
+                      </ul>
+
+                      <p class="visible-xs">
+                        {{# each links }}
+                          <a href="{{ link_url }}" target="_blank">{{{ link_icon }}}</a>
+                        {{/ each }}
+                      </p>
+                    </div>
+                  </li>
                 {{/ each }}
+              </ul>
             </div>
-        </footer>
-    </article>
+          </div>
+        {{/ exists }}
+      </div>
+
+      {{# exists transcript }}
+        <div data-field="transcript" class="hidden">
+          <!-- The content for the Transcript tab -->
+
+          <!-- Use three braces to ensure content that contains HTML displays correctly -->
+          {{{ transcript }}}
+        </div>
+      {{/ exists }}
+
+      {{# exists links }}
+        <!-- The content for the Links tab -->
+        <div data-field="links" class="hidden">
+          <ul>
+            {{# each links }}
+              <li>
+                <a href="{{ link_url }}" target="_blank">{{ link_title }}</a>
+              </li>
+            {{/ each }}
+          </ul>
+        </div>
+      {{/ exists }}
+
+      {{# exists chapters }}
+        <div data-field="chapters" class="hidden hidden-xs">
+          <!-- The content for the Links tab -->
+          <table class="table">
+            <tbody>
+              {{# each chapters }}
+                <tr>
+                  <th width="10%">
+                    <!-- Show a little lozenge with a timestamp for the chapter which, when clicked, takes the user to the chapter -->
+                    <a class="badge timecode-link" href="{{ chapter_url }}" target="_self">{{ chapter_time }}</a>
+                  </th>
+                  <td>
+                    <!-- If the chapter points to an external link, wrap the chapter title in a clickable link tag -->
+                    {{# exists chapter_link }}<a href="{{ chapter_link }}" target="_blank">{{/ exists }}
+                    {{ chapter_title }}
+
+                    <!-- If we opened a clickable link tag, close it here -->
+                    {{# exists chapter_link }}</a>{{/ exists }}
+                  </td>
+                </tr>
+              {{/ each }}
+            </tbody>
+          </table>
+        </div>
+      {{/ exists }}
+
+      {{# exists guests }}
+        <div data-field="guests" class="hidden">
+          <!-- The content for the Guests tab -->
+          <ul class="media-list guest-list">
+            {{# each guests }}
+              <li class="media">
+                <div class="media-left">
+                  <a href="{{ guest_url }}">
+                    <img class="media-object" src="{{ guest_image }}" width="162" />
+                  </a>
+                </div>
+
+                <div class="media-body">
+                  <h4 class="media-heading">
+                    <a href="{{ guest_url }}">{{ guest_name }}</a>
+                  </h4>
+
+                  {{{ guest_biography }}}
+
+                  <ul class="hidden-xs list-unstyled">
+                    {{# each links }}
+                      <li>
+                        <a href="{{ link_url }}" target="_blank">{{ link_title }}</a>
+                      </li>
+                    {{/ each }}
+                  </ul>
+
+                  <p class="visible-xs">
+                    {{# each links }}
+                      <a href="{{ link_url }}" target="_blank">{{{ link_icon }}}</a>
+                    {{/ each }}
+                  </p>
+                </div>
+              </li>
+            {{/ each }}
+          </ul>
+        </div>
+      {{/ exists }}
+    </section>
+
+    <section class="comments">
+      <!-- Show the commnets section, if the podcaster has enabled it -->
+      {{ yield comments }}
+    </section>
+
+    <section class="related">
+      {{# exists similar_episodes }}
+        <!-- Show this if there are similar episodes the listener might enjoy -->
+
+        <h2>{{ ../theme_options.string_related_episodes }}</h2>
+        <ul class="media-list">
+          {{# each similar_episodes }}
+            <li class="media">
+              <div class="media-left">
+                <a href="{{ episode_url }}">
+                  <img src="{{ episode_image }}" class="media-object" width="150" height="150" />
+                </a>
+              </div>
+
+              <div class="media-body">
+                <h3 class="media-heading">
+                  <a href="{{ episode_url }}">{{ episode_title }}</a>
+                </h3>
+
+                {{{ episode_summary }}}
+                <small>From <a href="{{ podcast_url }}">{{ podcast_name }}</a></small>
+              </div>
+            </li>
+          {{/ each }}
+        </ul>
+      {{/ exists }}
+    </section>
+
+    <footer>
+      <!-- Link to the downloadable file for the episode, and show the filesize -->
+      <a href="{{ download_url }}" download>
+        <i class="fa fa-download"></i>
+        {{ ../strings.download_episode }} ({{ filesize }})
+      </a>
+
+      <!-- If the episode has a published date, show it -->
+      {{# exists published }}
+        <i class="fa fa-calendar"></i>
+        {{ date published ../theme_options.date_format }}
+      {{/ exists }}
+
+      <span class="pull-right">
+        <!-- Write the word "Share" -->
+        {{ ../strings.share }}&nbsp;&nbsp;
+        {{# with share_urls }}
+          <!-- Links to share content via Twitter, Facebook and Pinterest -->
+          <a href="{{ twitter_share_url }}" target="_blank"><i class="fa fa-twitter"></i></a>
+          <a href="{{ facebook_share_url }}" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="{{ pinterest_share_url }}" target="_blank"><i class="fa fa-pinterest"></i></a>
+        {{/ with }}
+      </span>
+
+      <div class="guest-footer hidden-xs">
+        <!-- Show this footer on tablet and desktop -->
+        {{# each guests }}
+          <a href="{{ guest_url }}">
+            <!-- Show a small avatar for the guest, and link it to their individual page -->
+            <img class="img-circle" src="{{ guest_image }}" width="48" alt="{{ guest_name }}" />
+          </a>
+        {{/ each }}
+      </div>
+    </footer>
+  </article>
 {{/ with }}
