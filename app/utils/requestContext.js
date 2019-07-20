@@ -98,20 +98,20 @@ module.exports = function(renderingContext, meta) {
                     var baseData = function() {
                         return new Promise(
                             function(resolve, reject) {
-                                var optionsFilename = path.join(
+                                var packageFilename = path.join(
                                     __dirname,
                                     '../',
                                     '../',
                                     'theme',
-                                    'options.json'
+                                    'theme.json'
                                 );
 
                                 self.data(renderingContext + '/base').then(
                                     function(data) {
                                         try {
-                                            if (fs.existsSync(optionsFilename)) {
+                                            if (fs.existsSync(packageFilename)) {
                                                 fs.readFile(
-                                                    optionsFilename,
+                                                    packageFilename,
                                                     'utf8',
                                                     function(err, content) {
                                                         if(err) {
@@ -120,20 +120,23 @@ module.exports = function(renderingContext, meta) {
                                                         }
 
                                                         var themeOptions = {};
+                                                        var options = JSON.parse(content).options;
 
-                                                        JSON.parse(content).forEach(
-                                                            function(fieldset) {
-                                                                fieldset[1].fields.forEach(
-                                                                    function(field) {
-                                                                        if(field.default) {
-                                                                            themeOptions[field.name] = field.default;
+                                                        if (typeof(options) !== 'undefined') {
+                                                            options.forEach(
+                                                                function(fieldset) {
+                                                                    fieldset[1].fields.forEach(
+                                                                        function(field) {
+                                                                            if(field.default) {
+                                                                                themeOptions[field.name] = field.default;
+                                                                            }
                                                                         }
-                                                                    }
-                                                                )
-                                                            }
-                                                        );
+                                                                    )
+                                                                }
+                                                            );
 
-                                                        data.theme_options = themeOptions;
+                                                            data.theme_options = themeOptions;
+                                                        }
                                                     }
                                                 );
                                             }
@@ -155,19 +158,19 @@ module.exports = function(renderingContext, meta) {
                             );
 
                             var wrapInjections = function() {
-                                var componentsFilename = path.join(
+                                var packageFilename = path.join(
                                     __dirname,
                                     '../',
                                     '../',
                                     'theme',
-                                    'components.json'
+                                    'theme.json'
                                 );
 
                                 return new Promise(
                                     function(resolve, reject) {
-                                        if (fs.existsSync(componentsFilename)) {
+                                        if (fs.existsSync(packageFilename)) {
                                             fs.readFile(
-                                                componentsFilename,
+                                                packageFilename,
                                                 'utf8',
                                                 function(err, content) {
                                                     if(err) {
@@ -176,7 +179,7 @@ module.exports = function(renderingContext, meta) {
                                                     }
 
                                                     resolve(
-                                                        content ? JSON.parse(content) : []
+                                                        content ? JSON.parse(content).components : []
                                                     );
                                                 }
                                             );
