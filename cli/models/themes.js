@@ -3,6 +3,7 @@ const path = require('path');
 const ThemeAdapter = require('../adapters/themes');
 const ModelBase = require('../lib/models');
 const Exception = require('../lib/errors');
+const QuerySet = require('../lib/query');
 
 class Theme extends ModelBase {
     constructor(data) {
@@ -49,24 +50,7 @@ Theme.from = (dirname) => {
         throw new Exception('theme.json is invalid.');
     }
 
-    theme.templates = {};
-    views.forEach(
-        (view) => {
-            const filename = path.join(dirname, 'includes', view + '.hbs');
-
-            try {
-                if (fs.statSync(filename).isFile()) {
-                    theme.templates[view.replace(/-/g, '_')] = fs.readFileSync(
-                        filename
-                    ).toString(
-                        'utf8'
-                    );
-                }
-            } catch {
-                return;
-            }
-        }
-    );
+    console.log('Loaded theme metadata');
 
     const layoutFilename = path.join(dirname, 'layout.hbs');
 
@@ -75,6 +59,8 @@ Theme.from = (dirname) => {
             theme['layout-html'] = fs.readFileSync(
                 layoutFilename
             ).toString('utf8');
+
+            console.log('Bundled HTML layout');
         }
     } catch {
         throw new Exception('input.hbs does not exist.');
@@ -87,12 +73,37 @@ Theme.from = (dirname) => {
             theme.css = fs.readFileSync(
                 cssFilename
             ).toString('utf8');
+
+            console.log('Bundled CSS');
         }
     } catch {
         throw new Exception('styles.hbs.css does not exist.');
     }
 
+    theme.templates = {};
+    views.forEach(
+        (view) => {
+            const filename = path.join(dirname, 'includes', view + '.hbs');
+
+            try {
+                if (fs.statSync(filename).isFile()) {
+                    theme.templates[view.replace(/-/g, '_')] = fs.readFileSync(
+                        filename
+                    ).toString(
+                        'utf8'
+                    );
+
+                    console.log(`Bundled ${view} template`);
+                }
+            } catch {
+                return;
+            }
+        }
+    );
+
     return new Theme(theme);
 };
+
+Theme.objects = QuerySet('themes', Theme);
 
 module.exports = Theme;

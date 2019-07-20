@@ -26,7 +26,7 @@ const method = (method, path, params, data, authenticator) => {
     return new Promise(
         (resolve, reject) => {
             const perform = () => {
-                console.debug(`${method} ${url}`)
+                // console.debug(`${method} ${url}`)
 
                 try {
                     request(

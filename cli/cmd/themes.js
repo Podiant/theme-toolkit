@@ -2,6 +2,8 @@ const chalk = require('chalk');
 const files = require('../lib/files');
 const Theme = require('../models/themes');
 const ValidationException = require('../exceptions/validation');
+const CLI = require('clui');
+const Spinner = CLI.Spinner;
 
 module.exports = {
     help: ([...args]) => {
@@ -41,15 +43,46 @@ module.exports = {
             files.getThemeDirectory()
         );
 
+        if (!theme.id) {
+            const themes = await Theme.objects.filter(
+                {
+                    name: theme.attr('name')
+                }
+            ).load();
+
+            themes.forEach(
+                (existing) => {
+                    theme.attr('id', existing.attr('id'));
+                }
+            );
+        }
+
+        if (!theme.attr('id')) {
+            console.log('Creating a new theme');
+        }
+
+        const status = new Spinner(
+            'Validating and saving theme'
+        );
+
+        status.start();
+
         try {
             return await theme.save();
         } catch (err) {
+            status.stop();
+
             if (err instanceof ValidationException) {
-                console.error(chalk.red(err.detail));
+                if (err.errors) {
+                    console.error(chalk.red('The theme contains errors.'));
+                } else {
+                    console.error(chalk.red(err.detail));
+                }
+
                 Object.keys(err.errors).forEach(
                     (key) => {
                         console.error(
-                            `  ${key}: ${err.errors[key]}`
+                            `  ${chalk.red(key)}: ${err.errors[key]}`
                         );
                     }
                 );
@@ -58,6 +91,8 @@ module.exports = {
             }
 
             throw err;
+        } finally {
+            status.stop();
         }
     }
 };

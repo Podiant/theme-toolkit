@@ -6,6 +6,7 @@ module.exports = class ModelBase {
     constructor(type, data, options) {
         this._type = type;
         this._data = data;
+        this._id = null;
 
         if (typeof (options) === 'object' && options !== null) {
             if (typeof (options.adapter !== 'undefined')) {
@@ -18,15 +19,30 @@ module.exports = class ModelBase {
         }
     }
 
+    attr(key, value) {
+        if (typeof(value) !== 'undefined') {
+            if (key == 'id') {
+                return this._id = value;
+            }
+
+            this._data[key];
+        }
+
+        if (key == 'id') {
+            return this._id;
+        }
+
+        return this._data[key];
+    }
+
     serialise() {
         const data = _.clone(this._data);
         let serialised = {
             type: this._type
         };
 
-        if (data.id) {
-            serialised.id = data.id;
-            delete data.id;
+        if (this._id) {
+            serialised.id = this._id;
         }
 
         serialised.attributes = data;

@@ -1,35 +1,58 @@
+const _ = require('underscore');
 const inquirer = require('inquirer');
 const files = require('./files');
 
 module.exports = {
-    login: () => {
-        const questions = [
-            {
-                name: 'username',
-                type: 'input',
-                message: 'Enter your Podiant username:',
-                validate: (value) => {
-                    if (value.length) {
-                        return true;
+    login: async () => {
+        const username = process.env.PODIANT_USERNAME;
+        const password = process.env.PODIANT_PASSWORD;
+        let questions = [];
+        let returned = {};
+
+        if (!username) {
+            questions.push(
+                {
+                    name: 'username',
+                    type: 'input',
+                    message: 'Enter your Podiant username:',
+                    validate: (value) => {
+                        if (value.length) {
+                            return true;
+                        }
+
+                        return 'Please enter your username.';
                     }
-
-                    return 'Please enter your username.';
                 }
-            },
-            {
-                name: 'password',
-                type: 'password',
-                message: 'Enter your password:',
-                validate: (value) => {
-                    if (value.length) {
-                        return true;
+            );
+        } else {
+            returned.username = username;
+        }
+
+        if (!password) {
+            questions.push(
+                {
+                    name: 'password',
+                    type: 'password',
+                    message: 'Enter your password:',
+                    validate: (value) => {
+                        if (value.length) {
+                            return true;
+                        }
+
+                        return 'Please enter your password.';
                     }
-
-                    return 'Please enter your password.';
                 }
-            }
-        ];
+            );
+        } else {
+            returned.password = password;
+        }
 
-        return inquirer.prompt(questions);
+        if (questions.length) {
+            const prompted = await inquirer.prompt(questions);
+
+            returned = _.extend(returned, prompted);
+        }
+
+        return returned;
     }
 };

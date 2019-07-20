@@ -1,7 +1,8 @@
 const Request = require('./api');
 
 module.exports = class AdapterBase {
-    constructor(options) {
+    constructor(type, options) {
+        this._type = type;
         this.authenticator = null;
 
         if (typeof(options) === 'object' && options !== null) {
@@ -11,13 +12,21 @@ module.exports = class AdapterBase {
         }
     }
 
-    async get() {
-        throw await new Error('Method not implemented');
+    async get(options) {
+        const request = new Request(
+            `/${this._type}/`,
+            options,
+            {
+                authenticator: this.authenticator
+            }
+        );
+
+        return await request.get();
     }
 
     async put(data) {
         const request = new Request(
-            `/${data.type}/${data.id}/`,
+            `/${this._type}/${data.id}/`,
             {},
             {
                 authenticator: this.authenticator
@@ -33,7 +42,7 @@ module.exports = class AdapterBase {
 
     async post(data) {
         const request = new Request(
-            `/${data.type}/`,
+            `/${this._type}/`,
             {},
             {
                 authenticator: this.authenticator
