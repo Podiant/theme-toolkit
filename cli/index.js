@@ -91,9 +91,12 @@ const run = async () => {
         throw err;
     }
 
-    if (result) {
+    if (result !== false) {
         console.log('👍');
+        return;
     }
+
+    process.exit(1);
 }
 
 run().catch(
