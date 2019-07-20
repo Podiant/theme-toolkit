@@ -5,6 +5,7 @@ const figlet = require('figlet');
 const minimist = require('minimist');
 const args = minimist(process.argv.slice(2));
 const cmd = require('./cmd/index');
+const Exception = require('./lib/errors');
 
 console.log(
     chalk.yellow(
@@ -53,7 +54,50 @@ const run = async () => {
         return;
     }
 
-    command([...subArgs.slice(1)])
+    let result = false;
+
+    try {
+        result = await command([...subArgs.slice(1)]);
+    } catch (err) {
+        if (err instanceof Exception) {
+            if (err.title && err.detail) {
+                console.error(
+                    chalk.red(
+                        err.title.toUpperCase() + ': ' +
+                        err.detail
+                    )
+                );
+
+                console.error();
+                return;
+            }
+
+            if (err.title) {
+                console.error(
+                    chalk.red(err.title.toUpperCase())
+                );
+
+                console.error();
+                return;
+            }
+
+            console.log(
+                chalk.red(err.toString())
+            );
+
+            return;
+        }
+
+        throw err;
+    }
+
+    if (result) {
+        console.log('👍');
+    }
 }
 
-run();
+run().catch(
+    (err) => {
+        console.error(err);
+    }
+)

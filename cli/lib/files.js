@@ -2,10 +2,11 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-    getThemeDirectory: () => {
+    getThemeDirectory: (...args) => {
         return path.join(
-            path.basename(process.cwd()),
-            'theme'
+            process.cwd(),
+            'theme',
+            ...args
         );
     },
     directoryExists: (filePath) => {

@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const files = require('../lib/files');
-const prompt = require('../lib/prompt');
-const auth = require('../lib/auth');
+const Theme = require('../models/themes');
+const ValidationException = require('../exceptions/validation');
 
 module.exports = {
     help: ([...args]) => {
@@ -37,9 +37,27 @@ module.exports = {
             return;
         }
 
-        const credentials = await prompt.login();
-        const username = credentials.username;
-        const password = credentials.password;
-        const token = auth.createToken(username, password);
+        const theme = Theme.from(
+            files.getThemeDirectory()
+        );
+
+        try {
+            return await theme.save();
+        } catch (err) {
+            if (err instanceof ValidationException) {
+                console.error(chalk.red(err.detail));
+                Object.keys(err.errors).forEach(
+                    (key) => {
+                        console.error(
+                            `  ${key}: ${err.errors[key]}`
+                        );
+                    }
+                );
+
+                return false;
+            }
+
+            throw err;
+        }
     }
 };

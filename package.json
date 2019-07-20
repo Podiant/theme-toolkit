@@ -41,6 +41,8 @@
     "mime-types": "^2.1.18",
     "minimist": "^1.2.0",
     "moment": "^2.22.0",
-    "npm": "^5.8.0"
+    "npm": "^5.8.0",
+    "request": "^2.88.0",
+    "underscore": "^1.9.1"
   }
 }
