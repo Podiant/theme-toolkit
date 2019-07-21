@@ -1,0 +1,6 @@
+.DS_Store
+*.scss
+/.env
+config.codekit3
+dist
+node_modules
