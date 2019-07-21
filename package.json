@@ -1,6 +1,6 @@
 {
   "name": "podiant-theme-toolkit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Everything you need to build themes in Podiant",
   "main": "app/index.js",
   "bin": {
