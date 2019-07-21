@@ -227,12 +227,6 @@ Any problems?
 
 If you find a bug, you can log an issue using the Issues section above.
 
-Todo
-----
-
-- Add network mode, via `npm start network`, for testing themes against podcast networks
-- Add `npm push` and `npm pull` commands to save and retrieve themes created by a logged-in Podiant user for a specific podcast or network
-
 Who made this?
 --------------
 
