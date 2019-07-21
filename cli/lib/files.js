@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = {
+    getCurrentDirectory: () => process.cwd(),
     getThemeDirectory: (...args) => {
         return path.join(
             process.cwd(),
