@@ -1,6 +1,7 @@
 const _ = require('underscore');
 const request = require('request');
 const Exception = require('./errors');
+const VERSION = require('../version');
 
 const method = (method, path, params, data, authenticator) => {
     const apiKey = process.env.PODIANT_API_KEY;
@@ -12,11 +13,12 @@ const method = (method, path, params, data, authenticator) => {
         url: url,
         method: method,
         qs: params,
+        timeout: 15000,
         headers: {
             'Accepts': 'application/vnd.api+json',
-            'Content-Type': 'application/vnd.api+json'
-        },
-        timeout: 5000
+            'Content-Type': 'application/vnd.api+json',
+            'User-Agent': `podiant-cli/${VERSION}`
+        }
     };
 
     if (typeof(data) === 'object' && data !== null) {
@@ -26,8 +28,6 @@ const method = (method, path, params, data, authenticator) => {
     return new Promise(
         (resolve, reject) => {
             const perform = () => {
-                // console.debug(`${method} ${url}`)
-
                 try {
                     request(
                         options,
