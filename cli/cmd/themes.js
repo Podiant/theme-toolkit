@@ -20,7 +20,7 @@ module.exports = {
         console.log('  themes publish: Publish a new theme or update an existing one');
         console.log();
     },
-    publish: async ([...args]) => {
+    publish: async ([...args], kwargs) => {
         if (args.length) {
             console.error(
                 chalk.red('Invalid arguments')
@@ -29,7 +29,7 @@ module.exports = {
             return false;
         }
 
-        if (!files.directoryExists('theme')) {
+        if (!kwargs.samedir && !files.directoryExists('theme')) {
             console.error(
                 chalk.red(
                     'No theme directory found.'
@@ -40,7 +40,7 @@ module.exports = {
         }
 
         const theme = Theme.from(
-            files.getThemeDirectory()
+            kwargs.samedir ? files.getCurrentDirectory() : files.getThemeDirectory()
         );
 
         if (!theme.id) {
