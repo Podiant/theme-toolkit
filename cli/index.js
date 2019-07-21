@@ -91,7 +91,7 @@ const run = async () => {
         throw err;
     }
 
-    if (result !== false) {
+    if (result !== false && result !== null) {
         console.log('👍');
         return;
     }

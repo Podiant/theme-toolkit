@@ -12,7 +12,7 @@ module.exports = {
                 chalk.red('Invalid arguments')
             );
 
-            return;
+            return false;
         }
 
         console.log('Interact with Podiant themes.')
@@ -26,7 +26,7 @@ module.exports = {
                 chalk.red('Invalid arguments')
             );
 
-            return;
+            return false;
         }
 
         if (!files.directoryExists('theme')) {
@@ -36,7 +36,7 @@ module.exports = {
                 )
             );
 
-            return;
+            return false;
         }
 
         const theme = Theme.from(
