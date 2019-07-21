@@ -169,11 +169,11 @@ Any string will do, but a simple `>=` (equal to or greater than) comparison is d
 
 A short sentence describing the theme.
 
-### Options
+### Options
 
 A nested list of fieldset names (groups of fields), and individual fields. Stick to the format above and you should be fine. Teh system supports strings (where the type is set to `string` or `text` for long text), `typeface` (for a subset of fonts provided by Google Fonts), and `color` (for a colour picker).
 
-### Components
+### Components
 
 A list of components from Cloudflare's [cdnjs](https://cdnjs.com/) service. This is really useful if you want to include things like font-face icon packs or jQuery plugins that can be activated without any additional code. (Podiant does not permit arbitrary code injection in any of its themes, so be sure to choose JavaScript components that can be executed based on class names or other DOM attributes.)
 
