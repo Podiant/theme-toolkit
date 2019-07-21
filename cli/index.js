@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const _ = require('underscore');
 const chalk = require('chalk');
 const figlet = require('figlet');
 const minimist = require('minimist');
@@ -31,6 +32,7 @@ const run = async () => {
 
     const context = cmd[args._[0]];
     let subArgs = args._.slice(1);
+    const kwargs = _.omit(args, '_');
 
     if (typeof(context) === 'undefined') {
         console.error(
@@ -57,7 +59,7 @@ const run = async () => {
     let result = false;
 
     try {
-        result = await command([...subArgs.slice(1)]);
+        result = await command([...subArgs.slice(1)], kwargs);
     } catch (err) {
         if (err instanceof Exception) {
             if (err.title && err.detail) {

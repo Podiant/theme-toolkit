@@ -6,8 +6,8 @@ const CLI = require('clui');
 const Spinner = CLI.Spinner;
 
 module.exports = {
-    help: ([...args]) => {
-        if (args.length) {
+    help: ([...args], kwargs) => {
+        if (args.length || Object.keys(kwargs).length) {
             console.error(
                 chalk.red('Invalid arguments')
             );
