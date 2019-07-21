@@ -71,6 +71,7 @@ const run = async () => {
                 );
 
                 console.error();
+                process.exit(1);
                 return;
             }
 
@@ -80,6 +81,7 @@ const run = async () => {
                 );
 
                 console.error();
+                process.exit(1);
                 return;
             }
 
@@ -87,6 +89,7 @@ const run = async () => {
                 chalk.red(err.toString())
             );
 
+            process.exit(1);
             return;
         }
 
