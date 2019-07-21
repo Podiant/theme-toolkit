@@ -25,7 +25,7 @@ module.exports = class ModelBase {
                 return this._id = value;
             }
 
-            this._data[key];
+            return this._data[key] = value;
         }
 
         if (key == 'id') {
