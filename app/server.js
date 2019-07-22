@@ -140,7 +140,6 @@ module.exports = function start(baseContext) {
                         }
 
                         response.end(data, 'utf-8');
-                        console.debug(chalk.green('✓', request.method), request.url);
                     }
                 );
 
