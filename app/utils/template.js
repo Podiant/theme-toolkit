@@ -44,7 +44,6 @@ var Template = function(baseContext, filename, helpers) {
         renderSync: function(context) {
             var data = null;
 
-            console.log('Getting', templatePath);
             try {
                 data = fs.readFileSync(templatePath, 'utf8');
             } catch (err) {
