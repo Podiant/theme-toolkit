@@ -141,7 +141,19 @@ Theme.from = (dirname) => {
         }
     );
 
-    return new Theme(theme);
+    const id = theme.id;
+
+    if (theme.id) {
+        delete theme.id;
+    }
+
+    const obj = new Theme(theme);
+
+    if (id) {
+        obj.attr('id', id);
+    }
+
+    return obj;
 };
 
 Theme.objects = QuerySet('themes', Theme);
