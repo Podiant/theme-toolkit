@@ -86,5 +86,43 @@
         ]
       }
     ]
-  ]
+  ],
+  "regions": [
+    {
+      "id": "a",
+      "label": "Left-hand footer section",
+      "default": [
+        "theme.about"
+      ]
+    },
+    {
+      "id": "b",
+      "label": "Middle footer section",
+      "default": [
+        "theme.subscribe",
+        "theme.follow"
+      ]
+    },
+    {
+      "id": "c",
+      "label": "Right-hand footer section",
+      "default": [
+        "3p.widget"
+      ]
+    }
+  ],
+  "widgets": {
+    "about": {
+      "label": "About the podcast",
+      "partial": "about"
+    },
+    "subscribe": {
+      "label": "Subscription links",
+      "partial": "subscribe"
+    },
+    "follow": {
+      "label": "Social media links",
+      "partial": "follow"
+    }
+  }
 }
