@@ -40,6 +40,20 @@ var Template = function(baseContext, filename, helpers) {
                     );
                 }
             );
+        },
+        renderSync: function(context) {
+            var data = null;
+
+            console.log('Getting', templatePath);
+            try {
+                data = fs.readFileSync(templatePath, 'utf8');
+            } catch (err) {
+                console.error(err);
+                throw new Error('Template file could not be read. Make sure you\'ve created the appropriate file.');
+            }
+
+            var compiled = Handlebars.compile(data);
+            return compiled(context);
         }
     };
 
