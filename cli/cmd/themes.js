@@ -47,8 +47,51 @@ module.exports = {
 
         console.log('Interact with Podiant themes.')
         console.log('Usage:');
+        console.log('  themes dev: Run a development server');
         console.log('  themes publish: Publish a new theme or update an existing one');
         console.log();
+    },
+    dev: async([...args], kwargs) => {
+        var context = args.shift() || 'podcast';
+        var Template = require('../../app/utils/template');
+
+        switch (context) {
+            case 'podcast':
+                break;
+
+            case 'network':
+                break;
+
+            default:
+                console.log(
+                    chalk.red(`Unknown template rendering context:  ${context}`)
+                );
+
+                return false;
+        }
+
+        if (args.length) {
+            console.error(
+                chalk.red('Invalid arguments')
+            );
+
+            return false;
+        }
+
+        if (!kwargs.samedir && !files.directoryExists('theme')) {
+            console.error(
+                chalk.red(
+                    'No theme directory found.'
+                )
+            );
+
+            return false;
+        }
+
+        Template.baseDir = kwargs.samedir ? files.getCurrentDirectory() : files.getThemeDirectory();
+
+        var server = require('../../app/server');
+        server(context);
     },
     publish: async ([...args], kwargs) => {
         if (args.length) {

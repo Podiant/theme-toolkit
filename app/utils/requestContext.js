@@ -2,6 +2,7 @@ var fs = require('fs');
 var mime = require('mime-types')
 var path = require('path');
 var Template = require('./template');
+var ServerTemplate = require('./server-template');
 var Data = require('./data');
 var extend = require('./extend');
 
@@ -88,7 +89,7 @@ module.exports = function(renderingContext, meta) {
                     try {
                         var template = new Template(
                             renderingContext,
-                            '../theme/templates/' + name + '.hbs'
+                            'templates/' + name + '.hbs'
                         );
                     } catch(err) {
                         reject(err);
@@ -99,10 +100,7 @@ module.exports = function(renderingContext, meta) {
                         return new Promise(
                             function(resolve, reject) {
                                 var packageFilename = path.join(
-                                    __dirname,
-                                    '../',
-                                    '../',
-                                    'theme',
+                                    Template.baseDir,
                                     'theme.json'
                                 );
 
@@ -177,10 +175,7 @@ module.exports = function(renderingContext, meta) {
 
                             var wrapInjections = function() {
                                 var packageFilename = path.join(
-                                    __dirname,
-                                    '../',
-                                    '../',
-                                    'theme',
+                                    Template.baseDir,
                                     'theme.json'
                                 );
 
@@ -209,9 +204,9 @@ module.exports = function(renderingContext, meta) {
                             }
 
                             var wrapBase = function(html, css, components) {
-                                return new Template(
+                                return new ServerTemplate(
                                     renderingContext,
-                                    'templates/base.hbs',
+                                    'base.hbs',
                                     {
                                         css_block: function() {
                                             return Template.safe(css);
@@ -262,7 +257,7 @@ module.exports = function(renderingContext, meta) {
                             var wrapTheme = function(html) {
                                 return new Template(
                                     renderingContext,
-                                    '../theme/layout.hbs'
+                                    'layout.hbs'
                                 ).render(
                                     extend(
                                         {
@@ -276,7 +271,8 @@ module.exports = function(renderingContext, meta) {
                             var wrapCSS = function() {
                                 return new Template(
                                     renderingContext,
-                                    '../theme/styles.hbs.css').render(context);
+                                    'styles.hbs.css'
+                                ).render(context);
                             };
 
                             template.render(context).then(

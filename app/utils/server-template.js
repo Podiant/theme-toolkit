@@ -1,9 +1,8 @@
 var Handlebars = require('handlebars');
 var fs = require('fs');
 var path = require('path');
-var helpers = require('../helpers/index');
 
-var Template = function(baseContext, filename, helpers) {
+var ServerTemplate = function(baseContext, filename, helpers) {
     switch(baseContext) {
         case 'podcast':
             break;
@@ -15,7 +14,7 @@ var Template = function(baseContext, filename, helpers) {
             throw new Error('Unknown template rendering context: ' + baseContext);
     }
 
-    var templatePath = path.join(Template.baseDir, filename);
+    var templatePath = path.join(__dirname, '../', 'templates', filename);
     var self = {
         render: function(context) {
             return new Promise(
@@ -40,19 +39,6 @@ var Template = function(baseContext, filename, helpers) {
                     );
                 }
             );
-        },
-        renderSync: function(context) {
-            var data = null;
-
-            try {
-                data = fs.readFileSync(templatePath, 'utf8');
-            } catch (err) {
-                console.error(err);
-                throw new Error('Template file could not be read. Make sure you\'ve created the appropriate file.');
-            }
-
-            var compiled = Handlebars.compile(data);
-            return compiled(context);
         }
     };
 
@@ -67,15 +53,4 @@ var Template = function(baseContext, filename, helpers) {
     return self;
 };
 
-Object.keys(helpers).forEach(
-    (key) => {
-        Handlebars.registerHelper(key, helpers[key]);
-    }
-);
-
-Template.safe = function(str) {
-    return new Handlebars.SafeString(str);
-};
-
-Template.baseDir = path.join(__dirname, '../../', 'theme');
-module.exports = Template;
+module.exports = ServerTemplate;
