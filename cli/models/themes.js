@@ -81,6 +81,9 @@ Theme.from = (dirname) => {
     }
 
     theme.templates = {};
+    theme.partials = {};
+    theme.networks = false;
+
     views.forEach(
         (view) => {
             const filename = path.join(dirname, 'templates', view + '.hbs');
@@ -93,7 +96,44 @@ Theme.from = (dirname) => {
                         'utf8'
                     );
 
+                    if (view === 'podcast_list') {
+                        theme.networks = true;
+                    }
+
                     console.log(`Bundled ${view} template`);
+                }
+            } catch {
+                return;
+            }
+        }
+    );
+
+    var partials = [];
+
+    try {
+        partials = fs.readdirSync(
+            path.join(dirname, 'partials')
+        );
+    } catch (err) {}
+
+    partials.forEach(
+        function(file) {
+            if (file.substr(file.length - 4) !== '.hbs') {
+                return;
+            }
+
+            const view = file.substr(0, file.length - 4);
+            const filename = path.join(dirname, 'partials', file);
+
+            try {
+                if (fs.statSync(filename).isFile()) {
+                    theme.partials[view] = fs.readFileSync(
+                        filename
+                    ).toString(
+                        'utf8'
+                    );
+
+                    console.log(`Bundled ${view} partial`);
                 }
             } catch {
                 return;
