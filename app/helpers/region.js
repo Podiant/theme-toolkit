@@ -7,6 +7,10 @@ module.exports = function region(name, context) {
     var html = '';
     var Template = require('../utils/template');
 
+    if (typeof(regions[name]) === 'undefined') {
+        return '';
+    }
+
     Object.values(regions[name]).forEach(
         function(widgetNamePair, index) {
             var split = widgetNamePair.split('.');
