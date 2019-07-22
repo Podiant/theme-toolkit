@@ -4,6 +4,7 @@ module.exports = {
     exists: require('./exists'),
     yield: require('./yield'),
     grid_offset: require('./grid-offset'),
+    region: require('./region'),
     tokenize: require('./tokenize'),
     urlencode: require('./urlencode')
 };
