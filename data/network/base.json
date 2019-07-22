@@ -55,7 +55,6 @@
     "is_network": true,
     "network_description": "Fusce non sollicitudin ante, at vestibulum diam. Ut varius, erat vitae feugiat consectetur, augue justo vulputate lorem, ac vestibulum odio nulla dignissim lorem.",
     "network_rtl": false,
-    "network_widgets": {},
     "network_social_links": [
         {
             "link_class": "facebook",

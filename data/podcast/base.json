@@ -27,9 +27,6 @@
     "is_paginated": true,
     "podcast_name": "The Foocast",
     "podcast_banner_image": "/static/banner.jpg",
-    "widgets": {
-        "kofi": "/3p/widget/leopard/kofi/"
-    },
     "strings": {
         "search": "Search",
         "download_episode": "Download episode",

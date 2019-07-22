@@ -89,7 +89,7 @@ module.exports = function(renderingContext, meta) {
                         var template = new Template(
                             renderingContext,
                             '../theme/templates/' + name + '.hbs'
-                        )
+                        );
                     } catch(err) {
                         reject(err);
                         return;
@@ -120,7 +120,11 @@ module.exports = function(renderingContext, meta) {
                                                         }
 
                                                         var themeOptions = {};
-                                                        var options = JSON.parse(content).options;
+                                                        var themeRegions = {};
+                                                        var jsonData = JSON.parse(content);
+                                                        var options = jsonData.options;
+                                                        var regions = jsonData.regions;
+                                                        var widgets = jsonData.widgets;
 
                                                         if (typeof(options) !== 'undefined') {
                                                             options.forEach(
@@ -137,6 +141,20 @@ module.exports = function(renderingContext, meta) {
 
                                                             data.theme_options = themeOptions;
                                                         }
+
+                                                        if (typeof(regions) !== 'undefined') {
+                                                            regions.forEach(
+                                                                function(region) {
+                                                                    if(region.default) {
+                                                                        themeRegions[region.id] = region.default;
+                                                                    }
+                                                                }
+                                                            );
+
+                                                            data.regions = themeRegions;
+                                                        }
+
+                                                        data.widgets = widgets;
                                                     }
                                                 );
                                             }
