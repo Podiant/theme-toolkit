@@ -25,7 +25,7 @@ module.exports = function region(name, context) {
                 if (widget && widget.partial) {
                     var template = new Template(
                         'podcast',
-                        `../theme/partials/${widget.partial}.hbs`
+                        `partials/${widget.partial}.hbs`
                     );
 
                     html += (
