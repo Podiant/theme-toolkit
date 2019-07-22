@@ -83,7 +83,7 @@ Theme.from = (dirname) => {
     theme.templates = {};
     views.forEach(
         (view) => {
-            const filename = path.join(dirname, 'includes', view + '.hbs');
+            const filename = path.join(dirname, 'templates', view + '.hbs');
 
             try {
                 if (fs.statSync(filename).isFile()) {

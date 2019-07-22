@@ -58,7 +58,7 @@ You'll find theme files in the _theme_ folder. Here's what you can expect to fin
 - _theme.json_ - a file with some metadata about the theme
 - _layout.hbs_ - the main layout template
 - _styles.hbs.css_ - the stylesheet template
-- _includes_ - a folder containing the various subtemplates that make up a theme:
+- _templates_ - a folder containing the various subtemplates that make up a theme:
   - _home.hbs_ - the homepage template
   - _episode_list.hbs_ - the episode list template (used when there are multiple pages of episodes)
   - _episode_detail.hbs_ - the single episode template

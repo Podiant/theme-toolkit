@@ -88,7 +88,7 @@ module.exports = function(renderingContext, meta) {
                     try {
                         var template = new Template(
                             renderingContext,
-                            '../theme/includes/' + name + '.hbs'
+                            '../theme/templates/' + name + '.hbs'
                         )
                     } catch(err) {
                         reject(err);
