@@ -4,7 +4,6 @@ const Exception = require('./errors');
 const VERSION = require('../version');
 
 const method = (method, path, params, data, authenticator) => {
-    const apiKey = process.env.PODIANT_API_KEY;
     const domain = process.env.PODIANT_DOMAIN || 'podiant.co';
     const proto = process.env.PODIANT_SSL === 'false' ? 'http' : 'https';
     const url = `${proto}://api.${domain}${path}`;
