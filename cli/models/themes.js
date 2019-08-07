@@ -62,7 +62,7 @@ Theme.from = (dirname) => {
 
             console.log('Bundled HTML layout');
         }
-    } catch {
+    } catch (err) {
         throw new Exception('input.hbs does not exist.');
     }
 
@@ -76,7 +76,7 @@ Theme.from = (dirname) => {
 
             console.log('Bundled CSS');
         }
-    } catch {
+    } catch (err) {
         throw new Exception('styles.hbs.css does not exist.');
     }
 
@@ -102,7 +102,7 @@ Theme.from = (dirname) => {
 
                     console.log(`Bundled ${view} template`);
                 }
-            } catch {
+            } catch (err) {
                 return;
             }
         }
@@ -135,7 +135,7 @@ Theme.from = (dirname) => {
 
                     console.log(`Bundled ${view} partial`);
                 }
-            } catch {
+            } catch (err) {
                 return;
             }
         }
