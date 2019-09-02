@@ -31,7 +31,8 @@ Theme.from = (dirname) => {
         'page_detail',
         'page_not_found',
         'podcast_list',
-        'search_list'
+        'search_list',
+        'season_detail'
     ];
 
     try {
