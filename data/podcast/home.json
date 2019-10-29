@@ -27,6 +27,61 @@
             "menu_item_url": "/g/"
         }
     ],
+    "featured_episode": {
+        "episode_url": "/e/5ad12bf5111b4/",
+        "episode_published": "2018-04-04 23:11:00",
+        "episode_image": "/static/3.png",
+        "episode_title": "Suspendisse sit amet massa ultricies quam auctor malesuada vel in elit",
+        "episode_summary": "Morbi massa diam, ultricies quis elit et, sollicitudin malesuada dui. Nam quam urna, accumsan sed lacus et, pharetra ullamcorper nisi. Nullam sed dui sit amet magna placerat blandit vel eu neque...",
+        "episode_iframe": "<div class=\"responsive-embed\"><iframe class=\"player responsive-iframe\" src=\"/iframe/\" height=\"150\" frameborder=\"0\"></iframe></div>",
+        "episode_button": "<iframe class=\"player-button\" src=\"/button/\" width=\"32\" height=\"32\" frameborder=\"0\" style=\"display:inline;\"></iframe>",
+        "episode_mini_player": "<iframe src=\"/iframe-mini/\" width=\"100%\" height=\"40\" frameborder=\"0\"></iframe>",
+        "episode_download_url": "javascript:;",
+        "episode_filesize": "24.0 MB",
+        "episode_share_urls": {
+            "twitter_share_url": "javascript:;",
+            "pinterest_share_url": "javascript:;",
+            "facebook_share_url": "javascript:;"
+        },
+        "episode_guests": [
+            {
+                "guest_url": "/g/meghan-mills/",
+                "guest_links": [
+                    {
+                        "link_title": "Follow Meghan on Twitter",
+                        "link_url": "javascript:;",
+                        "link_icon": "<i class=\"fa fa-twitter\"></i>"
+                    },
+                    {
+                        "link_title": "Meghan's Website",
+                        "link_url": "javascript:;",
+                        "link_icon": "<i class=\"fa fa-globe\"></i>"
+                    }
+                ],
+                "guest_name": "Meghan Mills",
+                "guest_biography": "<p>Suspendisse vitae elit eget ante porttitor imperdiet. Duis libero urna, ullamcorper non lectus id, egestas auctor sem. Nullam.</p>\n",
+                "guest_image": "/static/meghan.jpg"
+            },
+            {
+                "guest_url": "/g/armando-king/",
+                "guest_links": [
+                    {
+                        "link_title": "Follow Armando on Twitter",
+                        "link_url": "javascript:;",
+                        "link_icon": "<i class=\"fa fa-twitter\"></i>"
+                    },
+                    {
+                        "link_title": "Connect with Armando on LinkedIn",
+                        "link_url": "javascript:;",
+                        "link_icon": "<i class=\"fa fa-linkedin\"></i>"
+                    }
+                ],
+                "guest_name": "Armando King",
+                "guest_biography": "<p>Vivamus tristique nec augue vitae pharetra. Nulla vitae tristique mi. Vivamus commodo leo ac lobortis venenatis. Nam id sodales sapien.</p>\n",
+                "guest_image": "/static/armando.jpg"
+            }
+        ]
+    },
     "object_list": [
         {
             "_id": 1,
