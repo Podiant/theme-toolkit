@@ -36,7 +36,7 @@
     "clui": "^0.3.6",
     "configstore": "^5.0.0",
     "figlet": "^1.2.3",
-    "handlebars": "^4.0.14",
+    "handlebars": "^4.7.7",
     "inquirer": "^6.5.0",
     "install": "^0.11.0",
     "mime-types": "^2.1.18",
